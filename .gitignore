@@ -1,0 +1,17 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.DS_Store
+eval/results/*.json
+eval/results/*.csv
+models/saved/
+data/synthetic/*.csv
+data/real/*.csv
+demo_cache/
+eval/results/cache/
