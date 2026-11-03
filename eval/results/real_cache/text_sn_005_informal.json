@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Filthy and stained urinals with improper structural support for drain pipes",
+    "category": "Sanitation",
+    "subcategory": "Plumbing / Sanitation",
+    "location": "Washroom",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The presence of improper structural support for plumbing combined with poor sanitation poses both a hygiene risk and a potential infrastructure failure risk.",
+    "department": "Facilities Management / Maintenance",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Urinals are filthy and stained",
+      "Bricks are being used to support drain pipes below the urinals"
+    ],
+    "inferred_information": [
+      "The use of bricks suggests a makeshift or failed repair of the plumbing infrastructure (uncertainty: structural integrity of the current support is unknown)"
+    ],
+    "missing_information": [
+      "Specific washroom location/building identifier",
+      "Duration of the issue",
+      "Evidence of active leaks"
+    ],
+    "recommended_action": "Dispatch cleaning staff for deep sanitation and a plumber to assess and properly secure the drain pipe infrastructure.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.1-flash-lite"
+}

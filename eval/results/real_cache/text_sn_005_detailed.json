@@ -1,0 +1,31 @@
+{
+  "issue": {
+    "problem": "Damaged plumbing and unsanitary conditions in the ground floor gents washroom.",
+    "category": "Plumbing / Water",
+    "subcategory": "Sanitation and Drainage",
+    "location": "Ground floor gents washroom near the library",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The combination of broken drainage and poor sanitation poses a significant health and hygiene risk to users.",
+    "department": "Facilities Management / Maintenance",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Urinals are severely stained",
+      "Drain pipes are broken",
+      "Drain pipes are supported by bricks",
+      "Strong unpleasant odor present"
+    ],
+    "inferred_information": [
+      "The use of bricks to support pipes suggests a temporary or improper repair (uncertainty: status of previous maintenance attempts)",
+      "The smell likely originates from the broken drainage system (uncertainty: potential for sewage backup)"
+    ],
+    "missing_information": [
+      "Visual confirmation of the extent of the pipe damage",
+      "Specific duration of the issue",
+      "Current operational status of the urinals"
+    ],
+    "recommended_action": "Dispatch a plumbing team to replace the broken drainage infrastructure and schedule a professional deep cleaning service for the facility.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.1-flash-lite"
+}

@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Fallen tree trunks blocking nature trail",
+    "category": "Infrastructure",
+    "subcategory": "Trail Maintenance",
+    "location": "Nature trail near block c",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The path is totally impassable, creating a significant accessibility and safety issue for trail users.",
+    "department": "Parks and Recreation / Public Works",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Multiple huge tree trunks have fallen across the nature trail",
+      "Location is near block c",
+      "The path is totally impassable for hikers"
+    ],
+    "inferred_information": [
+      "The blockage likely requires heavy machinery or professional tree removal services (uncertainty: high, depends on trunk diameter and weight)"
+    ],
+    "missing_information": [
+      "Exact date/time of occurrence",
+      "Visual confirmation of the size and type of trees",
+      "Presence of power lines or other infrastructure damage associated with the fallen trees"
+    ],
+    "recommended_action": "Dispatch a maintenance crew to assess the site, clear the debris, and ensure the trail is safe for public use.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.1-flash-lite"
+}

@@ -1,0 +1,27 @@
+{
+  "issue": {
+    "problem": "Plastic bottles, wrappers, and packaging waste scattered across the grass",
+    "category": "Waste Management",
+    "subcategory": "Littering / Grounds Cleanup",
+    "location": "Near the backside gate",
+    "duration": null,
+    "severity": "Low",
+    "severity_reason": "Minor inconvenience and waste accumulation on grass with no immediate safety impact.",
+    "department": "Sanitation and Grounds Maintenance",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Plastic bottles, wrappers, and packaging waste are heavily scattered across the grass near the backside gate."
+    ],
+    "inferred_information": [
+      "Grounds cleaning or waste collection is needed in the area (uncertain exact volume or precise location beyond 'backside gate')."
+    ],
+    "missing_information": [
+      "Exact property or facility name",
+      "Duration of the waste accumulation",
+      "Specific type of facility"
+    ],
+    "recommended_action": "Dispatch a groundskeeping or sanitation crew to collect and properly dispose of the scattered waste near the backside gate.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.5-flash-lite"
+}

@@ -1,0 +1,71 @@
+{
+  "issue": {
+    "problem": "Hanging light fixture with shattered bulbs",
+    "category": "Electrical",
+    "subcategory": "Lighting",
+    "location": null,
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "Immediate danger of falling fixture and exposed electrical wires requiring urgent response.",
+    "department": "Facilities / Electrical Maintenance",
+    "observed_evidence": [
+      "A ceiling-mounted fluorescent light fixture is visible.",
+      "The image shows illuminated tube lights rather than shattered bulbs (contradiction with user report)."
+    ],
+    "user_reported_facts": [
+      "Both tube light bulbs are completely shattered into pieces.",
+      "The light fixture is hanging by a single loose wire.",
+      "There is total darkness."
+    ],
+    "inferred_information": [
+      "There is a direct contradiction between the visual evidence (which shows an intact, illuminated fixture) and the user description (shattered bulbs, hanging fixture, total darkness), indicating uncertainty about the current state of the fixture."
+    ],
+    "missing_information": [
+      "Exact location / room name",
+      "Duration of the issue",
+      "Clarification on the discrepancy between the user description and the attached image"
+    ],
+    "recommended_action": "Dispatch an electrician immediately to secure the hanging fixture, shut off power to the circuit, and clean up any broken glass if present.",
+    "confidence": 0.4
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Both tube light bulbs are completely shattered into pieces.",
+        "status": "contradicted",
+        "reason": "The image evidence shows that the tube lights are intact rather than shattered."
+      },
+      {
+        "claim": "The light fixture is hanging by a single loose wire.",
+        "status": "contradicted",
+        "reason": "The image evidence shows the light fixture properly ceiling-mounted rather than hanging loosely."
+      },
+      {
+        "claim": "There is total darkness.",
+        "status": "contradicted",
+        "reason": "The image clearly shows that the light fixture is illuminated."
+      },
+      {
+        "claim": "There is a direct contradiction between the visual evidence (which shows an intact, illuminated fixture) and the user description (shattered bulbs, hanging fixture, total darkness), indicating uncertainty about the current state of the fixture.",
+        "status": "supported",
+        "reason": "The user description directly clashes with the visual evidence showing an intact and working fixture."
+      }
+    ],
+    "verified_facts": [
+      "There is a direct contradiction between the visual evidence (which shows an intact, illuminated fixture) and the user description (shattered bulbs, hanging fixture, total darkness), indicating uncertainty about the current state of the fixture.",
+      "A ceiling-mounted fluorescent light fixture is visible.",
+      "The image shows illuminated tube lights rather than shattered bulbs (contradiction with user report)."
+    ],
+    "contradicted_claims": [
+      "Both tube light bulbs are completely shattered into pieces.",
+      "The light fixture is hanging by a single loose wire.",
+      "There is total darkness."
+    ],
+    "unverifiable_claims": [],
+    "contradiction_count": 3,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user reports shattered bulbs, a hanging fixture, and total darkness, whereas the image shows an intact, illuminated fluorescent light fixture."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

@@ -1,0 +1,64 @@
+{
+  "issue": {
+    "problem": "Water leakage marks on ceiling",
+    "category": "Plumbing / Water",
+    "subcategory": "Ceiling Leak",
+    "location": "Room 304",
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Water damage indicates an ongoing maintenance issue that could lead to structural degradation or mold if not addressed.",
+    "department": "Facilities Maintenance",
+    "observed_evidence": [
+      "Large brown water stains on the ceiling surface",
+      "Visible discoloration indicating moisture penetration"
+    ],
+    "user_reported_facts": [
+      "Ceiling in room 304 has bad leakage marks"
+    ],
+    "inferred_information": [
+      "Likely source is a leak from the floor above (uncertain)",
+      "Potential for mold growth (uncertain)"
+    ],
+    "missing_information": [
+      "Active status of the leak (dripping vs. dried)",
+      "Duration of the issue",
+      "Presence of electrical fixtures near the affected area"
+    ],
+    "recommended_action": "Dispatch maintenance personnel to inspect the ceiling and the floor above to identify and repair the source of the water intrusion.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Ceiling in room 304 has bad leakage marks",
+        "status": "supported",
+        "reason": "The image shows large brown water stains and discoloration consistent with significant leakage."
+      },
+      {
+        "claim": "Likely source is a leak from the floor above (uncertain)",
+        "status": "unverifiable",
+        "reason": "While the stains indicate a leak, the image does not provide visual evidence of the plumbing or structural conditions on the floor above."
+      },
+      {
+        "claim": "Potential for mold growth (uncertain)",
+        "status": "unverifiable",
+        "reason": "The image shows moisture damage, but it is not possible to confirm the presence of mold growth without microbiological testing."
+      }
+    ],
+    "verified_facts": [
+      "Ceiling in room 304 has bad leakage marks",
+      "Large brown water stains on the ceiling surface",
+      "Visible discoloration indicating moisture penetration"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Likely source is a leak from the floor above (uncertain)",
+      "Potential for mold growth (uncertain)"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

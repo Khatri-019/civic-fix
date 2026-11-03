@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Road surface damage including loose stones and a pothole",
+    "category": "Infrastructure",
+    "subcategory": "Road Maintenance",
+    "location": "Near parking lot",
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "The damage poses a potential tripping or vehicle damage hazard but does not present an immediate threat to life.",
+    "department": "Public Works / Department of Transportation",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Road near parking lot is damaged",
+      "Presence of loose stones",
+      "Presence of a small pothole"
+    ],
+    "inferred_information": [
+      "The road surface integrity is compromised (uncertainty: extent of subsurface damage is unknown)"
+    ],
+    "missing_information": [
+      "Specific address or GPS coordinates",
+      "Visual confirmation of the pothole size",
+      "Traffic volume at the location"
+    ],
+    "recommended_action": "Inspect the road surface for structural integrity and perform patch repair to remove loose debris and fill the pothole.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.1-flash-lite"
+}

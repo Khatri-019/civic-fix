@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Complete power outage affecting residential lane",
+    "category": "Electrical",
+    "subcategory": "Grid/Street Lighting",
+    "location": "Residential lane",
+    "duration": "Since dusk",
+    "severity": "High",
+    "severity_reason": "Total darkness in a residential area poses a significant safety and security risk to residents.",
+    "department": "Public Works / Electrical Utility",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Entire residential lane is without power",
+      "Outage began at dusk",
+      "Streetlights and exterior areas are in total darkness"
+    ],
+    "inferred_information": [
+      "The outage is likely affecting multiple households, though the exact scope beyond the 'lane' is uncertain."
+    ],
+    "missing_information": [
+      "Specific street name or address",
+      "City or municipality",
+      "Whether the outage is limited to street lighting or includes residential interior power"
+    ],
+    "recommended_action": "Report the outage to the local electrical utility provider immediately and notify local municipal authorities regarding the lack of street lighting.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

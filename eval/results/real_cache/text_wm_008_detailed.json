@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Plastic bottles and disposable cups dumped across the green lawn",
+    "category": "Waste Management",
+    "subcategory": "Littering / Solid Waste",
+    "location": "Green lawn near the event ground",
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Meaningful sanitation issue requiring cleanup and installation of permanent bins, though not posing immediate danger.",
+    "department": "Sanitation Department",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Plastic bottles and disposable cups are dumped across the green lawn near the event ground",
+      "Sorting workers are picking them up manually",
+      "Permanent bins are needed immediately"
+    ],
+    "inferred_information": [
+      "An event recently occurred or is ongoing near the lawn, causing increased littering (uncertain exact nature of event)."
+    ],
+    "missing_information": [
+      "Exact geographic location",
+      "Duration of the issue",
+      "Specific event details"
+    ],
+    "recommended_action": "Deploy permanent waste bins near the event ground and ensure thorough cleanup of the lawn.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.5-flash-lite"
+}

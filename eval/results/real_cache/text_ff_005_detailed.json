@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Ceiling-mounted projector bracket failure",
+    "category": "Infrastructure",
+    "subcategory": "AV Equipment Mounting",
+    "location": "Lecture Hall 3",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A hanging projector poses a significant safety risk of falling on occupants below.",
+    "department": "Facilities Management / IT Services",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Projector is hanging precariously",
+      "Bracket is broken",
+      "Located in lecture hall 3"
+    ],
+    "inferred_information": [
+      "The mounting hardware may have failed due to mechanical stress or improper installation (uncertain)."
+    ],
+    "missing_information": [
+      "Visual confirmation of the extent of the bracket damage",
+      "Time elapsed since the damage was first noticed"
+    ],
+    "recommended_action": "Immediately cordon off the area beneath the projector and dispatch a maintenance technician to secure or remove the unit.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.1-flash-lite"
+}

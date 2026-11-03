@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "problem": "Brake system complete failure on campus shuttle",
+    "category": "Transport",
+    "subcategory": "Shuttle Brake Failure",
+    "location": "Near the south gate downhill turn",
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "Immediate danger or serious hazard requiring urgent response due to complete brake failure risking student lives.",
+    "department": "Transportation / Campus Fleet Services",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The brake system on the route 4 campus shuttle failed completely.",
+      "The failure occurred near the south gate downhill turn.",
+      "It risked dozens of student lives."
+    ],
+    "inferred_information": [
+      "Vehicle is likely a campus shuttle operating on route 4 (uncertain of exact vehicle ID without further data)."
+    ],
+    "missing_information": [
+      "Specific vehicle license plate or ID number",
+      "Current status of the shuttle",
+      "Whether any injuries occurred",
+      "Exact timestamp of the incident"
+    ],
+    "recommended_action": "Immediately dispatch emergency response and maintenance to the south gate downhill turn, ground route 4 shuttle, and conduct an urgent safety inspection of the vehicle.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.5-flash-lite"
+}

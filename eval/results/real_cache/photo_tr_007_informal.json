@@ -1,0 +1,66 @@
+{
+  "issue": {
+    "problem": "Damaged guard rail near a highway turn",
+    "category": "Infrastructure",
+    "subcategory": "Guard Rail",
+    "location": "Near highway turn",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A damaged guard rail creates a significant impact on safety and vehicle containment along a highway turn.",
+    "department": "Transportation / Public Works",
+    "observed_evidence": [
+      "Metallic guard rail is visibly bent and deformed",
+      "Support posts are detached or bent out of alignment",
+      "Debris from the guard rail and potential vehicle parts are scattered on the ground near the edge of the pavement"
+    ],
+    "user_reported_facts": [
+      "Guard rail is broken near a highway turn",
+      "Requested repair"
+    ],
+    "inferred_information": [
+      "Damage was likely caused by a vehicle collision (uncertain, as the crash was not directly observed in the image)"
+    ],
+    "missing_information": [
+      "Exact highway name or route number",
+      "Precise mile marker or GPS coordinates",
+      "Date and time of the incident"
+    ],
+    "recommended_action": "Dispatch a road maintenance crew to inspect, secure, and repair or replace the damaged guard rail section.",
+    "confidence": 0.9
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Guard rail is broken near a highway turn",
+        "status": "supported",
+        "reason": "The image clearly shows a metallic guard rail that is visibly bent and deformed with detached support posts."
+      },
+      {
+        "claim": "Requested repair",
+        "status": "unverifiable",
+        "reason": "While a broken guard rail implies a need for repair, the text context or image does not explicitly state that a repair has been formally requested."
+      },
+      {
+        "claim": "Damage was likely caused by a vehicle collision (uncertain, as the crash was not directly observed in the image)",
+        "status": "supported",
+        "reason": "The deformed metal and scattered debris near the pavement are consistent with vehicle impact damage, though the crash itself is not visible."
+      }
+    ],
+    "verified_facts": [
+      "Guard rail is broken near a highway turn",
+      "Damage was likely caused by a vehicle collision (uncertain, as the crash was not directly observed in the image)",
+      "Metallic guard rail is visibly bent and deformed",
+      "Support posts are detached or bent out of alignment",
+      "Debris from the guard rail and potential vehicle parts are scattered on the ground near the edge of the pavement"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Requested repair"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "problem": "Standing wastewater and debris accumulation",
+    "category": "Sanitation",
+    "subcategory": "Drainage / Waste",
+    "location": "Main gate",
+    "duration": "Since yesterday",
+    "severity": "High",
+    "severity_reason": "Standing wastewater poses a significant health and sanitation risk to individuals entering and exiting the facility.",
+    "department": "Facilities Management / Sanitation",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Standing wastewater is present near the main gate",
+      "Accumulated debris is present near the main gate",
+      "The issue has persisted since yesterday"
+    ],
+    "inferred_information": [
+      "Potential blockage in the drainage system (uncertain)",
+      "Possible health hazard due to stagnant water (uncertain)"
+    ],
+    "missing_information": [
+      "Visual confirmation of the extent of the area affected",
+      "Source of the wastewater (e.g., sewage vs. rainwater)",
+      "Specific contact information for the reporter"
+    ],
+    "recommended_action": "Dispatch a sanitation crew to clear the debris and address the standing water, and inspect the drainage system for blockages.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

@@ -1,0 +1,31 @@
+{
+  "issue": {
+    "problem": "Server rack structural failure and instability",
+    "category": "Infrastructure",
+    "subcategory": "Server Room Equipment",
+    "location": "Server room",
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "The collapse of a server rack poses an immediate risk of equipment damage, data loss, and potential electrical hazards.",
+    "department": "IT / Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Server rack has collapsed",
+      "Server rack is leaning sideways",
+      "Cables are tangled"
+    ],
+    "inferred_information": [
+      "Potential for hardware damage due to the lean (uncertainty: extent of damage unknown)",
+      "Potential for network downtime (uncertainty: current operational status unknown)"
+    ],
+    "missing_information": [
+      "Specific server room identifier",
+      "Time of occurrence",
+      "Presence of active electrical arcing or smoke",
+      "Number of servers affected"
+    ],
+    "recommended_action": "Immediately stabilize the rack, disconnect power if safe to do so, and dispatch an emergency IT infrastructure team to assess hardware integrity.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.1-flash-lite"
+}

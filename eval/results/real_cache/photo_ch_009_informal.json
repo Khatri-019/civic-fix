@@ -1,0 +1,72 @@
+{
+  "issue": {
+    "problem": "Pest infestation on study table",
+    "category": "Cleaning / Housekeeping",
+    "subcategory": "Pest Control",
+    "location": "Hostel study table",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The presence of insect droppings and egg cases indicates an active pest infestation, which poses a significant sanitation and health risk.",
+    "department": "Facilities Management / Housekeeping",
+    "observed_evidence": [
+      "Multiple dead insects resembling cockroaches",
+      "Numerous small dark particles consistent with insect droppings",
+      "Several brown, capsule-like objects consistent with cockroach oothecae (egg cases)"
+    ],
+    "user_reported_facts": [
+      "Dead bugs and droppings are present on the hostel study table",
+      "User requests immediate cleaning"
+    ],
+    "inferred_information": [
+      "The presence of egg cases suggests a potential ongoing infestation rather than an isolated incident (uncertainty: requires professional inspection to confirm extent)",
+      "The insects appear to be cockroaches (uncertainty: visual identification only)"
+    ],
+    "missing_information": [
+      "Specific room number or building location",
+      "Duration of the infestation"
+    ],
+    "recommended_action": "Dispatch housekeeping for immediate sanitization and schedule a professional pest control inspection to address the underlying infestation.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Dead bugs and droppings are present on the hostel study table",
+        "status": "supported",
+        "reason": "The image evidence confirms the presence of multiple dead insects and dark particles consistent with droppings on the surface."
+      },
+      {
+        "claim": "User requests immediate cleaning",
+        "status": "unverifiable",
+        "reason": "The image and text context provide evidence of the condition, but do not contain the user's specific request for action."
+      },
+      {
+        "claim": "The presence of egg cases suggests a potential ongoing infestation rather than an isolated incident (uncertainty: requires professional inspection to confirm extent)",
+        "status": "supported",
+        "reason": "The image shows multiple capsule-like objects consistent with cockroach oothecae, which biologically indicate reproductive activity."
+      },
+      {
+        "claim": "The insects appear to be cockroaches (uncertainty: visual identification only)",
+        "status": "supported",
+        "reason": "The visual characteristics of the insects and egg cases in the image are consistent with common cockroach species."
+      }
+    ],
+    "verified_facts": [
+      "Dead bugs and droppings are present on the hostel study table",
+      "The presence of egg cases suggests a potential ongoing infestation rather than an isolated incident (uncertainty: requires professional inspection to confirm extent)",
+      "The insects appear to be cockroaches (uncertainty: visual identification only)",
+      "Multiple dead insects resembling cockroaches",
+      "Numerous small dark particles consistent with insect droppings",
+      "Several brown, capsule-like objects consistent with cockroach oothecae (egg cases)"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "User requests immediate cleaning"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

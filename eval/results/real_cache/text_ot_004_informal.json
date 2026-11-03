@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "problem": "Fallen tree branch obstructing pedestrian walkway",
+    "category": "Infrastructure",
+    "subcategory": "Obstruction",
+    "location": "Roadside walkway",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The obstruction forces pedestrians into the road, creating a significant safety hazard.",
+    "department": "Public Works / Parks and Recreation",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Tree branch has fallen on the walkway",
+      "The branch is blocking pedestrians",
+      "The location is near the roadside"
+    ],
+    "inferred_information": [
+      "The branch may be heavy or difficult to move manually (uncertain)",
+      "Pedestrians are likely walking into traffic to bypass the obstruction (uncertain)"
+    ],
+    "missing_information": [
+      "Specific street address or intersection",
+      "Size/dimensions of the branch",
+      "Presence of power lines entangled with the branch"
+    ],
+    "recommended_action": "Dispatch maintenance crew to clear the debris and inspect the tree for further stability issues.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

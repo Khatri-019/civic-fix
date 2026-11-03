@@ -38,9 +38,9 @@ Likely friction points: Phase 7 `TrainingArguments`/`Trainer` and `CrossEncoder`
 | 4 — Gemini Analysis | ✅ Done | 2026-10-26 |
 | 5 — Quality Score | ✅ Done | 2026-10-26 |
 | 6 — Synthetic Data (English only, for the Wed demo) | ✅ Done | 2026-10-26 |
-| 6R — Real dataset (DATASET_PLAN.md) | Deferred until after the demo | |
-| 7 — DistilBERT + MiniLM | ✅ Done (retrained: cat 80%, sev 73% val) | 2026-10-26 |
-| 8 — Evaluation Suite | ✅ Done | 2026-10-26 |
+| 6R — Real dataset (DATASET_PLAN.md) | ✅ Done (Steps 1–3, 5–7; Step 4 skipped) → `data/real/train.csv`, `test.csv` | 2026-11-03 |
+| 7 — DistilBERT + MiniLM | ✅ Done on synthetic (2026-10-26); **retrained on real data** (test: cat 61%, sev 39% / macro-F1 0.36) | 2026-11-03 |
+| 8 — Evaluation Suite | ✅ Done (15-case pilot); **real test set: core parts done**, modality ablation pending | 2026-11-03 |
 | 9 — UI Polish + Demo | ✅ Done | 2026-10-27 |
 | 10 — Final Testing | — | |
 
@@ -111,6 +111,28 @@ Likely friction points: Phase 7 `TrainingArguments`/`Trainer` and `CrossEncoder`
 - MiniLM behaviour: aggressive. "light broken 3 days" vs "streetlight fixture visible" → contradiction; on the saved text+image case all 6 claims → unverifiable; on the contradiction case it correctly flags the 2 false claims.
 - Verified: model dirs exist; predict returns valid labels (incl. plan's "light kharab hai" → Electrical); check_contradiction returns dict; run_nli_audit works; AppTest (mocked Gemini) shows the comparison card + both tabs, no exception; one live run OK.
 
+### Phase 7R — DistilBERT retrained on the real dataset ✅ (2026-11-03)
+- **Backup:** the synthetic models were copied to `models/saved_synthetic/` (git-ignored, 513 MB). To bring them back for a demo: delete `models/saved/` and copy `models/saved_synthetic/` to `models/saved/`.
+- `models/classifier.py` changes:
+  - `load_data` returns `groups` (`image_id`, falling back to `record_id`). When present, validation uses `StratifiedGroupKFold` (20%, by photo). The plain random split would put a photo's other texts in validation and inflate the score. Synthetic data has no `image_id`, so it takes the old path.
+  - `--severity-skip-contradicting`: drops `has_contradiction` rows from the severity model only (the agreed rule).
+  - `--balanced-severity`: `WeightedTrainer` (class-weighted cross-entropy) + best epoch chosen by `macro_f1` (now in `compute_metrics`).
+  - `--only category|severity`; `classification_report` lists all classes with `zero_division=0`.
+- Commands used: `python -m models.classifier --train --data data/real/train.csv --only category` (equivalent; the category model came from the first full run) and `... --only severity --severity-skip-contradicting --balanced-severity`. 15 epochs, about 5 min per model on CPU. Leftover `checkpoint-*` dirs deleted.
+- **Test results** (75 non-contradicting test rows; scored with a scratch script, Phase 8 will formalize):
+
+  | | category acc | severity acc | severity macro-F1 |
+  |---|---|---|---|
+  | DistilBERT real | **61.3%** | 38.7% (balanced) | **0.357** |
+  | DistilBERT synthetic | 49.3% | 24.0% | 0.182 |
+  | TF-IDF + LR baseline | 56.0% | 34.7% | 0.278 |
+  | majority class | – | 41.3% | 0.146 |
+
+  - Unweighted severity training collapsed to always "Medium" (41.3% acc, 0 recall elsewhere), so the balanced model was kept.
+  - The balanced model's recall: Low 81%, Medium 29%, High 26%, Critical 22%; it over-predicts Low.
+- **Severity isn't learnable from text on this data.** No subset (variant, no vague rows, photo rows only) beats about 44% / 0.34 macro-F1 even for TF-IDF. Labels come from the photo (team's scale, 36% agreement with Gemini), while the model sees only text. Report this as a finding, not a tuning gap.
+- Known demo misses with the real models: street light → **Transport** (was Security), "live wire … sparking" → **Low**. Garbage, water leak, pipe burst and wifi are correct. AppTest start: no exceptions.
+
 ### Phase 8 — Evaluation Suite ✅
 - `eval/metrics.py` verbatim. `eval/eval_runner.py` = plan code plus these deviations:
   1. Test case 1 made English ("light not working outside hostel since 3 days"), per the English-only decision.
@@ -134,6 +156,24 @@ Likely friction points: Phase 7 `TrainingArguments`/`Trainer` and `CrossEncoder`
 - Deviations from plan + why
 - Known issues / TODOs carried forward
 -->
+
+### Phase 8R — Evaluation on the real test set (core parts ✅ 2026-11-03)
+- `eval/real_eval.py`; run with `python -m eval.real_eval [--part classification|contradiction]`. `eval_runner.py` (the 15-case pilot) is unchanged. Output: `eval/results/real_eval_report.json`, `real_eval_cases.csv`, per-case Gemini cache `eval/results/real_cache/{text,photo}_<record_id>.json`.
+- Run on lite models only, to keep `gemini-3.5-flash` / `3.8-flash` quota for the demo: `$env:GEMINI_MODEL='gemini-3.5-flash-lite'; $env:GEMINI_FALLBACK_MODELS='gemini-3.1-flash-lite'`. 159 calls, 45 min (many 503s); 3.5-flash-lite hit 429 partway and 3.1-flash-lite finished.
+- `gemini_with_photo` raises if the audit made no real Gemini call (`run_contradiction_audit` swallows errors and returns a "passed" fallback). Without this, quota errors would be cached as false negatives. Tested with a mocked 429.
+- **Classification** (75 non-contradicting test rows, text only; accuracy with Wilson 95% CI):
+  - category: Gemini 58.7% [47–69], macro-F1 0.62; DistilBERT 61.3% [50–72], 0.59.
+  - severity: Gemini 36.0% [26–47], 0.35; DistilBERT 38.7% [28–50], 0.36.
+  - The CIs overlap heavily: **no significant difference** at n=75.
+  - 28 of Gemini's 31 category misses are "Infrastructure" for rows the team labelled Transport / Security / Other / Furniture / Network / Electrical (roads, walls, fallen trees, signposts). That's a **taxonomy-convention gap**: DistilBERT learned the team's conventions and Gemini didn't. It isn't Gemini misunderstanding the text.
+  - Severity: Gemini rates higher than the team (17 of 31 Medium → High).
+  - On which rows each is right: both wrong 13, only Gemini right 16, only DistilBERT right 18.
+- **Contradiction** (21 contradicting + 21 matching texts on the same 21 test photos; Gemini = app's review trigger, i.e. contradicted claims or `image_mismatch`):
+  - **Gemini P 1.00 / R 0.90 / F1 0.95, 0% false alarms on controls.**
+  - **MiniLM P 0.78 / R 1.00 / F1 0.88, 29% false alarms.** MiniLM flags uncertain or extra claims ("may be held only by cables") as contradictions.
+  - Gemini missed `nw_004` and `wm_009` (both contradicting). 2 of its catches came only through `image_mismatch`.
+- `app.py`: the sidebar shows "Model Comparison (real test set)" from `REAL_EVAL_REPORT_PATH` (via `render_real_eval_summary`, which handles a partial report); the old 15-case table is in an "Earlier pilot" expander. AppTest: no exceptions, both tables render.
+- **Pending (needs quota, later day):** modality ablation (text / photo / voice transcript / all on test photos, using `audio_files`) and the with/without-audit hallucination metric on real data.
 
 ### Phase 9 — UI Polish + Demo ✅
 - `app.py` additions (all four plan items):
@@ -163,3 +203,91 @@ Likely friction points: Phase 7 `TrainingArguments`/`Trainer` and `CrossEncoder`
   - in an empty working dir (no models, no report): "Run eval suite first" plus "not trained yet", with complaint and download still working;
   - report text format checked.
 - Regressions: the Phase 1 and Phase 7 AppTests pass. Phase 1 needed `default_timeout=120`, because the 3 s default is too short now. Server health 200.
+
+### Post-Phase 9 change — input mismatch review (user request, 2026-10-27)
+- User's flow: if text, voice and photo all agree → generate the report. If the photo contradicts them → warn the user, ask them to verify or re-upload, and offer to continue using the **text as the most trusted source**, with the report flagged. Video was dropped: the user had added it by mistake, and the app has no video input.
+- `app.py`:
+  - **Trigger:** `needs_user_review()` fires when an image was uploaded AND the Gemini audit has `contradicted_claims`. Text-only inputs can't trigger it, because their claims are only ever "unverifiable".
+  - **Pipeline split:** `run_pipeline` stops after the audit (complaint=None, `needs_review=True`; status "Please verify your inputs"), so no complaint call is spent before the user decides. `finish_report(result, mode)` generates and scores the complaint: mode `"verified"` (the normal path) or `"text_priority"`.
+  - **Review card:**
+    - shows the contradicted claims with their reasons, plus a "What the photo actually shows" expander;
+    - 📷 **Re-upload photo** clears only the image uploader (separate `image_version` key suffix) and the results, then shows a hint;
+    - ✏️ **Edit description** clears the results and shows a hint;
+    - ➡️ **Continue with my description** runs `finish_report(..., "text_priority")`.
+  - **text_priority mode:**
+    - **re-runs `analyze_issue(text, transcript, None)` without the image**, because the combined analysis takes the problem/category from the wrong photo (live: burst-pipe text + light photo → "Electrical"; after Continue → Plumbing / Water, Water and Sanitation dept). The combined issue is kept as `result["issue_original"]`.
+    - The complaint is written via the new `ai_service.generate_text_priority_complaint()` and `prompts.TEXT_PRIORITY_COMPLAINT_PROMPT`: user-reported facts only, observed/inferred evidence excluded, and a final sentence saying the photo could not confirm the details.
+    - UI: a "⚠️ Flagged" warning plus "What the photo shows (not used)". The downloaded report gets a `FLAG:` line. Unsupported sentences are measured against verified facts + user-reported facts.
+    - Cost: Continue = 2 Gemini calls (re-analysis + complaint). A matched input still costs 3 calls in total.
+  - **Demo cache:** the format is now merged keys: `issue`, `audit`, `model_used`, `complaint` (verified), plus `issue_text_priority` and `complaint_text_priority`. Old entries are compatible.
+- Pre-cached: the contradiction demo (typed text "A pipe burst and the whole street is flooded, water everywhere for a week." + `broken_light.png`), including the Continue path. Verified that the app's upload path (save_temp_audio → Whisper) produces the same cache keys as the pre-warm script. `demo_cache/` now holds 6 entries: 3 demos + contradiction + 2 from the user's own browser runs.
+- Tests:
+  - **Offline (mocked):** review triggered, with no complaint call before the decision; Continue re-analyzes without the image; cached Continue makes 0 Gemini calls; matching inputs skip review; the report has the FLAG line.
+  - **AppTest (preset session state):** card, 3 buttons, re-upload/edit clear the results and show hints (`image_version` bumped), Continue → flagged complaint and download.
+  - **Live:** run once (as above).
+  - **Regressions:** Phase 1, 7 and 9 tests pass. Mocked test runs write fake `demo_cache` entries; they were removed afterwards, so always clean the cache after mocked AppTests.
+- **Fix 2026-10-27 (user report: "report still generated after wrong image"):** the user's wrong photo (notebook pages + water-leak voice) left every claim "unverifiable", so nothing was "contradicted" and no review fired.
+  - **Fix:** `CONTRADICTION_PROMPT` now also returns `image_matches_report` + `mismatch_reason`. `ContradictionAudit` gained `image_mismatch: bool = False` and `mismatch_reason: Optional[str] = None` (defaults, so old cache/eval JSON still loads). `run_contradiction_audit` sets `image_mismatch` only when there is observed evidence AND the field is explicitly false; `audit_passed` is then false. `needs_user_review` = has_image and (contradicted claims OR image_mismatch). The review card shows the reason; the report FLAG line says "does not match".
+  - **Live matrix (gemini-3.5-flash-lite):** 3 matching demo pairs → no review (no false alarms); leak voice + garbage photo, garbage voice + light photo, contradiction text + light photo → review with a clear reason. The demo cache was rebuilt from scratch with the new audits (6 entries: 3 demos, 2 wrong-photo voice pairs, contradiction incl. Continue path).
+- **Terminal noise:** the Streamlit file watcher walks transformers' lazy modules and logs `No module named 'torchvision'` tracebacks (harmless). Added `.streamlit/config.toml` with `fileWatcherType = "none"`, so **restart the app after code edits** (no hot reload).
+
+### Dataset Step 1 — Photos (team, checked 2026-10-30)
+- 94 photos, 11 categories (6–9 each), no exact duplicates. Target was 66 minimum, 130–160 recommended.
+- Folders differ from the plan: `cleaning`, `furniture`, `network`, `plumbing`. They were left as they are; tools get the category and owner from the **file prefix**, not the folder.
+- The team also filled in severity by hand in `review/images_<ID>.csv` before Step 2. Those are human labels and must not be overwritten. Their first versions are in `review/originals/`.
+- Open issues: no `SOURCES.txt` anywhere, and many photos are web screenshots or stock images (Alamy, Adobe Stock, Shutterstock watermarks, Google Lens icons), which goes against DATASET_PLAN §4.1. Almost all are under the 640 px short-side guideline. F2 has 3 High/Critical photos (plan: ≥ 4).
+
+### Dataset Step 2 — Image manifest + review sheets ✅ (review closed 2026-11-01)
+- `tools/build_image_manifest.py`; run with `.\.venv\Scripts\python.exe -m tools.build_image_manifest`. Re-running is free for cached photos and is how edited sheets get merged into `manifests/images.csv`.
+- Deviations from the plan:
+  1. **Batches of 8 photos per call** (~13 calls instead of 92) because of the 20/day quota. Each photo is still sent once, categories are mixed across batches, and Gemini doesn't see the team's labels.
+  2. Unlisted photos get `source`/`license` = `unknown`, not the plan's `own`, because most clearly aren't the team's own.
+  3. Existing `severity`, `verified`, `source`, `license` and `category` are kept on re-run; short category names are mapped to `config.CATEGORIES` values.
+  4. Added a `check_notes` column and `review/lead_flags.csv` (`image_id,hold,note`, kept by hand). `hold=yes` keeps a photo away from Gemini. Currently held for faces: `in_006`, `in_009`. Also noted: `sn_002`/`ch_003` are the same sink (a crop, which the hash check can't catch).
+- Result: 92 of 94 analyzed (gemini-3.5-flash-lite, 8 on 3.8-flash). Team vs Gemini: severity agrees on 36% (87% within one level; 12 photos are 2 levels apart), category on 82% (many are Other/Transport vs Infrastructure). Sampled descriptions matched their photos, so answers aren't misaligned across a batch. Gemini's watermark flag caught only 11 photos, fewer than are visibly watermarked, so don't rely on it.
+- Verified: 0 team severities changed; re-run made 0 Gemini calls and kept edits (lowercase severity, `Yes`, a source, a cp1252 save).
+- Review outcome (2026-11-01): the lead confirmed the review and asked Claude to fill `verified=yes` on all 94 rows. Only 1 severity changed from the team's first labels (`ot_001` Critical → Medium). `in_006` and `in_009` were cropped (checked by eye, no faces left) and analyzed. Source and licence stay `unknown` for all 94 by the lead's decision, so this must be disclosed in any report.
+- `sn_002`/`ch_003` were kept by the lead's decision, but they are still the same sink, so `lead_flags.csv` has `force_train=yes` for both.
+
+### Dataset Step 3 — Complaint texts ✅
+- `tools/generate_complaints.py`; run with `.\.venv\Scripts\python.exe -m tools.generate_complaints`. It refuses to run while any photo is unverified, on hold, unanalyzed or badly labelled (tested on the real unverified sheets). Caches are in `manifests/cache/complaints/`. Run it from the project root.
+- Output: `manifests/complaints_draft.csv`, **436 rows**: 376 from photos (94 × 4 variants, 94 contradicting) + 60 text-only (Network 20, Transport 20, Security 10, Other 10). Train 340 / test 96 rows (73 / 21 photos, about 22%; text-only split by row). Every plan minimum in §2 is met. Labels match the sheets exactly, no photo is in both splits, 0 duplicate texts, 0 Hindi words.
+- `manifests/splits.json` freezes the split on first run. Delete it only if reviewers haven't started on test rows.
+- Deviations from the plan:
+  1. **Batches of 4 photos per call** instead of 1 (quota). A batch that returns malformed JSON is retried one photo at a time, because some batches failed every time while the same photos worked alone. That retry path hasn't been exercised: the last failing batch passed on another model.
+  2. Added a `contradiction_reason` column and a `gemini_model` column.
+  3. **Contradicting rows go through a Gemini complaint check** (`audit_contradicting`, cached as `complaint_checked`), which rewrites any text saying nothing is wrong. Reason: those rows keep the photo's labels, and the first draft had many like "all the handrails are firmly bolted". The check rejected 22 on its first pass. `gemini-3.5-flash-lite` keeps writing them, so finishing the last few needed `gemini-3.5-flash`.
+- Known limits for Step 4 reviewers: `tr_005` ("freshly paved") passed the check but isn't a complaint; `sn_007` reads oddly; some rows are exaggerations in another category's territory (`ch_004` water pipe under Cleaning); some may not really contradict their photo (e.g. `wm_001`).
+- **Step 4 skipped (lead's decision, 2026-11-01):** no text review and no cross-check, so there is no Cohen's κ. Texts are accepted as generated. Never mark these rows `human_verified`: only the photo labels were checked by people. Step 7 must use a distinct `label_source` (e.g. `photo_label_inherited`), relax the plan's "every test row human_verified and cross-checked" check, and the report must disclose this. The 60 text-only rows (12 in test) have labels no person checked.
+- **Phase 7 decision (2026-11-01):** contradicting rows keep the photo's severity by plan, so "only a minor pothole" can carry Critical. Default: leave `has_contradiction=True` rows out of **severity** training and keep them for **category** training; score both classifiers on non-contradicting test rows (75) and use the 21 contradicting test rows for contradiction evaluation. Confirmed by the lead the same day.
+- Evidence (TF-IDF + logistic regression proxy on 75 clean test rows, not DistilBERT): category 54.7% with vs 52.0% without them (2 rows, within noise); severity 34.7% both ways. So exclusion rests on label correctness, not on a measured gain. Severity at 35% is low; re-check on real DistilBERT results.
+
+### Dataset Step 5 — Voice recordings: scripts ready, team recording pending
+- `tools/generate_recording_scripts.py` (no Gemini calls). Output: `data/real/scripts/<ID>.md`, `manifests/recording_lines.csv` (expected filename, reference text, env per speaker), `data/real/consent/README.md`. A re-run refuses once `recording_lines.csv` exists, because people record from it; delete it only if nobody has recorded.
+- 24 lines per speaker, 63 distinct texts: 11 shared (one per category, all quiet, all test rows, 2 contradicting) + 13 own (from other members' categories, no overlap between speakers, 3 contradicting, 7 noisy). Every speaker covers all 11 categories and 4 severities.
+- `EXCLUDED_ROWS` in the tool keeps out rows known to need rewriting (`tr_005`, `sn_007`, `wm_001`, `ch_004` contradicting). **Step 7 may rewrite those rows but must not change any text in `recording_lines.csv`.**
+- **For Step 6:** informal lines contain "r", "n", "&", "pls" and typos, and speakers are told to say what was meant, so WER must normalize these in the reference or it will count correct speech as errors. Also accept `.mp3`/`.wav`, since the filenames show `.m4a`.
+- `data/real/consent/` is git-ignored, so the blank template isn't in git either.
+- **Recordings received 2026-11-03:** 94 clips in `data/real/audio/<ID>/` (M1 24, M2 24, F1 24, F2 22; F2 skipped `nw_004_detailed` and `wm_005_detailed`). All 4 speakers recorded all 11 shared lines. All clips are AAC, 3.7–15.2 s (median 7.8 s), with no `_free` clips.
+- The team uploaded them to `data/real/<ID>/` with mangled extensions (`.m4a.m4a.mp4`, `.m4a(quiet).m4a.mp4`). Claude moved and renamed them to `<ID>_<record_id>_<env>.m4a` (same AAC audio; `.mp4` → `.m4a` is only a container rename) and deleted one byte-identical duplicate (`F2_wm_009 … (1).mp4`). The original → new mapping is in `manifests/audio_renames.csv`. Every filename matched its script line and environment.
+- **Consent:** `data/real/consent/` still holds only the blank template, with no signed forms. DATASET_PLAN §8.4 requires 4 signed forms.
+
+### Dataset Step 6 — Audio processing ✅
+- `tools/process_audio.py`; run with `.\.venv\Scripts\python.exe -m tools.process_audio`. Runs locally with no Gemini calls. Transcripts are cached per setup + file hash in `manifests/cache/audio/`, so re-scoring takes seconds. Output `manifests/audio.csv` has the plan's columns plus `part`, `split`, `reference_words`, `*_errors`, and transcript/language/WER for each comparison setup.
+- Compares 3 setups on the same 94 clips: `app` (= `speech_service.transcribe_audio`, Whisper base, auto language), `forced_en` (base, `language="en"`) and `base_en` (Whisper `base.en`, downloaded 139 MB to `~/.cache/whisper`).
+- WER = word edit distance after normalizing both sides: Whisper's `EnglishTextNormalizer`, plus chat-abbreviation expansion in the reference (r/n/pls/&…), uniform times ("8:30"/"8.30", "a.m."), and a `SPELLINGS` map applied to both sides (asap, wifi, cant, split compounds). Real mishearings ("block c" → "block sea") still count. Speakers' own additions ("so please check that") count too, as the plan says to keep deviations.
+- **Results (corpus WER):** app 12.5%, forced_en 12.5%, base_en 12.2%. Per speaker: M2 8.8%, M1 13.1%, F1 13.6%, F2 14.3%. Shared lines only (same 11 texts, all quiet): M1 17.2%, M2 8.3%, F1 13.2%, F2 15.7%. Informal lines 16.3% vs detailed 11.8%.
+- **Interpretation:** the speaker differs more than gender does (the two male speakers are 8.3% and 17.2% on the same lines), so with 2 speakers per gender **don't claim a gender effect**. Noisy (10.2%) looks better than quiet (13.3%), but noisy clips are all "own" lines with different texts, so that comparison is confounded and shouldn't be reported as a noise effect.
+- **Decision: keep the app as built (base, auto-detect).** Forcing English changed only the 3 clips where M1 was detected as Hindi, and they tied overall. `base.en` is 0.3 points better overall but worse for F2, which is within noise.
+
+### Dataset Step 7 — Split, validate, export ✅
+- `tools/finalize_dataset.py`; run with `.\.venv\Scripts\python.exe -m tools.finalize_dataset`. No Gemini calls. If validation fails, it exports nothing.
+- Output:
+  - `data/real/train.csv` (340 rows) and `data/real/test.csv` (96 rows): the Swap-Guide columns `raw_complaint, category, severity, has_contradiction`, plus `record_id, image_id, owner, variant, label_source, text_source`.
+  - test.csv also has project-relative `image_file` (84 rows) and `audio_files` (`;`-separated; 25 test rows have 58 clips).
+  - `manifests/complaints_reviewed.csv` (all rows with both media columns) and `data/real/DATASET_CARD.md`: counts, provenance, WER, licences, consent count. Use the card in the report.
+- `label_source`: `photo_label_inherited` (376) / `seed_label_unchecked` (60). Never `human_verified`.
+- `REWRITES` in the tool replaced 4 bad contradicting texts (`tr_005`, `sn_007`, `wm_001`, `ch_004`, all in train), written by Claude from the photos, with `text_source=claude_rewrite`.
+- Validation is the plan's list. The plan's "test rows human_verified + cross-checked" check is replaced by "every photo row comes from a verified photo". Added checks: force_train photos not in test, every category and severity in test, recorded texts unchanged, no orphan audio. Each check was tested against deliberately broken data and caught it.
+- Train severity counts without contradicting rows: Medium 116, Low 64, High 56, Critical 31.
+- **Next = Phase 7 retrain on real data.** `models/classifier.py` needs a change for the agreed rule: drop `has_contradiction=True` rows for the severity model only. The current models in `models/saved/` are the synthetic ones; back them up before retraining if the demo needs them. Then extend Phase 8 to evaluate on `data/real/test.csv` (non-contradicting rows for classification; contradicting + image rows for contradiction detection; `audio_files` for the audio modality).

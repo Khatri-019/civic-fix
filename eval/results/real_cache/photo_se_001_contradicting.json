@@ -1,0 +1,61 @@
+{
+  "issue": {
+    "problem": "Door and frame damage with missing door",
+    "category": "Infrastructure",
+    "subcategory": "Door",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Missing door and damaged frame present a significant impact on security and property access.",
+    "department": "Facilities Maintenance / Security",
+    "observed_evidence": [
+      "Damaged wooden door frame near the latch",
+      "Exposed splintered wood around the latch area",
+      "Dark-colored door panel with a gold-colored handle assembly",
+      "Latch mechanism or hardware visible in the damaged frame gap"
+    ],
+    "user_reported_facts": [
+      "The entire wooden door has been completely unhinged and stolen from the frame."
+    ],
+    "inferred_information": [
+      "Forced entry or removal may have occurred, though the exact cause is uncertain."
+    ],
+    "missing_information": [
+      "Exact location / room number",
+      "Duration of the issue",
+      "Whether a police report was filed"
+    ],
+    "recommended_action": "Dispatch security and maintenance personnel to secure the premises and assess the damage for door replacement.",
+    "confidence": 0.85
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "The entire wooden door has been completely unhinged and stolen from the frame.",
+        "status": "contradicted",
+        "reason": "The image clearly shows a dark-colored door panel and handle still present, not stolen or completely removed."
+      },
+      {
+        "claim": "Forced entry or removal may have occurred, though the exact cause is uncertain.",
+        "status": "supported",
+        "reason": "The image evidence shows damaged and splintered wood around the latch area, indicating potential forced entry."
+      }
+    ],
+    "verified_facts": [
+      "Forced entry or removal may have occurred, though the exact cause is uncertain.",
+      "Damaged wooden door frame near the latch",
+      "Exposed splintered wood around the latch area",
+      "Dark-colored door panel with a gold-colored handle assembly",
+      "Latch mechanism or hardware visible in the damaged frame gap"
+    ],
+    "contradicted_claims": [
+      "The entire wooden door has been completely unhinged and stolen from the frame."
+    ],
+    "unverifiable_claims": [],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user claims the entire wooden door is unhinged and stolen, but the image shows a door panel with a handle still mounted in a damaged frame."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

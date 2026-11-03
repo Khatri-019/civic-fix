@@ -1,0 +1,56 @@
+{
+  "issue": {
+    "problem": "Flooding with standing dirty water and sewage in a corridor",
+    "category": "Plumbing / Water",
+    "subcategory": "Sewage Overflow / Flooding",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant impact on sanitation, health, and safety due to standing sewage and water in a corridor.",
+    "department": "Plumbing and Sanitation Department",
+    "observed_evidence": [
+      "Long indoor corridor with tile flooring",
+      "Debris or scattered material on the floor",
+      "Windows along the right wall",
+      "Open doorways along the left wall"
+    ],
+    "user_reported_facts": [
+      "Entire corridor floor is flooded with three inches of standing dirty water and sewage"
+    ],
+    "inferred_information": [
+      "The image shows debris on the floor, but the user-reported three inches of standing dirty water and sewage cannot be definitively measured or verified as sewage from the static image alone."
+    ],
+    "missing_information": [
+      "Specific building name or address",
+      "Floor level",
+      "Duration of the flooding",
+      "Source of the water/sewage"
+    ],
+    "recommended_action": "Dispatch an emergency plumbing and sanitation team to extract the water, clean and sanitize the area, and investigate the source of the backup.",
+    "confidence": 0.85
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Entire corridor floor is flooded with three inches of standing dirty water and sewage",
+        "status": "unverifiable",
+        "reason": "The image shows a corridor with debris, but standing water depth and the presence of sewage cannot be determined from the visual evidence."
+      }
+    ],
+    "verified_facts": [
+      "Long indoor corridor with tile flooring",
+      "Debris or scattered material on the floor",
+      "Windows along the right wall",
+      "Open doorways along the left wall"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Entire corridor floor is flooded with three inches of standing dirty water and sewage"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The image shows scattered debris on a dry-looking floor, whereas the user reports severe flooding with standing water and sewage."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

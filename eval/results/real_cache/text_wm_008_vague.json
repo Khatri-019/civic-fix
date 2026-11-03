@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Plastic trash scattered on the grass",
+    "category": "Waste Management",
+    "subcategory": "Littering",
+    "location": null,
+    "duration": null,
+    "severity": "Low",
+    "severity_reason": "Scattered plastic trash causes minor environmental and aesthetic impact with no immediate safety hazard.",
+    "department": "Sanitation Department",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Plastic trash spread on the grass."
+    ],
+    "inferred_information": [
+      "An image was mentioned or expected, but no visual evidence was provided in the input."
+    ],
+    "missing_information": [
+      "location",
+      "duration",
+      "exact quantity and type of plastic trash",
+      "observed_evidence"
+    ],
+    "recommended_action": "Dispatch maintenance or sanitation personnel to collect and properly dispose of the scattered plastic waste.",
+    "confidence": 0.8
+  },
+  "model": "gemini-3.5-flash-lite"
+}

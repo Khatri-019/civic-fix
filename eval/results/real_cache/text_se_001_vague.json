@@ -1,0 +1,27 @@
+{
+  "issue": {
+    "problem": "Broken door lock",
+    "category": "Security",
+    "subcategory": "Door Hardware",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A broken door lock compromises the security of the premises and the safety of occupants.",
+    "department": "Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The door lock is broken."
+    ],
+    "inferred_information": [
+      "The door may currently be unable to latch or lock securely (uncertainty: high, as the specific nature of the breakage is not described)."
+    ],
+    "missing_information": [
+      "Specific location of the door",
+      "Nature of the damage (e.g., jammed, handle detached, key won't turn)",
+      "Whether the door is currently stuck open or closed"
+    ],
+    "recommended_action": "Dispatch a locksmith or maintenance technician to inspect and repair or replace the door locking mechanism.",
+    "confidence": 0.6
+  },
+  "model": "gemini-3.1-flash-lite"
+}

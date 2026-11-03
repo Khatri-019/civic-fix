@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Broken hostel boundary wall",
+    "category": "Infrastructure",
+    "subcategory": "Boundary Wall",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A broken boundary wall poses a significant impact on security and unauthorized access.",
+    "department": "Maintenance / Security Department",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "hostel boundary wall is broken from middle",
+      "allowing anyone to enter easily"
+    ],
+    "inferred_information": [
+      "Unauthorized access is currently possible due to the compromised perimeter (uncertain extent of vulnerability without visual confirmation)."
+    ],
+    "missing_information": [
+      "location",
+      "duration",
+      "exact dimensions of the break",
+      "material of the wall"
+    ],
+    "recommended_action": "Inspect the damage to the boundary wall and arrange for immediate repair or temporary barricading to restore security.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.5-flash-lite"
+}

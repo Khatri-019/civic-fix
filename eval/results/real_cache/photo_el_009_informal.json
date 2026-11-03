@@ -1,0 +1,80 @@
+{
+  "issue": {
+    "problem": "Total street blackout and non-functional streetlights",
+    "category": "Electrical",
+    "subcategory": "Street Lighting / Power Grid",
+    "location": null,
+    "duration": "Since evening",
+    "severity": "High",
+    "severity_reason": "Lack of street lighting poses a significant safety and security risk to residents and pedestrians at night.",
+    "department": "Public Works / Electrical Utility",
+    "observed_evidence": [
+      "Dark street environment",
+      "No visible streetlights illuminated",
+      "Some residential buildings have interior lights on"
+    ],
+    "user_reported_facts": [
+      "Total blackout on the street",
+      "Streetlights are not working",
+      "Issue began in the evening"
+    ],
+    "inferred_information": [
+      "The blackout may be localized to the street or the immediate neighborhood (uncertainty: scope of outage is unknown)",
+      "Residential power appears to be partially active in some buildings (uncertainty: whether this is grid power or backup generators)"
+    ],
+    "missing_information": [
+      "Specific street name or address",
+      "City or municipality",
+      "Whether the blackout affects residential power or only public lighting"
+    ],
+    "recommended_action": "Dispatch an electrical maintenance crew to inspect the street lighting circuit and grid connection for the reported area.",
+    "confidence": 0.9
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Total blackout on the street",
+        "status": "supported",
+        "reason": "The image shows a dark street environment with no active lighting."
+      },
+      {
+        "claim": "Streetlights are not working",
+        "status": "supported",
+        "reason": "The image confirms that no streetlights are illuminated in the visible area."
+      },
+      {
+        "claim": "Issue began in the evening",
+        "status": "unverifiable",
+        "reason": "The image shows a dark scene, but it does not provide a timestamp or historical context to confirm when the issue started."
+      },
+      {
+        "claim": "The blackout may be localized to the street or the immediate neighborhood (uncertainty: scope of outage is unknown)",
+        "status": "unverifiable",
+        "reason": "The image only shows a single street and cannot confirm the extent of the outage beyond the immediate frame."
+      },
+      {
+        "claim": "Residential power appears to be partially active in some buildings (uncertainty: whether this is grid power or backup generators)",
+        "status": "supported",
+        "reason": "The image clearly shows interior lights on in some residential buildings, though the source of that power is not visible."
+      }
+    ],
+    "verified_facts": [
+      "Total blackout on the street",
+      "Streetlights are not working",
+      "Residential power appears to be partially active in some buildings (uncertainty: whether this is grid power or backup generators)",
+      "Dark street environment",
+      "No visible streetlights illuminated",
+      "Some residential buildings have interior lights on"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Issue began in the evening",
+      "The blackout may be localized to the street or the immediate neighborhood (uncertainty: scope of outage is unknown)"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

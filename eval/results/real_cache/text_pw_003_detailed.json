@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Water leak from main supply pipe joint",
+    "category": "Plumbing / Water",
+    "subcategory": "Pipe burst/leak",
+    "location": "Red exterior wall of Block B",
+    "duration": "Since this morning",
+    "severity": "High",
+    "severity_reason": "Continuous spraying of water from a main supply line indicates significant resource wastage and potential for structural damage or service disruption.",
+    "department": "Facilities Management / Water Works",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Main supply pipe joint is spraying water continuously",
+      "Located on the red exterior wall of Block B",
+      "Issue has been ongoing since this morning"
+    ],
+    "inferred_information": [
+      "The leak is likely under pressure due to the 'spraying' description (uncertainty: exact pressure level unknown)"
+    ],
+    "missing_information": [
+      "Visual confirmation of the pipe condition",
+      "Specific contact information for the reporter",
+      "Whether the water supply has been shut off"
+    ],
+    "recommended_action": "Dispatch a plumbing maintenance team immediately to isolate the supply line and repair the joint.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.1-flash-lite"
+}

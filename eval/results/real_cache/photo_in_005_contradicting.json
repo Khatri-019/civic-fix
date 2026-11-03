@@ -1,0 +1,67 @@
+{
+  "issue": {
+    "problem": "Deep road cave-in/pothole damaging the roadway surface",
+    "category": "Infrastructure",
+    "subcategory": "Road Damage",
+    "location": null,
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "Immediate danger or serious hazard requiring urgent response due to severe road degradation and potential collapse hazard.",
+    "department": "Department of Transportation / Road Maintenance",
+    "observed_evidence": [
+      "Pothole or surface degradation on an asphalt road",
+      "Loose gravel visible within and around the road damage",
+      "Parked cars visible in the background"
+    ],
+    "user_reported_facts": [
+      "The main road has a deep cave-in spanning both lanes",
+      "Vehicle movement is completely halted"
+    ],
+    "inferred_information": [
+      "The issue may pose a structural hazard to vehicles (uncertain if it spans both lanes entirely as claimed, as the image shows a localized view)."
+    ],
+    "missing_information": [
+      "Exact street address or location",
+      "Duration of the issue",
+      "Confirmation of full span across both lanes beyond the photograph angle"
+    ],
+    "recommended_action": "Dispatch road maintenance crew to inspect, secure the area with barricades, and initiate emergency pavement repairs.",
+    "confidence": 0.85
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "The main road has a deep cave-in spanning both lanes",
+        "status": "contradicted",
+        "reason": "The image shows localized surface damage and loose gravel rather than a deep cave-in spanning both lanes."
+      },
+      {
+        "claim": "Vehicle movement is completely halted",
+        "status": "unverifiable",
+        "reason": "The provided image shows parked cars in the background but does not capture traffic flow or whether movement is halted."
+      },
+      {
+        "claim": "The issue may pose a structural hazard to vehicles (uncertain if it spans both lanes entirely as claimed, as the image shows a localized view).",
+        "status": "supported",
+        "reason": "The image clearly shows road damage with loose gravel that could plausibly pose a hazard to vehicles, even if the full extent across both lanes is not visible."
+      }
+    ],
+    "verified_facts": [
+      "The issue may pose a structural hazard to vehicles (uncertain if it spans both lanes entirely as claimed, as the image shows a localized view).",
+      "Pothole or surface degradation on an asphalt road",
+      "Loose gravel visible within and around the road damage",
+      "Parked cars visible in the background"
+    ],
+    "contradicted_claims": [
+      "The main road has a deep cave-in spanning both lanes"
+    ],
+    "unverifiable_claims": [
+      "Vehicle movement is completely halted"
+    ],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

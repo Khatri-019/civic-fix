@@ -1,0 +1,65 @@
+{
+  "issue": {
+    "problem": "Broken door frame near handle and lock latch area",
+    "category": "Infrastructure",
+    "subcategory": "Door / Frame",
+    "location": "Hostel room",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A compromised door frame and locking mechanism significantly impacts room security and personal safety.",
+    "department": "Maintenance / Facilities",
+    "observed_evidence": [
+      "Wooden door frame is splintered and broken around the latch strike plate area",
+      "Dark grey door with a brass handle and backplate",
+      "Latch mechanism is exposed due to frame damage"
+    ],
+    "user_reported_facts": [
+      "Hostel room door frame is broken near the handle",
+      "Locking is difficult"
+    ],
+    "inferred_information": [
+      "The door may not lock securely due to the lack of structural support for the strike plate (uncertain whether it can be locked at all)"
+    ],
+    "missing_information": [
+      "Exact hostel room number or building name",
+      "Duration of the issue"
+    ],
+    "recommended_action": "Dispatch a carpenter to repair or reinforce the damaged wooden door frame and re-secure the strike plate for proper locking.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Hostel room door frame is broken near the handle",
+        "status": "supported",
+        "reason": "The image evidence clearly shows the wooden door frame splintered and broken around the latch area."
+      },
+      {
+        "claim": "Locking is difficult",
+        "status": "unverifiable",
+        "reason": "While physical damage is visible, the ease or difficulty of operating the lock cannot be determined from a static image."
+      },
+      {
+        "claim": "The door may not lock securely due to the lack of structural support for the strike plate (uncertain whether it can be locked at all)",
+        "status": "supported",
+        "reason": "The frame damage around the strike plate and exposed latch mechanism visibly compromise the structural support needed for a secure lock."
+      }
+    ],
+    "verified_facts": [
+      "Hostel room door frame is broken near the handle",
+      "The door may not lock securely due to the lack of structural support for the strike plate (uncertain whether it can be locked at all)",
+      "Wooden door frame is splintered and broken around the latch strike plate area",
+      "Dark grey door with a brass handle and backplate",
+      "Latch mechanism is exposed due to frame damage"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Locking is difficult"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

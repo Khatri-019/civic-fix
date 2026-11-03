@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "problem": "Accumulation of trash and dirty water",
+    "category": "Sanitation",
+    "subcategory": "Waste and Drainage",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Accumulated trash and standing water pose potential health and sanitation risks to the area.",
+    "department": "Public Works / Sanitation Department",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "dirty water present",
+      "trash present",
+      "location is outside"
+    ],
+    "inferred_information": [
+      "The presence of dirty water may indicate a drainage issue or blockage (uncertain)."
+    ],
+    "missing_information": [
+      "Specific location address or landmark",
+      "Duration of the issue",
+      "Source of the dirty water",
+      "Volume or scale of the trash"
+    ],
+    "recommended_action": "Dispatch a sanitation crew to clear the debris and inspect the area for potential drainage blockages.",
+    "confidence": 0.6
+  },
+  "model": "gemini-3.1-flash-lite"
+}

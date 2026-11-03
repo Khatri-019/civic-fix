@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Plastic bottles scattered across the lawn area near the park",
+    "category": "Waste Management",
+    "subcategory": "Littering / Debris",
+    "location": "Lawn area near park",
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Accumulation of plastic waste creates environmental and sanitation concerns requiring maintenance.",
+    "department": "Sanitation Department",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Tons of plastic bottles are scattered all over the lawn area near the park",
+      "Proper cleanup and bins are needed"
+    ],
+    "inferred_information": [
+      "The area lacks sufficient or properly placed waste bins (inferred from user request for bins)."
+    ],
+    "missing_information": [
+      "Exact location coordinates or park name",
+      "Visual confirmation of the extent of the litter",
+      "Duration of the accumulation"
+    ],
+    "recommended_action": "Dispatch a sanitation crew to clean up the plastic bottles from the lawn and evaluate the area for bin placement.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.5-flash-lite"
+}

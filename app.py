@@ -8,7 +8,8 @@ import streamlit as st
 
 from config import GEMINI_API_KEY, GEMINI_MODEL
 import src.ai_service as ai_service
-from src.ai_service import analyze_issue, generate_complaint, run_contradiction_audit
+from src.ai_service import (analyze_issue, generate_complaint, generate_text_priority_complaint,
+                            run_contradiction_audit)
 from src.schemas import ContradictionAudit, StructuredIssue
 from src.scoring import calculate_quality_score, count_unsupported_sentences
 from src.speech_service import transcribe_audio
@@ -27,6 +28,7 @@ SEVERITY_COLORS = {
 }
 
 EVAL_REPORT_PATH = Path("eval/results/eval_report.json")
+REAL_EVAL_REPORT_PATH = Path("eval/results/real_eval_report.json")
 DEMO_CACHE_DIR = Path("demo_cache")  # Gemini outputs per input, so demo rehearsals don't burn the free-tier quota
 
 ARCHITECTURE = """\
@@ -126,6 +128,13 @@ def build_text_report(analysis: dict, complaint: str) -> str:
         f"Duration: {issue.duration or 'Not specified'}",
         f"Recommended action: {issue.recommended_action}",
         "",
+    ]
+    if analysis.get("report_mode") == "text_priority":
+        audit = analysis["audit"]
+        details = "; ".join(audit.contradicted_claims) or audit.mismatch_reason or "photo shows a different issue"
+        lines += ["FLAG: The attached photo does not match the description; this complaint is based on the "
+                  f"description. Details: {details}", ""]
+    lines += [
         "COMPLAINT:",
         complaint,
         "",
@@ -151,11 +160,55 @@ def _accuracy(block: dict) -> float:
     return block["per_class"].get("accuracy", block["weighted_recall"])
 
 
+def render_real_eval_summary() -> bool:
+    """Results on the real held-out test set (eval/real_eval.py). Returns False if there are none yet."""
+    try:
+        report = json.loads(REAL_EVAL_REPORT_PATH.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return False
+    except Exception:
+        logger.exception("Could not read real eval report")
+        return False
+    st.markdown("**Model Comparison (real test set)**")
+    rows = {"Metric": [], "Gemini": [], "Custom": []}
+    cls = report.get("classification")
+    if cls:
+        for column, name in (("category", "Category Accuracy"), ("severity", "Severity Accuracy")):
+            block = cls[f"{column}_accuracy"]
+            rows["Metric"].append(name)
+            rows["Gemini"].append(f"{block['gemini']['accuracy']:.0%}")
+            rows["Custom"].append(f"{block['custom_distilbert']['accuracy']:.0%}")
+    con = report.get("contradiction_detection")
+    if con:
+        rows["Metric"].append("Contradiction P/R")
+        rows["Gemini"].append(f"{con['gemini']['contradiction_precision']:.2f} / {con['gemini']['contradiction_recall']:.2f}")
+        rows["Custom"].append(f"{con['custom_minilm']['contradiction_precision']:.2f} / "
+                              f"{con['custom_minilm']['contradiction_recall']:.2f}")
+    st.table(rows)
+    notes = []
+    if cls:
+        notes.append(f"{cls['cases_evaluated']} text-only test complaints")
+    if con:
+        notes.append(f"{con['positives']} contradicting + {con['controls']} matching photo/text pairs")
+    st.caption(" · ".join(notes) + " · custom = DistilBERT (category, severity) and MiniLM NLI (contradiction)")
+    return True
+
+
 def render_eval_summary():
+    has_real = render_real_eval_summary()
     report = load_eval_report()
     if report is None:
-        st.info("Run eval suite first: `python -m eval.eval_runner`")
+        if not has_real:
+            st.info("Run eval suite first: `python -m eval.real_eval`")
         return
+    if has_real:
+        with st.expander("Earlier pilot: 15 hand-written cases"):
+            _render_pilot_eval(report)
+    else:
+        _render_pilot_eval(report)
+
+
+def _render_pilot_eval(report: dict):
     cls, sev, con = report["classification_accuracy"], report["severity_accuracy"], report["contradiction_detection"]
     st.markdown("**Model Comparison**")
     st.table({
@@ -185,10 +238,19 @@ def _cache_path(text, transcript, image_file) -> Path:
 
 
 def load_cached_gemini(path: Path):
+    """Returns {"issue", "audit", "complaint", "complaint_text_priority", "model_used"} or None.
+    The complaint keys may be None: a contradicted input waits for the user before a complaint is generated."""
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-        return (StructuredIssue.model_validate(data["issue"]), ContradictionAudit.model_validate(data["audit"]),
-                data["complaint"], data["model_used"])
+        return {
+            "issue": StructuredIssue.model_validate(data["issue"]),
+            "audit": ContradictionAudit.model_validate(data["audit"]),
+            "complaint": data.get("complaint"),
+            "complaint_text_priority": data.get("complaint_text_priority"),
+            "issue_text_priority": (StructuredIssue.model_validate(data["issue_text_priority"])
+                                    if data.get("issue_text_priority") else None),
+            "model_used": data.get("model_used"),
+        }
     except FileNotFoundError:
         return None
     except Exception:
@@ -196,13 +258,61 @@ def load_cached_gemini(path: Path):
         return None
 
 
-def save_cached_gemini(path: Path, issue, audit, complaint, model_used):
+def save_cached_gemini(path: Path, **fields):
+    """Merges fields into the cache entry (issue/audit as Pydantic objects, complaints as str)."""
     try:
         DEMO_CACHE_DIR.mkdir(exist_ok=True)
-        path.write_text(json.dumps({"issue": issue.model_dump(mode="json"), "audit": audit.model_dump(mode="json"),
-                                    "complaint": complaint, "model_used": model_used}, indent=2), encoding="utf-8")
+        data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+        for key, value in fields.items():
+            data[key] = value.model_dump(mode="json") if hasattr(value, "model_dump") else value
+        path.write_text(json.dumps(data, indent=2), encoding="utf-8")
     except Exception:
         logger.exception("Could not write demo cache entry")
+
+
+def needs_user_review(result: dict) -> bool:
+    # Only a photo can contradict the description; text-only claims are at most "unverifiable".
+    # A wrong photo often leaves every claim "unverifiable", so the audit's image_mismatch verdict counts too.
+    audit = result["audit"]
+    return result["has_image"] and (bool(audit.contradicted_claims) or audit.image_mismatch)
+
+
+def finish_report(result: dict, mode: str):
+    """Generates (or loads from cache) the complaint and scores it.
+    mode "verified": normal complaint from audit-verified facts.
+    mode "text_priority": photo contradicted the description and the user chose to trust the description."""
+    ctx = result["ctx"]
+    audit = result["audit"]
+    cache_key = "complaint" if mode == "verified" else "complaint_text_priority"
+    cached = load_cached_gemini(ctx["cache_path"]) if ctx["use_cache"] else None
+
+    if mode == "text_priority" and result["issue_original"] is None:
+        # The combined analysis may have taken the problem/category from the wrong photo,
+        # so re-classify from the description alone (text + transcript, no image).
+        if cached is not None and cached.get("issue_text_priority") is not None:
+            text_issue = cached["issue_text_priority"]
+        else:
+            text_issue = analyze_issue(ctx["text"] or None, ctx["transcript"], None)
+            save_cached_gemini(ctx["cache_path"], issue_text_priority=text_issue)
+        result["issue_original"], result["issue"] = result["issue"], text_issue
+    issue = result["issue"]
+
+    if cached is not None and cached.get(cache_key):
+        result["complaint"] = cached[cache_key]
+    else:
+        if mode == "verified":
+            result["complaint"] = generate_complaint(issue, audit)
+        else:
+            result["complaint"] = generate_text_priority_complaint(issue, audit)
+        result["model_used"] = ai_service.last_model_used
+        save_cached_gemini(ctx["cache_path"], **{cache_key: result["complaint"], "model_used": result["model_used"]})
+
+    result["report_mode"] = mode
+    result["needs_review"] = False
+    result["quality"] = calculate_quality_score(issue, audit, ctx["text"], result["has_image"], result["has_audio"])
+    # In text-priority mode the user's own facts are the trusted reference
+    reference = audit.verified_facts + (issue.user_reported_facts if mode == "text_priority" else [])
+    result["unsupported"] = count_unsupported_sentences(result["complaint"], reference)
 
 
 def run_pipeline(text_input, audio_file, image_file, use_cache=False) -> dict:
@@ -220,6 +330,10 @@ def run_pipeline(text_input, audio_file, image_file, use_cache=False) -> dict:
         "custom": None,       # run_custom_models() output
         "model_used": None,   # Gemini model that served the last request (fallback may switch)
         "original_input": None,  # what the user actually said, for the before/after panel
+        "needs_review": False,   # photo contradicts the description → wait for the user's decision
+        "report_mode": None,     # "verified" | "text_priority"
+        "ctx": None,             # inputs needed to finish the report after the user's decision
+        "issue_original": None,  # text_priority: the combined (text + photo) analysis, before re-classification
         "error": None,
     }
 
@@ -254,10 +368,12 @@ def run_pipeline(text_input, audio_file, image_file, use_cache=False) -> dict:
 
             cache_path = _cache_path(text, transcript, image_file)
             cached = load_cached_gemini(cache_path) if use_cache else None
+            result["ctx"] = {"text": text, "transcript": transcript, "cache_path": cache_path, "use_cache": use_cache}
 
             if cached is not None:
-                issue, audit, result["complaint"], cached_model = cached
+                issue, audit = cached["issue"], cached["audit"]
                 result["issue"], result["audit"] = issue, audit
+                result["model_used"] = cached["model_used"]
                 result["from_cache"] = True
                 status.write("✓ Gemini results loaded from demo cache (identical input analyzed before)")
                 result["custom"] = run_custom_models(issue, text, transcript)
@@ -280,20 +396,18 @@ def run_pipeline(text_input, audio_file, image_file, use_cache=False) -> dict:
                 audit = run_contradiction_audit(issue)
                 result["audit"] = audit
                 status.write("✓ Contradiction audit complete")
+                result["model_used"] = ai_service.last_model_used
+                save_cached_gemini(cache_path, issue=issue, audit=audit, model_used=result["model_used"])
 
-                result["complaint"] = generate_complaint(issue, audit)
+            if needs_user_review(result):
+                result["needs_review"] = True
+                status.write("⚠️ Photo does not match the description — waiting for your decision")
+                status.update(label="Please verify your inputs", state="error", expanded=False)
+            else:
+                finish_report(result, "verified")
                 status.write("✓ Complaint generated")
-                cached_model = ai_service.last_model_used
-                save_cached_gemini(cache_path, issue, audit, result["complaint"], cached_model)
-
-            result["quality"] = calculate_quality_score(
-                issue, audit, text, image_file is not None, audio_file is not None
-            )
-            result["unsupported"] = count_unsupported_sentences(result["complaint"], audit.verified_facts)
-            status.write("✓ Quality scored")
-            result["model_used"] = cached_model
-
-            status.update(label="Analysis complete", state="complete", expanded=False)
+                status.write("✓ Quality scored")
+                status.update(label="Analysis complete", state="complete", expanded=False)
         except AnalysisError as e:
             result["error"] = str(e)
             status.update(label="Analysis stopped", state="error", expanded=False)
@@ -320,6 +434,19 @@ def reset_all():
     version = st.session_state.get("input_version", 0)
     st.session_state.clear()
     st.session_state["input_version"] = version + 1
+
+
+def reupload_photo():
+    # New uploader key clears only the photo; text and voice stay as they are
+    st.session_state["image_version"] = st.session_state.get("image_version", 0) + 1
+    st.session_state["analysis"] = None
+    st.session_state["review_hint"] = "Upload the correct photo on the left, then click **Analyze Issue** again."
+
+
+def edit_description():
+    st.session_state["analysis"] = None
+    st.session_state["review_hint"] = ("Correct your description (or voice recording) on the left, "
+                                       "then click **Analyze Issue** again.")
 
 
 init_state()
@@ -370,7 +497,7 @@ with input_col:
     image_file = st.file_uploader(
         "Upload Image",
         type=["jpg", "jpeg", "png", "webp"],
-        key=f"image_file_{v}",
+        key=f"image_file_{v}_{st.session_state.get('image_version', 0)}",
     )
     if image_file is not None:
         st.image(image_file, caption="Uploaded image", width="stretch")
@@ -395,10 +522,14 @@ with results_col:
     st.subheader("📊 Analysis Results")
 
     if analyze_clicked:
+        st.session_state.pop("review_hint", None)
         st.session_state["analysis"] = run_pipeline(text_input, audio_file, image_file, use_demo_cache)
         st.session_state["run_id"] = st.session_state.get("run_id", 0) + 1
 
     analysis = st.session_state.get("analysis")
+
+    if analysis is None and st.session_state.get("review_hint"):
+        st.info(st.session_state["review_hint"], icon="✏️")
 
     if analysis is None:
         with st.container(border=True):
@@ -426,6 +557,44 @@ with results_col:
 
         if analysis["error"]:
             st.error(analysis["error"])
+
+        # --- Input mismatch: ask the user before generating the complaint ---
+        if analysis.get("needs_review"):
+            with st.container(border=True):
+                st.error("**⚠️ Your photo doesn't match your description.**  \n"
+                         "It may be the wrong photo, or the description may need correcting. "
+                         "Please verify before the complaint is generated.")
+                if analysis["audit"].mismatch_reason:
+                    st.markdown(f"🖼️ {analysis['audit'].mismatch_reason}")
+                for f in analysis["audit"].flags:
+                    if f.status == "contradicted":
+                        st.markdown(f"❌ **{f.claim}**  \n_{f.reason}_")
+                if analysis["issue"].observed_evidence:
+                    with st.expander("What the photo actually shows"):
+                        bullet_list(analysis["issue"].observed_evidence)
+                r1, r2, r3 = st.columns(3)
+                r1.button("📷 Re-upload photo", on_click=reupload_photo, width="stretch")
+                r2.button("✏️ Edit description", on_click=edit_description, width="stretch")
+                continue_clicked = r3.button("➡️ Continue with my description", type="primary", width="stretch")
+                st.caption("**Continue** writes the complaint from your description (the most trusted source) "
+                           "and flags that the photo could not confirm it.")
+            if continue_clicked:
+                try:
+                    with st.spinner("Generating complaint from your description..."):
+                        finish_report(analysis, "text_priority")
+                except Exception as e:
+                    logger.exception("Text-priority complaint failed")
+                    analysis["error"] = friendly_error(e)
+                st.rerun()
+
+        if analysis.get("report_mode") == "text_priority":
+            st.warning("⚠️ **Flagged:** the attached photo does not match the description. This complaint and its "
+                       "category/severity are based on your description only; consider re-uploading the correct "
+                       "photo before submitting.")
+            original = analysis.get("issue_original")
+            if original is not None and original.observed_evidence:
+                with st.expander("What the photo shows (not used in the complaint)"):
+                    bullet_list(original.observed_evidence)
 
         issue = analysis["issue"]
         if issue is not None:
@@ -515,8 +684,9 @@ with results_col:
                 gemini_tab, nli_tab = st.tabs(["Gemini audit (used for complaint)", "MiniLM NLI audit (custom)"])
                 with gemini_tab:
                     render_audit(audit)
-                    if not audit.audit_passed:
-                        st.warning("Some claims are contradicted by the image evidence — they were excluded from the complaint.")
+                    if audit.contradicted_claims and analysis.get("report_mode") == "verified":
+                        st.warning("Some claims are contradicted by the image evidence — they were excluded "
+                                   "from the complaint.")
                 with nli_tab:
                     if nli_audit is not None:
                         render_audit(nli_audit)

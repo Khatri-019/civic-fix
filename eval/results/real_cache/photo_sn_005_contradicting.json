@@ -1,0 +1,67 @@
+{
+  "issue": {
+    "problem": "Urinal porcelain shattered across the floor",
+    "category": "Plumbing / Water",
+    "subcategory": "Urinal damage",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant impact on safety and sanitation due to sharp shattered porcelain on the floor.",
+    "department": "Plumbing / Facilities Maintenance",
+    "observed_evidence": [
+      "Three wall-mounted urinals in a tiled restroom",
+      "Bricks placed on the floor under the urinals",
+      "Rust and staining around the fixtures and floor"
+    ],
+    "user_reported_facts": [
+      "The urinal porcelain has completely shattered into sharp pieces across the floor",
+      "A heavy object fell on it"
+    ],
+    "inferred_information": [
+      "The image does not match the user description of a shattered urinal on the floor (ambiguity in provided image vs text)."
+    ],
+    "missing_information": [
+      "Exact building location",
+      "Room number",
+      "Time of incident"
+    ],
+    "recommended_action": "Dispatch maintenance to inspect the restroom, remove any hazards, and repair or replace damaged plumbing fixtures.",
+    "confidence": 0.7
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "The urinal porcelain has completely shattered into sharp pieces across the floor",
+        "status": "contradicted",
+        "reason": "The image clearly shows the urinals are intact and mounted on the wall, not shattered on the floor."
+      },
+      {
+        "claim": "A heavy object fell on it",
+        "status": "unverifiable",
+        "reason": "There is no visible damage to the urinals to confirm what caused any alleged impact, though bricks are present on the floor."
+      },
+      {
+        "claim": "The image does not match the user description of a shattered urinal on the floor (ambiguity in provided image vs text).",
+        "status": "supported",
+        "reason": "The text claim of a shattered urinal directly conflicts with the visible evidence of intact urinals in the image."
+      }
+    ],
+    "verified_facts": [
+      "The image does not match the user description of a shattered urinal on the floor (ambiguity in provided image vs text).",
+      "Three wall-mounted urinals in a tiled restroom",
+      "Bricks placed on the floor under the urinals",
+      "Rust and staining around the fixtures and floor"
+    ],
+    "contradicted_claims": [
+      "The urinal porcelain has completely shattered into sharp pieces across the floor"
+    ],
+    "unverifiable_claims": [
+      "A heavy object fell on it"
+    ],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user claims a urinal is completely shattered on the floor, but the image shows intact wall-mounted urinals with bricks underneath."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

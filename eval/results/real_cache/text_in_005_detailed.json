@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "problem": "Pothole with loose gravel on road surface",
+    "category": "Infrastructure",
+    "subcategory": "Road Maintenance",
+    "location": "Near the outer parking lot",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The presence of loose gravel and a pothole creates a significant skidding hazard for two-wheeled vehicles, posing a risk to rider safety.",
+    "department": "Public Works / Road Maintenance",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Section of road near outer parking lot has broken down",
+      "Shallow pothole present",
+      "Loose gravel in the pothole",
+      "Causing skidding hazards for two-wheelers"
+    ],
+    "inferred_information": [
+      "The road surface integrity is compromised (uncertainty: extent of subsurface damage unknown)"
+    ],
+    "missing_information": [
+      "Specific dimensions of the pothole",
+      "Exact GPS coordinates or building reference",
+      "Visual confirmation of the road material type"
+    ],
+    "recommended_action": "Inspect the site to clear loose debris and perform asphalt patching or road surface repair to restore traction.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

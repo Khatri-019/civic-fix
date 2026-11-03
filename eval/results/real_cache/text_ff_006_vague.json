@@ -1,0 +1,27 @@
+{
+  "issue": {
+    "problem": "Broken railing on stairs",
+    "category": "Infrastructure",
+    "subcategory": "Staircase / Handrail",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A broken railing on stairs poses a significant safety risk for falls and loss of balance.",
+    "department": "Facilities Maintenance",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The railing on the stairs is broken"
+    ],
+    "inferred_information": [
+      "The railing may be detached or structurally compromised (uncertainty: extent of damage is unknown)"
+    ],
+    "missing_information": [
+      "Specific location of the stairs",
+      "Visual evidence of the damage",
+      "Duration of the issue"
+    ],
+    "recommended_action": "Inspect the railing for structural integrity and perform immediate repairs or install temporary safety barriers.",
+    "confidence": 0.8
+  },
+  "model": "gemini-3.1-flash-lite"
+}

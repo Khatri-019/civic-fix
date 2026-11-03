@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "problem": "Presence of dead insects, egg cases, and scattered droppings on the common room table",
+    "category": "Sanitation",
+    "subcategory": "Pest Contamination / Cleaning",
+    "location": "Block B common room table",
+    "duration": "Since yesterday",
+    "severity": "High",
+    "severity_reason": "Significant impact on sanitation and health risks due to droppings and insect contamination in a shared common area.",
+    "department": "Sanitation / Housekeeping / Pest Control",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Multiple dead insects are on the common room table in block B",
+      "Egg cases are present on the common room table in block B",
+      "Scattered droppings are present on the common room table in block B",
+      "The issue has been present since yesterday"
+    ],
+    "inferred_information": [
+      "Likely pest infestation requiring professional cleaning and potential pest control (uncertain exact pest species without visual confirmation)"
+    ],
+    "missing_information": [
+      "Visual evidence (no image provided)",
+      "Exact species of the insects and droppings",
+      "Specific table identifier or room number within Block B"
+    ],
+    "recommended_action": "Dispatch housekeeping and pest control to inspect, clean, and sanitize the common room table and surrounding area in Block B.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.5-flash-lite"
+}

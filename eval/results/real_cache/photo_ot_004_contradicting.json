@@ -1,0 +1,56 @@
+{
+  "issue": {
+    "problem": "Fallen tree blocking the road/sidewalk",
+    "category": "Transport",
+    "subcategory": "Road Obstruction",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Meaningful inconvenience and maintenance needed, though the visual evidence contradicts the user's extreme claim of an entire uprooted forest burying a multi-lane highway.",
+    "department": "Transportation / Public Works",
+    "observed_evidence": [
+      "A single fallen birch tree with branches is lying across the curb and edge of the pavement.",
+      "Road surface and surroundings appear largely clear, contrary to the user's description."
+    ],
+    "user_reported_facts": [
+      "An entire uprooted forest has collapsed and completely buried the multi-lane highway under mountains of soil."
+    ],
+    "inferred_information": [
+      "The user's description is heavily exaggerated compared to the actual visual evidence (uncertainty noted regarding scale)."
+    ],
+    "missing_information": [
+      "Specific location/address",
+      "Exact duration of the issue"
+    ],
+    "recommended_action": "Dispatch road maintenance crew to remove the fallen tree and clear any minor debris.",
+    "confidence": 0.7
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "An entire uprooted forest has collapsed and completely buried the multi-lane highway under mountains of soil.",
+        "status": "contradicted",
+        "reason": "The image shows only a single fallen birch tree at the curb, with the road surface and surroundings largely clear."
+      },
+      {
+        "claim": "The user's description is heavily exaggerated compared to the actual visual evidence (uncertainty noted regarding scale).",
+        "status": "supported",
+        "reason": "Visual evidence of a single tree clearly contradicts the description of an entire forest burying a highway."
+      }
+    ],
+    "verified_facts": [
+      "The user's description is heavily exaggerated compared to the actual visual evidence (uncertainty noted regarding scale).",
+      "A single fallen birch tree with branches is lying across the curb and edge of the pavement.",
+      "Road surface and surroundings appear largely clear, contrary to the user's description."
+    ],
+    "contradicted_claims": [
+      "An entire uprooted forest has collapsed and completely buried the multi-lane highway under mountains of soil."
+    ],
+    "unverifiable_claims": [],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user claims an entire uprooted forest has buried a multi-lane highway, whereas the image shows only a single fallen birch tree on the edge of the pavement."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Accumulation of garbage and stagnant water near the gate",
+    "category": "Sanitation",
+    "subcategory": "Drainage and Waste Management",
+    "location": "Gate area",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Stagnant water and garbage accumulation pose significant sanitation and health risks to users.",
+    "department": "Public Works / Sanitation Department",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Garbage is present near the gate",
+      "Dirty water is blocked near the gate"
+    ],
+    "inferred_information": [
+      "The blockage may be caused by debris obstructing a drain (uncertain)"
+    ],
+    "missing_information": [
+      "Specific location address",
+      "Duration of the blockage",
+      "Visual confirmation of the blockage source"
+    ],
+    "recommended_action": "Dispatch a sanitation crew to clear the debris and unblock the drainage system to prevent health hazards.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.1-flash-lite"
+}

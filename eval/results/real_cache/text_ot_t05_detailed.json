@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "problem": "Foul-smelling, brownish water discharge from a water cooler",
+    "category": "Plumbing / Water",
+    "subcategory": "Water Quality / Dispenser Issue",
+    "location": "Second floor of the science block",
+    "duration": "Since the last two days",
+    "severity": "High",
+    "severity_reason": "Contaminated drinking water poses a significant impact on health and sanitation for building occupants.",
+    "department": "Facilities Management / Public Health",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The water cooler has a foul smell.",
+      "The water cooler has a brownish discharge.",
+      "The issue has persisted for the last two days.",
+      "The water cooler is located on the second floor of the science block."
+    ],
+    "inferred_information": [
+      "The water supply or internal filtration system of the water cooler is contaminated (uncertain technical conclusion)."
+    ],
+    "missing_information": [
+      "Visual confirmation of the water condition",
+      "Exact make and model of the water cooler",
+      "Number of people affected"
+    ],
+    "recommended_action": "Immediately disable the water cooler to prevent consumption, place an 'Out of Order' sign, and dispatch a plumbing or water quality maintenance team to inspect and sanitize the unit.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.5-flash-lite"
+}

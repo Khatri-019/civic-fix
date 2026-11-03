@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "problem": "Broken and rusted railing on hostel steps",
+    "category": "Infrastructure",
+    "subcategory": "Staircase / Handrail",
+    "location": "Hostel steps",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A broken railing on stairs poses a significant safety risk for falls and injury.",
+    "department": "Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Railing is rusted",
+      "Railing is broken",
+      "Location is hostel steps",
+      "User perceives the situation as dangerous"
+    ],
+    "inferred_information": [
+      "The railing may be structurally unstable due to rust (uncertainty: extent of corrosion not verified)"
+    ],
+    "missing_information": [
+      "Specific hostel building or floor number",
+      "Visual confirmation of the break point",
+      "Date/time the damage was first noticed"
+    ],
+    "recommended_action": "Immediately cordon off the affected staircase and dispatch a maintenance team to assess structural integrity and perform repairs.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.1-flash-lite"
+}

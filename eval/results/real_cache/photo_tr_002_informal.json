@@ -1,0 +1,67 @@
+{
+  "issue": {
+    "problem": "Shattered bus stop glass and structural damage",
+    "category": "Infrastructure",
+    "subcategory": "Bus Shelter",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant impact on safety and accessibility due to shattered glass and debris near a waiting area.",
+    "department": "Transportation / Public Works",
+    "observed_evidence": [
+      "Shattered glass covering the ground inside and outside the bus shelter",
+      "Damaged or displaced structural elements and concrete blocks of the shelter",
+      "Blue waste bin next to the shelter",
+      "Roadway and sidewalk visible nearby"
+    ],
+    "user_reported_facts": [
+      "Bus stop glass is shattered everywhere",
+      "Dangerous for students waiting"
+    ],
+    "inferred_information": [
+      "The shelter has suffered recent impact or vandalism (uncertain exact cause)"
+    ],
+    "missing_information": [
+      "Exact street address or location",
+      "Duration of the issue",
+      "Whether the area has been cordoned off"
+    ],
+    "recommended_action": "Dispatch cleanup crew to remove broken glass immediately and schedule structural repair or replacement of the bus shelter.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Bus stop glass is shattered everywhere",
+        "status": "supported",
+        "reason": "The image clearly shows shattered glass covering the ground both inside and outside the bus shelter."
+      },
+      {
+        "claim": "Dangerous for students waiting",
+        "status": "supported",
+        "reason": "The presence of extensive shattered glass and damaged structural elements at a bus shelter inherently creates a hazardous environment for anyone waiting there."
+      },
+      {
+        "claim": "The shelter has suffered recent impact or vandalism (uncertain exact cause)",
+        "status": "supported",
+        "reason": "The image shows severe physical damage including shattered glass and displaced concrete blocks, which is consistent with impact or vandalism."
+      }
+    ],
+    "verified_facts": [
+      "Bus stop glass is shattered everywhere",
+      "Dangerous for students waiting",
+      "The shelter has suffered recent impact or vandalism (uncertain exact cause)",
+      "Shattered glass covering the ground inside and outside the bus shelter",
+      "Damaged or displaced structural elements and concrete blocks of the shelter",
+      "Blue waste bin next to the shelter",
+      "Roadway and sidewalk visible nearby"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

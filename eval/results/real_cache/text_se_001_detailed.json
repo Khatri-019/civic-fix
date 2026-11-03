@@ -1,0 +1,30 @@
+{
+  "issue": {
+    "problem": "Splintered and cracked wooden door frame around the brass handle",
+    "category": "Infrastructure",
+    "subcategory": "Door/Entryway",
+    "location": "Block C",
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "The damage compromises the structural integrity of the door frame and presents a potential security vulnerability.",
+    "department": "Facilities Maintenance",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Wooden door frame is splintered and cracked",
+      "Damage is located around the brass handle",
+      "Location is Block C",
+      "User perceives a minor security risk"
+    ],
+    "inferred_information": [
+      "The door may be difficult to lock or secure properly due to the frame damage (uncertainty: high)"
+    ],
+    "missing_information": [
+      "Visual confirmation of the extent of the cracking",
+      "Duration of the issue",
+      "Whether the door is currently functional or locked"
+    ],
+    "recommended_action": "Inspect the door frame for structural stability and perform necessary carpentry repairs to secure the locking mechanism.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

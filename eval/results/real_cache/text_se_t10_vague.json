@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Emergency security threat at hostel boundary",
+    "category": "Security",
+    "subcategory": "Boundary Security",
+    "location": "Hostel boundary",
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "An emergency security threat indicates immediate danger requiring urgent response.",
+    "department": "Security Department",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Emergency security threat at hostel boundary"
+    ],
+    "inferred_information": [
+      "The security threat is currently active or recent (uncertain due to lack of details)"
+    ],
+    "missing_information": [
+      "Specific nature of the security threat",
+      "Exact location coordinates",
+      "Visual evidence",
+      "Whether any individuals are currently in danger"
+    ],
+    "recommended_action": "Immediately dispatch campus security personnel to the hostel boundary to assess and neutralize the threat.",
+    "confidence": 0.5
+  },
+  "model": "gemini-3.5-flash-lite"
+}

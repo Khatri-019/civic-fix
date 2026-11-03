@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Ceiling damage near tube light fixture",
+    "category": "Infrastructure",
+    "subcategory": "Ceiling / Lighting",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Ceiling damage near electrical fixtures poses a potential risk of electrical hazard or structural failure if left unaddressed.",
+    "department": "Facilities Maintenance",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Issue located in the ceiling area near a tube light"
+    ],
+    "inferred_information": [
+      "The issue may involve water damage, structural cracking, or electrical wiring exposure, but this is uncertain without visual confirmation."
+    ],
+    "missing_information": [
+      "Specific location within the building",
+      "Nature of the ceiling issue (e.g., water leak, crack, sagging, exposed wires)",
+      "Duration of the issue",
+      "Visual evidence of the damage"
+    ],
+    "recommended_action": "Conduct a physical inspection of the ceiling area near the tube light to assess for water damage, electrical hazards, or structural instability.",
+    "confidence": 0.4
+  },
+  "model": "gemini-3.1-flash-lite"
+}

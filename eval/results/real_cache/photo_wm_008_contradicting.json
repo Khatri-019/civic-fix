@@ -1,0 +1,74 @@
+{
+  "issue": {
+    "problem": "Active fire involving waste bins and significant litter accumulation",
+    "category": "Waste Management",
+    "subcategory": "Illegal burning / Waste overflow",
+    "location": "Park area",
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "An active fire in a public space poses an immediate threat to public safety and air quality.",
+    "department": "Fire and Rescue / Sanitation Department",
+    "observed_evidence": [
+      "Person wearing high-visibility vest and protective gloves",
+      "Large volume of plastic bottles and waste scattered on grass",
+      "Individual is manually handling waste items"
+    ],
+    "user_reported_facts": [
+      "Overflowing steel garbage bins are on fire",
+      "Toxic black smoke is present across the park area"
+    ],
+    "inferred_information": [
+      "The fire is likely burning plastic waste, which supports the user's claim of toxic smoke (uncertainty: chemical composition of smoke not verified)",
+      "The individual in the image appears to be performing a cleanup operation, which contradicts the 'overflowing' state if they are actively clearing it (uncertainty: whether the cleanup is in response to the fire or routine)"
+    ],
+    "missing_information": [
+      "Specific park name or address",
+      "Current status of emergency services notification",
+      "Exact location of the burning bins (not visible in the provided image)"
+    ],
+    "recommended_action": "Immediately contact local emergency services (Fire Department) to extinguish the fire and secure the area; initiate professional hazardous waste cleanup.",
+    "confidence": 0.85
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Overflowing steel garbage bins are on fire",
+        "status": "contradicted",
+        "reason": "The image shows waste scattered on the grass and no steel bins or fire are visible."
+      },
+      {
+        "claim": "Toxic black smoke is present across the park area",
+        "status": "unverifiable",
+        "reason": "There is no smoke visible in the provided image."
+      },
+      {
+        "claim": "The fire is likely burning plastic waste, which supports the user's claim of toxic smoke (uncertainty: chemical composition of smoke not verified)",
+        "status": "contradicted",
+        "reason": "No fire is present in the image to support the claim that plastic waste is being burned."
+      },
+      {
+        "claim": "The individual in the image appears to be performing a cleanup operation, which contradicts the 'overflowing' state if they are actively clearing it (uncertainty: whether the cleanup is in response to the fire or routine)",
+        "status": "supported",
+        "reason": "The individual is clearly seen manually handling and collecting scattered waste, which is consistent with a cleanup operation."
+      }
+    ],
+    "verified_facts": [
+      "The individual in the image appears to be performing a cleanup operation, which contradicts the 'overflowing' state if they are actively clearing it (uncertainty: whether the cleanup is in response to the fire or routine)",
+      "Person wearing high-visibility vest and protective gloves",
+      "Large volume of plastic bottles and waste scattered on grass",
+      "Individual is manually handling waste items"
+    ],
+    "contradicted_claims": [
+      "Overflowing steel garbage bins are on fire",
+      "The fire is likely burning plastic waste, which supports the user's claim of toxic smoke (uncertainty: chemical composition of smoke not verified)"
+    ],
+    "unverifiable_claims": [
+      "Toxic black smoke is present across the park area"
+    ],
+    "contradiction_count": 2,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The image shows a person manually cleaning up scattered plastic waste, whereas the report describes a fire involving overflowing steel garbage bins."
+  },
+  "model": "gemini-3.1-flash-lite"
+}

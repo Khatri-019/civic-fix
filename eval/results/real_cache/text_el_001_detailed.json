@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Severe peeling of ceiling plaster and paint surrounding a light fixture",
+    "category": "Infrastructure",
+    "subcategory": "Ceiling/Structural",
+    "location": "Hallway ceiling",
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "The peeling plaster poses a potential falling hazard and indicates underlying structural or moisture issues that require maintenance.",
+    "department": "Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Double tube light fixture is functional",
+      "Ceiling plaster and paint are severely peeling off directly above the light fixture"
+    ],
+    "inferred_information": [
+      "Potential moisture damage or poor adhesion of ceiling finish (uncertain)"
+    ],
+    "missing_information": [
+      "Exact location (building/floor)",
+      "Duration of the issue",
+      "Presence of water leaks or dampness"
+    ],
+    "recommended_action": "Inspect the ceiling for moisture intrusion or structural degradation and schedule repair of the plaster and paint.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

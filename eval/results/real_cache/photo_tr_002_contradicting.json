@@ -1,0 +1,69 @@
+{
+  "issue": {
+    "problem": "Bus shelter structural damage and shattered glass",
+    "category": "Infrastructure",
+    "subcategory": "Public Transit Facilities",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Shattered glass and structural debris pose a significant safety hazard to pedestrians and transit users.",
+    "department": "Department of Transportation / Public Works",
+    "observed_evidence": [
+      "Bus shelter glass panels are shattered",
+      "Structural frame of the shelter is damaged and partially collapsed",
+      "Debris and broken glass are scattered on the sidewalk",
+      "No floodwater is visible in the image"
+    ],
+    "user_reported_facts": [
+      "The bus shelter structure is completely submerged in deep floodwater overflowing from the road."
+    ],
+    "inferred_information": [
+      "The user's report of flooding is contradicted by the visual evidence, which shows a dry sidewalk (Uncertainty: High)",
+      "The damage appears consistent with a physical impact or vandalism rather than flood damage"
+    ],
+    "missing_information": [
+      "Specific location/address",
+      "Time of incident",
+      "Cause of damage"
+    ],
+    "recommended_action": "Dispatch maintenance crew to clear broken glass and secure or remove the damaged shelter structure to prevent injury.",
+    "confidence": 0.8
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "The bus shelter structure is completely submerged in deep floodwater overflowing from the road.",
+        "status": "contradicted",
+        "reason": "The image shows a dry sidewalk with no visible floodwater."
+      },
+      {
+        "claim": "The user's report of flooding is contradicted by the visual evidence, which shows a dry sidewalk (Uncertainty: High)",
+        "status": "supported",
+        "reason": "The image clearly shows a dry sidewalk, which contradicts the user's report of flooding."
+      },
+      {
+        "claim": "The damage appears consistent with a physical impact or vandalism rather than flood damage",
+        "status": "unverifiable",
+        "reason": "While the damage is visible, the specific cause (vandalism vs. other physical impact) cannot be definitively determined from the image alone."
+      }
+    ],
+    "verified_facts": [
+      "The user's report of flooding is contradicted by the visual evidence, which shows a dry sidewalk (Uncertainty: High)",
+      "Bus shelter glass panels are shattered",
+      "Structural frame of the shelter is damaged and partially collapsed",
+      "Debris and broken glass are scattered on the sidewalk",
+      "No floodwater is visible in the image"
+    ],
+    "contradicted_claims": [
+      "The bus shelter structure is completely submerged in deep floodwater overflowing from the road."
+    ],
+    "unverifiable_claims": [
+      "The damage appears consistent with a physical impact or vandalism rather than flood damage"
+    ],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user reports flooding, but the image shows structural damage and shattered glass with no evidence of water."
+  },
+  "model": "gemini-3.1-flash-lite"
+}

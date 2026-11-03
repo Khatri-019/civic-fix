@@ -1,0 +1,27 @@
+{
+  "issue": {
+    "problem": "Academic block corridor floor littered with dry leaves and debris",
+    "category": "Cleaning / Housekeeping",
+    "subcategory": "Corridor Cleaning",
+    "location": "Academic block corridor",
+    "duration": "Two days",
+    "severity": "Low",
+    "severity_reason": "It causes minor aesthetic inconvenience and untidiness with no immediate safety hazard.",
+    "department": "Housekeeping / Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The academic block corridor floor has been littered with dry leaves and debris",
+      "It has been present for two days without any cleaning"
+    ],
+    "inferred_information": [
+      "Regular cleaning schedules may have been missed (uncertain)"
+    ],
+    "missing_information": [
+      "Exact building name or floor number within the academic block",
+      "Visual confirmation of the debris"
+    ],
+    "recommended_action": "Dispatch housekeeping staff to sweep and clear the dry leaves and debris from the corridor floor.",
+    "confidence": 0.8
+  },
+  "model": "gemini-3.5-flash-lite"
+}

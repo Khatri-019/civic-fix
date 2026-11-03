@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Complete loss of network connectivity across the wing",
+    "category": "Internet / Network",
+    "subcategory": "Network outage",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A complete network outage across an entire wing significantly impacts essential services and work productivity.",
+    "department": "IT / Network Infrastructure",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Net connectivity is completely gone across our wing."
+    ],
+    "inferred_information": [
+      "The issue affects multiple users in a specific wing, possibly due to a localized router, switch, or ISP failure (uncertain technical cause)."
+    ],
+    "missing_information": [
+      "Location / building name",
+      "Specific wing identifier",
+      "Duration of the outage",
+      "Whether wired, wireless, or both networks are affected",
+      "Image evidence"
+    ],
+    "recommended_action": "Dispatch an IT technician to inspect the local network switches, routers, and upstream connections serving the affected wing.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.5-flash-lite"
+}

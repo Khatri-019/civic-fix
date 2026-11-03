@@ -1,0 +1,71 @@
+{
+  "issue": {
+    "problem": "Cockroach infestation and debris",
+    "category": "Sanitation",
+    "subcategory": "Pest Control",
+    "location": "Corridor",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant impact on sanitation and health due to an active pest infestation.",
+    "department": "Sanitation / Pest Control",
+    "observed_evidence": [
+      "Several small brownish egg casings and insect remains on a light-colored surface",
+      "Small dark particulate debris scattered across the surface"
+    ],
+    "user_reported_facts": [
+      "Thousands of live cockroaches are crawling up the walls",
+      "Cockroaches are biting students",
+      "The issue is present in the entire corridor"
+    ],
+    "inferred_information": [
+      "Uncertain whether cockroaches are actively biting students, as standard cockroach behavior rarely involves biting humans (uncertainty noted)"
+    ],
+    "missing_information": [
+      "Exact building or facility name",
+      "Specific corridor or floor number"
+    ],
+    "recommended_action": "Dispatch pest control services immediately to inspect and treat the corridor for a cockroach infestation.",
+    "confidence": 0.85
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Thousands of live cockroaches are crawling up the walls",
+        "status": "contradicted",
+        "reason": "The image only shows a few small egg casings and insect remains on a surface, not thousands of live cockroaches crawling on walls."
+      },
+      {
+        "claim": "Cockroaches are biting students",
+        "status": "unverifiable",
+        "reason": "There is no visual evidence in the image regarding students or bites."
+      },
+      {
+        "claim": "The issue is present in the entire corridor",
+        "status": "unverifiable",
+        "reason": "The image only shows a close-up of a localized surface, providing no context about the entire corridor."
+      },
+      {
+        "claim": "Uncertain whether cockroaches are actively biting students, as standard cockroach behavior rarely involves biting humans (uncertainty noted)",
+        "status": "unverifiable",
+        "reason": "This is a general statement of behavioral uncertainty that cannot be verified solely by the provided image evidence."
+      }
+    ],
+    "verified_facts": [
+      "Several small brownish egg casings and insect remains on a light-colored surface",
+      "Small dark particulate debris scattered across the surface"
+    ],
+    "contradicted_claims": [
+      "Thousands of live cockroaches are crawling up the walls"
+    ],
+    "unverifiable_claims": [
+      "Cockroaches are biting students",
+      "The issue is present in the entire corridor",
+      "Uncertain whether cockroaches are actively biting students, as standard cockroach behavior rarely involves biting humans (uncertainty noted)"
+    ],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The image shows small egg casings and insect remains on a surface, whereas the user is reporting thousands of live cockroaches crawling up walls and biting students."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

@@ -1,0 +1,31 @@
+{
+  "issue": {
+    "problem": "Rash driving by college bus driver",
+    "category": "Transport",
+    "subcategory": "Bus Operations",
+    "location": "near the highway cut",
+    "duration": "today morning",
+    "severity": "High",
+    "severity_reason": "Rash driving presents a significant impact on safety for passengers and others on the road.",
+    "department": "Transport / Fleet Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "College bus driver was rash driving",
+      "Occurred today morning",
+      "Occurred near the highway cut"
+    ],
+    "inferred_information": [
+      "The bus belongs to the college (uncertain as specific college name was not provided)"
+    ],
+    "missing_information": [
+      "Bus number or registration details",
+      "Name of the college",
+      "Exact time",
+      "Specific highway location",
+      "Visual evidence"
+    ],
+    "recommended_action": "Contact the college transport department to report the driver and review safety protocols.",
+    "confidence": 0.6
+  },
+  "model": "gemini-3.5-flash-lite"
+}

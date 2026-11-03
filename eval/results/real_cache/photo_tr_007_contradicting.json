@@ -1,0 +1,59 @@
+{
+  "issue": {
+    "problem": "Damaged guardrail and debris on roadside",
+    "category": "Infrastructure",
+    "subcategory": "Road Safety Barrier",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The damaged guardrail poses a significant safety risk to motorists as it is no longer capable of providing necessary protection.",
+    "department": "Department of Transportation / Public Works",
+    "observed_evidence": [
+      "Bent and deformed metal guardrail",
+      "Dislodged or broken guardrail support posts",
+      "Debris scattered on the ground near the guardrail"
+    ],
+    "user_reported_facts": [
+      "User claims an entire section of a concrete highway flyover has broken off and fallen onto the road below."
+    ],
+    "inferred_information": [
+      "The user's description of a 'concrete flyover' collapse is inconsistent with the image, which shows a damaged metal guardrail; the image likely depicts the aftermath of a vehicle collision with the barrier (uncertainty: high)."
+    ],
+    "missing_information": [
+      "Specific location of the incident",
+      "Time of occurrence",
+      "Confirmation of whether a structural collapse of a flyover actually occurred elsewhere"
+    ],
+    "recommended_action": "Dispatch emergency road maintenance crew to secure the area, remove debris, and repair the damaged guardrail; verify the structural integrity of the nearby flyover to address the user's report.",
+    "confidence": 0.6
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "User claims an entire section of a concrete highway flyover has broken off and fallen onto the road below.",
+        "status": "contradicted",
+        "reason": "The image shows only a damaged metal guardrail and debris, with no evidence of a structural concrete flyover collapse."
+      },
+      {
+        "claim": "The user's description of a 'concrete flyover' collapse is inconsistent with the image, which shows a damaged metal guardrail; the image likely depicts the aftermath of a vehicle collision with the barrier (uncertainty: high).",
+        "status": "supported",
+        "reason": "The visual evidence of bent metal and dislodged posts is consistent with a vehicle collision rather than a structural failure of a concrete flyover."
+      }
+    ],
+    "verified_facts": [
+      "The user's description of a 'concrete flyover' collapse is inconsistent with the image, which shows a damaged metal guardrail; the image likely depicts the aftermath of a vehicle collision with the barrier (uncertainty: high).",
+      "Bent and deformed metal guardrail",
+      "Dislodged or broken guardrail support posts",
+      "Debris scattered on the ground near the guardrail"
+    ],
+    "contradicted_claims": [
+      "User claims an entire section of a concrete highway flyover has broken off and fallen onto the road below."
+    ],
+    "unverifiable_claims": [],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The image shows minor damage to a metal guardrail, which does not correspond to the user's report of a major structural collapse of a concrete highway flyover."
+  },
+  "model": "gemini-3.1-flash-lite"
+}

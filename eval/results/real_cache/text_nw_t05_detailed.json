@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Extremely weak hostel room wifi signal",
+    "category": "Internet / Network",
+    "subcategory": "Wi-Fi Signal Strength",
+    "location": "Hostel room desk area",
+    "duration": "Past two days",
+    "severity": "Medium",
+    "severity_reason": "Meaningful inconvenience affecting academic activities like online lectures, but not a safety emergency.",
+    "department": "IT / Network Services",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Hostel room wifi signal has been extremely weak for the past two days",
+      "Making it difficult to attend online lectures from the desk"
+    ],
+    "inferred_information": [
+      "Network connectivity issue is localized to the user's hostel room area [uncertain if router-specific or building-wide]"
+    ],
+    "missing_information": [
+      "Image evidence",
+      "Hostel room number or building name",
+      "Specific device affected",
+      "Whether other students in adjacent rooms are experiencing the same issue"
+    ],
+    "recommended_action": "Check the local wireless access point near the room, restart network hardware if necessary, and investigate signal interference or bandwidth throttling.",
+    "confidence": 0.8
+  },
+  "model": "gemini-3.5-flash-lite"
+}

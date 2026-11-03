@@ -1,0 +1,27 @@
+{
+  "issue": {
+    "problem": "Presence of dead bugs and droppings on a hostel study table",
+    "category": "Cleaning / Housekeeping",
+    "subcategory": "Pest residue cleaning",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Meaningful inconvenience and sanitation issue requiring maintenance, though not an immediate danger.",
+    "department": "Housekeeping",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Dead bugs and droppings are present all over the hostel study table",
+      "Needs cleaning asap"
+    ],
+    "inferred_information": [
+      "Pest presence is likely indicated by the droppings and dead bugs, though the specific pest type is unverified"
+    ],
+    "missing_information": [
+      "location",
+      "duration"
+    ],
+    "recommended_action": "Dispatched housekeeping staff to thoroughly clean and sanitize the study table and inspect for active pest infestation.",
+    "confidence": 0.8
+  },
+  "model": "gemini-3.5-flash-lite"
+}

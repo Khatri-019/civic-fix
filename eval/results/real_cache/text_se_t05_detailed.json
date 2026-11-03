@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Back gate near the library left unguarded and wide open at night",
+    "category": "Security",
+    "subcategory": "Gate / Access Control",
+    "location": "Back gate near the library, hostel zone",
+    "duration": "Past midnight",
+    "severity": "High",
+    "severity_reason": "Leaving access points unguarded and open late at night significantly impacts the safety and security of the hostel zone.",
+    "department": "Security / Campus Administration",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The back gate near the library was left completely unguarded and wide open past midnight",
+      "Random outsiders were able to walk right into the hostel zone"
+    ],
+    "inferred_information": [
+      "Uncertain whether this is a recurring issue or an isolated incident [inferred from single user report]"
+    ],
+    "missing_information": [
+      "Visual evidence of the gate",
+      "Specific time the gate was found open",
+      "Whether the gate is supposed to be locked automatically"
+    ],
+    "recommended_action": "Dispatch security personnel to inspect and secure the back gate immediately, and review access control protocols.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.5-flash-lite"
+}

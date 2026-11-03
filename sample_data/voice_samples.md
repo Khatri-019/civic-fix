@@ -14,4 +14,7 @@ The matching `.wav` files in this folder were generated with Windows text-to-spe
 
 ## Contradiction demo (text + mismatched image)
 Text: "A pipe burst and the whole street is flooded, water everywhere for a week."
-Image: `broken_light.png` → the audit should flag the flooding claims as contradicted.
+Image: `broken_light.png` → the app warns "Your photo doesn't match your description" and offers
+Re-upload photo / Edit description / Continue with my description. **Continue** re-classifies from the text
+(Plumbing / Water) and the complaint ends with a note that the photo could not confirm the details.
+This case is pre-cached in `demo_cache/` (type the text exactly as above).

@@ -11,7 +11,12 @@ build/
 eval/results/*.json
 eval/results/*.csv
 models/saved/
+models/saved_synthetic/
 data/synthetic/*.csv
 data/real/*.csv
+data/real/images/
+data/real/audio/
+data/real/consent/
+data/real/manifests/cache/
 demo_cache/
 eval/results/cache/

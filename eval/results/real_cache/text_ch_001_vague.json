@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Accumulated garbage on hostel corridor floor",
+    "category": "Sanitation",
+    "subcategory": "Litter / Debris",
+    "location": "Hostel corridor",
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Accumulated garbage creates meaningful inconvenience and sanitation concerns, though it does not represent immediate danger.",
+    "department": "Housekeeping / Sanitation Department",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Lot of garbage lying on the hostel corridor floor"
+    ],
+    "inferred_information": [
+      "The garbage is likely from hostel residents, but the exact source or how long it has been there is uncertain."
+    ],
+    "missing_information": [
+      "Exact location within the hostel",
+      "Specific type of garbage",
+      "Duration of the issue",
+      "Visual confirmation via image"
+    ],
+    "recommended_action": "Dispatch housekeeping staff to clear the corridor floor and properly dispose of the garbage.",
+    "confidence": 0.8
+  },
+  "model": "gemini-3.5-flash-lite"
+}

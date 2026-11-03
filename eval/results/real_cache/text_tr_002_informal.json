@@ -1,0 +1,27 @@
+{
+  "issue": {
+    "problem": "Shattered glass at bus stop",
+    "category": "Infrastructure",
+    "subcategory": "Bus Shelter",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Shattered glass presents a significant safety hazard to students and waiting passengers.",
+    "department": "Public Works / Transportation",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Bus stop glass is shattered everywhere",
+      "Dangerous for students waiting"
+    ],
+    "inferred_information": [
+      "The bus shelter is likely damaged due to vandalism or an accident (uncertain cause)."
+    ],
+    "missing_information": [
+      "location",
+      "duration"
+    ],
+    "recommended_action": "Dispatch maintenance crew to clean up the shattered glass and secure or replace the damaged bus stop panels.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.5-flash-lite"
+}

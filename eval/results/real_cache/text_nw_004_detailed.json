@@ -1,0 +1,31 @@
+{
+  "issue": {
+    "problem": "Network cabinet detached from wall mount",
+    "category": "Infrastructure",
+    "subcategory": "IT/Network Hardware",
+    "location": "2nd floor IT closet",
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "The cabinet is leaning dangerously and pulling on cables, posing an immediate risk of equipment damage, electrical hazard, or physical injury.",
+    "department": "IT / Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Network cabinet has torn off its wall mount",
+      "Cabinet is leaning at a steep angle",
+      "Server cables are tangled and pulling tight",
+      "Located in the 2nd floor IT closet"
+    ],
+    "inferred_information": [
+      "Potential for cable disconnection or port damage due to tension (uncertainty: extent of internal damage)",
+      "Risk of cabinet falling completely if not stabilized (uncertainty: structural integrity of the remaining mount)"
+    ],
+    "missing_information": [
+      "Exact time of occurrence",
+      "Current status of network connectivity",
+      "Presence of exposed electrical wiring"
+    ],
+    "recommended_action": "Immediately restrict access to the IT closet, disconnect power if safe to do so, and dispatch a facilities technician to stabilize or secure the cabinet.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.1-flash-lite"
+}

@@ -1,0 +1,5 @@
+# The file watcher scans every loaded module, including transformers' lazy image-model modules,
+# and logs a torchvision ModuleNotFoundError traceback for each. Disabling it silences that noise;
+# restart the app after editing code.
+[server]
+fileWatcherType = "none"

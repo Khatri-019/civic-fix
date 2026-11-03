@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Fallen trees blocking woodland path",
+    "category": "Infrastructure",
+    "subcategory": "Trail Maintenance",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The blockage completely obstructs the path, posing a safety hazard and preventing accessibility.",
+    "department": "Parks and Recreation / Public Works",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Massive trees fell across the woodland path",
+      "The walking trail is completely blocked"
+    ],
+    "inferred_information": [
+      "The blockage likely requires heavy machinery or professional tree removal services to clear (uncertainty: high, depends on tree size/type)"
+    ],
+    "missing_information": [
+      "Specific location/coordinates of the trail",
+      "Date and time of the incident",
+      "Visual confirmation of the tree size and surrounding terrain"
+    ],
+    "recommended_action": "Dispatch a maintenance crew to assess the site, clear the debris, and ensure the trail is safe for public use.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

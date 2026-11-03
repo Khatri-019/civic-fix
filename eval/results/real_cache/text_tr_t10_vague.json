@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Massive delays and disruption in campus shuttle service",
+    "category": "Transport",
+    "subcategory": "Shuttle service delay",
+    "location": null,
+    "duration": "today",
+    "severity": "Medium",
+    "severity_reason": "Meaningful inconvenience affecting campus transportation, though no immediate danger or critical hazard is indicated.",
+    "department": "Transportation Services",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Campus shuttle service is messed up today",
+      "Facing massive delays everywhere"
+    ],
+    "inferred_information": [
+      "Shuttle operations are currently experiencing widespread schedule disruptions (uncertainty: exact cause and specific routes affected are unknown)"
+    ],
+    "missing_information": [
+      "location",
+      "specific routes affected",
+      "exact duration or time of delays",
+      "root cause of the delay"
+    ],
+    "recommended_action": "Investigate the cause of the campus shuttle delays and provide real-time updates to students and staff.",
+    "confidence": 0.6
+  },
+  "model": "gemini-3.5-flash-lite"
+}

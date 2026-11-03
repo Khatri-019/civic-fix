@@ -1,0 +1,73 @@
+{
+  "issue": {
+    "problem": "Projector mount is detached or failing, causing the device to hang insecurely from the ceiling.",
+    "category": "Infrastructure",
+    "subcategory": "Ceiling Mount / AV Equipment",
+    "location": null,
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "The projector is visibly detached from its mounting plate, posing an immediate risk of falling and causing injury or equipment damage.",
+    "department": "Facilities Management",
+    "observed_evidence": [
+      "Projector is hanging at an angle from the ceiling mount",
+      "Mounting plate is visible and appears separated from the projector chassis",
+      "Visible gap between the projector and the ceiling bracket"
+    ],
+    "user_reported_facts": [
+      "Projector is hanging loosely",
+      "Risk of falling"
+    ],
+    "inferred_information": [
+      "The mounting hardware may be stripped or broken (uncertain)",
+      "The projector may be held only by cables (uncertain)"
+    ],
+    "missing_information": [
+      "Specific room or building location",
+      "Duration of the issue",
+      "Whether the projector is still powered on"
+    ],
+    "recommended_action": "Immediately secure or remove the projector to prevent it from falling; restrict access to the area directly beneath the device until repairs are completed.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Projector is hanging loosely",
+        "status": "supported",
+        "reason": "The image shows the projector hanging at an angle from the ceiling mount."
+      },
+      {
+        "claim": "Risk of falling",
+        "status": "supported",
+        "reason": "The visible separation between the projector and the mounting bracket indicates an unstable installation that poses a falling hazard."
+      },
+      {
+        "claim": "The mounting hardware may be stripped or broken (uncertain)",
+        "status": "unverifiable",
+        "reason": "While the separation is visible, the specific condition of the internal hardware cannot be confirmed without a close-up inspection."
+      },
+      {
+        "claim": "The projector may be held only by cables (uncertain)",
+        "status": "unverifiable",
+        "reason": "The image shows a gap between the projector and the mount, but it is not clear if the cables are the only thing supporting the weight."
+      }
+    ],
+    "verified_facts": [
+      "Projector is hanging loosely",
+      "Risk of falling",
+      "Projector is hanging at an angle from the ceiling mount",
+      "Mounting plate is visible and appears separated from the projector chassis",
+      "Visible gap between the projector and the ceiling bracket"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "The mounting hardware may be stripped or broken (uncertain)",
+      "The projector may be held only by cables (uncertain)"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

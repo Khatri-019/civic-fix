@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Trees obstructing pathway",
+    "category": "Infrastructure",
+    "subcategory": "Vegetation Management",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Obstruction of a pathway creates a meaningful inconvenience and potential accessibility barrier for pedestrians.",
+    "department": "Public Works / Parks and Recreation",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Trees are blocking the way"
+    ],
+    "inferred_information": [
+      "The obstruction likely affects a sidewalk, trail, or road, but the specific type of path is unconfirmed."
+    ],
+    "missing_information": [
+      "Specific location/address",
+      "Visual evidence of the obstruction",
+      "Duration of the issue",
+      "Type of path being blocked"
+    ],
+    "recommended_action": "Dispatch a maintenance crew to assess the site and perform necessary tree trimming or removal to clear the path.",
+    "confidence": 0.6
+  },
+  "model": "gemini-3.1-flash-lite"
+}

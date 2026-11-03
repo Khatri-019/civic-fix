@@ -1,0 +1,55 @@
+{
+  "issue": {
+    "problem": "Broken hostel boundary wall",
+    "category": "Infrastructure",
+    "subcategory": "Boundary Wall",
+    "location": "Hostel boundary",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant impact on safety and security due to unauthorized access risk.",
+    "department": "Maintenance and Security Department",
+    "observed_evidence": [
+      "Brick boundary wall is broken and breached in the middle section",
+      "Debris and fallen bricks are scattered on the ground near the broken wall"
+    ],
+    "user_reported_facts": [
+      "Hostel boundary wall is broken from middle letting anyone enter easily"
+    ],
+    "inferred_information": [
+      "Security may be compromised allowing unauthorized entry (uncertain whether actual intrusion has occurred)"
+    ],
+    "missing_information": [
+      "Specific hostel name or address",
+      "Exact date or duration of when the wall broke"
+    ],
+    "recommended_action": "Dispatch maintenance crew to rebuild or secure the broken section of the wall and enhance temporary security measures.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Hostel boundary wall is broken from middle letting anyone enter easily",
+        "status": "supported",
+        "reason": "The image clearly shows the brick boundary wall broken and breached in the middle section with fallen debris."
+      },
+      {
+        "claim": "Security may be compromised allowing unauthorized entry (uncertain whether actual intrusion has occurred)",
+        "status": "supported",
+        "reason": "The large gap in the boundary wall logically creates a vulnerability that compromises security and allows unauthorized entry, while not confirming an actual intrusion."
+      }
+    ],
+    "verified_facts": [
+      "Hostel boundary wall is broken from middle letting anyone enter easily",
+      "Security may be compromised allowing unauthorized entry (uncertain whether actual intrusion has occurred)",
+      "Brick boundary wall is broken and breached in the middle section",
+      "Debris and fallen bricks are scattered on the ground near the broken wall"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

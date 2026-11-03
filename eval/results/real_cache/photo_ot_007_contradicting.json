@@ -1,0 +1,57 @@
+{
+  "issue": {
+    "problem": "Multiple large fallen trees blocking a walking path",
+    "category": "Infrastructure",
+    "subcategory": "Trail Obstruction",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Large fallen trees completely block the walking path, significantly impacting accessibility and safety.",
+    "department": "Parks and Recreation",
+    "observed_evidence": [
+      "Multiple large tree trunks and branches blocking a dirt or unpaved pathway",
+      "Dense forest surroundings with green foliage"
+    ],
+    "user_reported_facts": [
+      "a single dry twig has fallen on the middle of the paved walking track"
+    ],
+    "inferred_information": [
+      "There is a major contradiction between the user description (single twig) and the image (multiple large fallen trees), uncertainty noted regarding actual conditions."
+    ],
+    "missing_information": [
+      "Exact location",
+      "Duration of the issue",
+      "Verification of whether the path is paved or unpaved"
+    ],
+    "recommended_action": "Dispatch park maintenance crew with chain saws to clear the fallen trees and branches from the path.",
+    "confidence": 0.4
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "a single dry twig has fallen on the middle of the paved walking track",
+        "status": "contradicted",
+        "reason": "The image shows multiple large tree trunks and branches blocking an unpaved pathway rather than a single twig on a paved track."
+      },
+      {
+        "claim": "There is a major contradiction between the user description (single twig) and the image (multiple large fallen trees), uncertainty noted regarding actual conditions.",
+        "status": "supported",
+        "reason": "There is a clear discrepancy between the minor debris described by the user and the major storm damage shown in the image."
+      }
+    ],
+    "verified_facts": [
+      "There is a major contradiction between the user description (single twig) and the image (multiple large fallen trees), uncertainty noted regarding actual conditions.",
+      "Multiple large tree trunks and branches blocking a dirt or unpaved pathway",
+      "Dense forest surroundings with green foliage"
+    ],
+    "contradicted_claims": [
+      "a single dry twig has fallen on the middle of the paved walking track"
+    ],
+    "unverifiable_claims": [],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user reported a single dry twig on a paved walking track, whereas the image shows multiple large fallen trees blocking an unpaved pathway in a forest."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

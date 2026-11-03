@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Road surface damage",
+    "category": "Infrastructure",
+    "subcategory": "Road Maintenance",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Road surface damage typically requires maintenance to prevent further degradation and potential vehicle damage.",
+    "department": "Department of Public Works / Transportation",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Road needs repairs"
+    ],
+    "inferred_information": [
+      "The user is likely referring to a pothole or surface crack, but the specific nature of the damage is uncertain."
+    ],
+    "missing_information": [
+      "Specific location (GPS or address)",
+      "Visual evidence of the damage",
+      "Severity of the damage (e.g., depth, size)",
+      "Duration of the issue"
+    ],
+    "recommended_action": "Request user to provide a photo of the road damage and the specific location address or coordinates.",
+    "confidence": 0.4
+  },
+  "model": "gemini-3.1-flash-lite"
+}

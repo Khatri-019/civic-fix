@@ -1,0 +1,66 @@
+{
+  "issue": {
+    "problem": "Deep vertical cracks and structural damage along the boundary wall",
+    "category": "Infrastructure",
+    "subcategory": "Boundary Wall",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant structural damage to the wall creates a potential safety hazard for people nearby.",
+    "department": "Public Works / Civil Engineering",
+    "observed_evidence": [
+      "Damaged brick boundary wall with missing sections",
+      "Rubble and loose bricks scattered on the ground near the wall",
+      "Uneven and crumbling wall structure visible"
+    ],
+    "user_reported_facts": [
+      "The boundary wall has deep vertical cracks all along its length",
+      "No part has fallen down yet"
+    ],
+    "inferred_information": [
+      "The wall appears to have already suffered partial collapse or major structural failure in sections, contradicting the user's report that no part has fallen down (uncertainty: user may be referring to a different section than the one photographed)."
+    ],
+    "missing_information": [
+      "Exact location / address",
+      "Duration of the issue",
+      "Whether the area is cordoned off for safety"
+    ],
+    "recommended_action": "Dispatch a civil engineering team to inspect the boundary wall, secure the area to prevent injury from falling bricks, and plan for structural reconstruction or repair.",
+    "confidence": 0.85
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "The boundary wall has deep vertical cracks all along its length",
+        "status": "supported",
+        "reason": "The image shows a severely damaged and crumbling brick wall structure."
+      },
+      {
+        "claim": "No part has fallen down yet",
+        "status": "contradicted",
+        "reason": "The image clearly shows missing sections of the wall and rubble scattered on the ground."
+      },
+      {
+        "claim": "The wall appears to have already suffered partial collapse or major structural failure in sections, contradicting the user's report that no part has fallen down (uncertainty: user may be referring to a different section than the one photographed).",
+        "status": "supported",
+        "reason": "The image evidences missing sections and structural failure directly contradicting the user's claim of no fallen parts."
+      }
+    ],
+    "verified_facts": [
+      "The boundary wall has deep vertical cracks all along its length",
+      "The wall appears to have already suffered partial collapse or major structural failure in sections, contradicting the user's report that no part has fallen down (uncertainty: user may be referring to a different section than the one photographed).",
+      "Damaged brick boundary wall with missing sections",
+      "Rubble and loose bricks scattered on the ground near the wall",
+      "Uneven and crumbling wall structure visible"
+    ],
+    "contradicted_claims": [
+      "No part has fallen down yet"
+    ],
+    "unverifiable_claims": [],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user claims no part has fallen down yet, but the image clearly shows missing sections and a partial collapse."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

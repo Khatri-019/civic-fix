@@ -1,0 +1,59 @@
+{
+  "issue": {
+    "problem": "Active water leak spraying from a pipe joint",
+    "category": "Plumbing / Water",
+    "subcategory": "Pipe Leak",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant active water leakage from a pressurized pipe impacts essential services and sanitation.",
+    "department": "Water and Plumbing Department",
+    "observed_evidence": [
+      "Metal piping system against a red wall",
+      "Water spraying actively from a flanged pipe joint/connection",
+      "Water droplets and mist visible around the pipe"
+    ],
+    "user_reported_facts": [
+      "The entire pipe system is completely dry and no water is coming out at all"
+    ],
+    "inferred_information": [
+      "Direct contradiction between user report (dry) and visual evidence (active spray), uncertainty noted regarding actual system state."
+    ],
+    "missing_information": [
+      "Exact physical location",
+      "Duration of the issue",
+      "Whether the water supply has been shut off"
+    ],
+    "recommended_action": "Dispatch a plumbing crew immediately to inspect the pipe joint, resolve the discrepancy between user report and visual evidence, and repair any active leaks.",
+    "confidence": 0.7
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "The entire pipe system is completely dry and no water is coming out at all",
+        "status": "contradicted",
+        "reason": "The image evidence clearly shows water actively spraying from a pipe joint."
+      },
+      {
+        "claim": "Direct contradiction between user report (dry) and visual evidence (active spray), uncertainty noted regarding actual system state.",
+        "status": "supported",
+        "reason": "The text correctly notes the contradiction between the user report of a dry system and the visual evidence of an active spray."
+      }
+    ],
+    "verified_facts": [
+      "Direct contradiction between user report (dry) and visual evidence (active spray), uncertainty noted regarding actual system state.",
+      "Metal piping system against a red wall",
+      "Water spraying actively from a flanged pipe joint/connection",
+      "Water droplets and mist visible around the pipe"
+    ],
+    "contradicted_claims": [
+      "The entire pipe system is completely dry and no water is coming out at all"
+    ],
+    "unverifiable_claims": [],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user claims the pipe system is completely dry, whereas the image clearly shows an active water spray and mist coming from the pipe."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

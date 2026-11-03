@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Heavy water leak at pipe joint",
+    "category": "Plumbing / Water",
+    "subcategory": "Pipe Leak",
+    "location": "Block C wall",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Heavy water leakage can cause structural damage, slip hazards, and significant water waste.",
+    "department": "Facilities Maintenance / Plumbing",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Pipe joint is leaking water heavily",
+      "Location is near Block C wall"
+    ],
+    "inferred_information": [
+      "The leak is active and requires immediate intervention to prevent further damage (uncertainty: exact source or cause of the leak is not specified)"
+    ],
+    "missing_information": [
+      "Specific pipe type (e.g., potable water, sewage, drainage)",
+      "Exact time the leak started",
+      "Visual confirmation of the pipe condition"
+    ],
+    "recommended_action": "Dispatch a plumber to inspect and repair the pipe joint at Block C immediately to mitigate water damage.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

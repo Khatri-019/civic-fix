@@ -1,0 +1,65 @@
+{
+  "issue": {
+    "problem": "Accumulated plastic bottles and garbage scattered on the hostel lawn",
+    "category": "Waste Management",
+    "subcategory": "Litter / Illegal Dumping",
+    "location": "Hostel lawn",
+    "duration": "2 days",
+    "severity": "Medium",
+    "severity_reason": "Meaningful inconvenience and sanitation issue needing maintenance, but not representing an immediate danger.",
+    "department": "Sanitation and Maintenance",
+    "observed_evidence": [
+      "Large amount of plastic bottles scattered on grass",
+      "Cardboard boxes and plastic bags present",
+      "General refuse mixed with plastic containers"
+    ],
+    "user_reported_facts": [
+      "Lots of plastic bottles and garbage thrown on hostel lawn",
+      "Issue has been present since 2 days"
+    ],
+    "inferred_information": [
+      "The area is outdoors on a lawn (uncertain exact hostel name or institution)."
+    ],
+    "missing_information": [
+      "Specific hostel name or building identifier",
+      "Exact campus or city location"
+    ],
+    "recommended_action": "Dispatch waste management or cleaning staff to clear the garbage and plastic bottles from the hostel lawn.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Lots of plastic bottles and garbage thrown on hostel lawn",
+        "status": "supported",
+        "reason": "The image clearly shows a large amount of plastic bottles, cardboard boxes, and general refuse scattered on grass."
+      },
+      {
+        "claim": "Issue has been present since 2 days",
+        "status": "unverifiable",
+        "reason": "The duration of the issue cannot be determined solely from a visual inspection of the image."
+      },
+      {
+        "claim": "The area is outdoors on a lawn (uncertain exact hostel name or institution).",
+        "status": "supported",
+        "reason": "The image visibly shows grass, confirming the area is outdoors on a lawn."
+      }
+    ],
+    "verified_facts": [
+      "Lots of plastic bottles and garbage thrown on hostel lawn",
+      "The area is outdoors on a lawn (uncertain exact hostel name or institution).",
+      "Large amount of plastic bottles scattered on grass",
+      "Cardboard boxes and plastic bags present",
+      "General refuse mixed with plastic containers"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Issue has been present since 2 days"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Campus shuttle operating over capacity, leaving students stranded",
+    "category": "Transport",
+    "subcategory": "Shuttle Service",
+    "location": "Main gate",
+    "duration": "Single occurrence at 8:30 AM",
+    "severity": "Medium",
+    "severity_reason": "Meaningful inconvenience causing students to miss morning lectures, though not an immediate physical danger.",
+    "department": "Campus Transportation / Logistics",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The 8:30 AM campus shuttle from the main gate was completely packed past capacity.",
+      "Nearly twenty students were left behind for morning lectures."
+    ],
+    "inferred_information": [
+      "The shuttle capacity is insufficient for current morning demand (uncertain if this is a daily occurrence or an isolated incident)."
+    ],
+    "missing_information": [
+      "Specific date",
+      "Shuttle route or identification number",
+      "Whether additional shuttles were dispatched"
+    ],
+    "recommended_action": "Evaluate morning shuttle capacity from the main gate and consider adding an additional vehicle or increasing frequency during peak morning hours.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.5-flash-lite"
+}

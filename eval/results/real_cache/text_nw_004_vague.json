@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Unstable and damaged network rack in IT room",
+    "category": "Infrastructure",
+    "subcategory": "Server Room / IT Equipment",
+    "location": "IT room",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "An unstable network rack poses a significant risk of equipment damage and potential service disruption.",
+    "department": "IT / Facilities",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Network rack in the IT room is damaged",
+      "Network rack is unstable"
+    ],
+    "inferred_information": [
+      "Potential risk of hardware falling or cabling being disconnected due to instability (uncertainty: severity of physical damage to the rack is unknown)"
+    ],
+    "missing_information": [
+      "Specific nature of the damage (e.g., structural, mounting, or enclosure)",
+      "Whether equipment is currently falling or disconnected",
+      "Exact location within the IT room"
+    ],
+    "recommended_action": "Inspect the rack for structural integrity and secure or replace the mounting hardware immediately to prevent equipment failure.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.1-flash-lite"
+}

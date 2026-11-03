@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Broken door frame near handle preventing proper locking",
+    "category": "Infrastructure",
+    "subcategory": "Door / Hardware",
+    "location": "Hostel room",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A broken door frame that prevents locking compromises the security and privacy of the room occupant.",
+    "department": "Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Hostel room door frame is broken near the handle",
+      "Locking the door is difficult"
+    ],
+    "inferred_information": [
+      "The door may be insecure or unable to latch properly (uncertainty: extent of structural damage to the frame is unknown)"
+    ],
+    "missing_information": [
+      "Specific room number",
+      "Hostel building name",
+      "Visual evidence of the damage",
+      "Duration of the issue"
+    ],
+    "recommended_action": "Dispatch maintenance personnel to inspect the door frame for structural integrity and repair or replace the strike plate/frame as necessary to restore locking functionality.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

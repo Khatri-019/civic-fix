@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Severely bent and dented metal highway guardrail",
+    "category": "Infrastructure",
+    "subcategory": "Guardrail",
+    "location": "Near the main campus gate",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A severely bent and dented guardrail poses a significant impact on safety for passing vehicles if another collision occurs.",
+    "department": "Transportation / Public Works",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The metal highway guardrail near the main campus gate is severely bent and dented",
+      "It poses a hazard to passing vehicles"
+    ],
+    "inferred_information": [
+      "Likely caused by a vehicular collision (uncertain as no cause is explicitly described)"
+    ],
+    "missing_information": [
+      "Exact image evidence",
+      "Precise geographic coordinates",
+      "Duration of the damage",
+      "Whether any debris is currently blocking the road"
+    ],
+    "recommended_action": "Dispatch maintenance crew to inspect, repair, or replace the damaged guardrail.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.5-flash-lite"
+}

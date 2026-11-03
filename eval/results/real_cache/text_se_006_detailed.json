@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Boundary wall collapse leaving perimeter open at night",
+    "category": "Infrastructure",
+    "subcategory": "Boundary Wall",
+    "location": "Near the back gate",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The collapsed boundary wall leaves the perimeter completely open at night, posing a significant impact on security and safety.",
+    "department": "Facilities Maintenance / Security",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "A large section of the boundary wall near the back gate has completely collapsed.",
+      "The perimeter is left completely open at night."
+    ],
+    "inferred_information": [
+      "The collapse likely compromises property security based on the user report (uncertainty noted regarding existing temporary security measures)."
+    ],
+    "missing_information": [
+      "Exact location address or facility name",
+      "Visual evidence of the collapse",
+      "Exact dimensions of the collapsed section",
+      "Duration since the collapse occurred"
+    ],
+    "recommended_action": "Dispatch security and maintenance personnel to secure the open perimeter temporarily and schedule structural assessment and repair of the boundary wall.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.5-flash-lite"
+}

@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Entire LAN switch crashed on the third floor of the computer science department",
+    "category": "Internet / Network",
+    "subcategory": "LAN Switch / Network Equipment",
+    "location": "Third floor, computer science department",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant impact on essential services by dropping the connection for all terminal labs.",
+    "department": "IT / Network Infrastructure",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The entire LAN switch on the third floor of the computer science department has crashed",
+      "Connection has dropped for all terminal labs"
+    ],
+    "inferred_information": [
+      "Network access is currently unavailable for users in the affected labs (uncertainty noted regarding exact scope of affected hardware beyond what was stated)"
+    ],
+    "missing_information": [
+      "Exact switch model or identifier",
+      "Specific room number of the switch and labs",
+      "Duration or exact time of the outage"
+    ],
+    "recommended_action": "Dispatch network operations team to inspect, reboot, or replace the crashed LAN switch on the third floor.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.5-flash-lite"
+}

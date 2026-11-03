@@ -1,0 +1,27 @@
+{
+  "issue": {
+    "problem": "Presence of insects and dirt on the desk",
+    "category": "Cleaning / Housekeeping",
+    "subcategory": "Desk sanitation",
+    "location": null,
+    "duration": null,
+    "severity": "Low",
+    "severity_reason": "Minor inconvenience causing cleanliness and hygiene issues without immediate safety impact.",
+    "department": "Housekeeping / Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "lot of insects and dirt on the desk"
+    ],
+    "inferred_information": [
+      "The desk area requires cleaning and pest control (uncertain exact type of insects)."
+    ],
+    "missing_information": [
+      "location",
+      "duration",
+      "specific type of insects"
+    ],
+    "recommended_action": "Dispatched housekeeping staff to clean the desk and inspect for pest issues.",
+    "confidence": 0.8
+  },
+  "model": "gemini-3.5-flash-lite"
+}

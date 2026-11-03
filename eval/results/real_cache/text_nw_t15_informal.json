@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Hostel Block B Wi-Fi network outage",
+    "category": "Internet / Network",
+    "subcategory": "Wi-Fi outage",
+    "location": "Hostel Block B",
+    "duration": "Since morning",
+    "severity": "High",
+    "severity_reason": "Significant impact on academic deadlines due to inability to submit assignments.",
+    "department": "IT / Network Services",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Hostel Block B Wi-Fi is totally dead",
+      "Issue started since morning",
+      "Students cannot submit assignments due today"
+    ],
+    "inferred_information": [
+      "The network outage affects multiple users in Hostel Block B (inferred from 'none of us')."
+    ],
+    "missing_information": [
+      "Specific room numbers or access point locations affected",
+      "Exact technical cause of the outage",
+      "Image evidence"
+    ],
+    "recommended_action": "Dispatch network support team to investigate the Hostel Block B router/switch status and restore connectivity immediately.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.5-flash-lite"
+}

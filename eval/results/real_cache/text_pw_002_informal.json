@@ -1,0 +1,27 @@
+{
+  "issue": {
+    "problem": "Ceiling water leakage marks in room 304",
+    "category": "Plumbing / Water",
+    "subcategory": "Ceiling Leakage",
+    "location": "Room 304",
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Water damage indicates an active or past leak that requires maintenance to prevent structural damage or mold growth.",
+    "department": "Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Ceiling in room 304 has leakage marks"
+    ],
+    "inferred_information": [
+      "The presence of marks suggests a potential plumbing issue or roof leak above room 304 (uncertainty: source of leak is unknown)"
+    ],
+    "missing_information": [
+      "Current status of the leak (active vs. historical)",
+      "Extent of the damage",
+      "Presence of mold or structural instability"
+    ],
+    "recommended_action": "Dispatch maintenance personnel to inspect the ceiling in room 304 and the area above it to identify and repair the source of the water intrusion.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.1-flash-lite"
+}

@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Broken boundary wall",
+    "category": "Infrastructure",
+    "subcategory": "Structural / Masonry",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "A broken boundary wall poses a potential security risk and requires maintenance to prevent further structural degradation.",
+    "department": "Public Works / Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The boundary wall is broken and requires repair."
+    ],
+    "inferred_information": [
+      "The wall may be compromised in terms of security or structural integrity (uncertainty: extent of damage is unknown)."
+    ],
+    "missing_information": [
+      "Specific location of the wall",
+      "Visual evidence of the damage",
+      "Duration of the issue",
+      "Dimensions or severity of the break"
+    ],
+    "recommended_action": "Conduct a site inspection to assess the structural stability of the wall and determine the scope of masonry repairs required.",
+    "confidence": 0.7
+  },
+  "model": "gemini-3.1-flash-lite"
+}

@@ -1,0 +1,65 @@
+{
+  "issue": {
+    "problem": "Large accumulation of plastic bottles and waste scattered across a lawn area",
+    "category": "Waste Management",
+    "subcategory": "Litter / Cleanup",
+    "location": "Lawn area near park",
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Meaningful environmental impact and sanitation issue requiring maintenance and cleanup, but not an immediate danger.",
+    "department": "Sanitation and Waste Management",
+    "observed_evidence": [
+      "Large quantity of plastic bottles and cups scattered on grass",
+      "Person wearing protective gloves picking up waste",
+      "Grass area visibly covered in litter"
+    ],
+    "user_reported_facts": [
+      "Tons of plastic bottles scattered all over the lawn area near park",
+      "Needs proper cleanup and bins"
+    ],
+    "inferred_information": [
+      "Area lacks sufficient or accessible waste bins (uncertain: bins may be overflowing or missing entirely)"
+    ],
+    "missing_information": [
+      "Exact park name or address",
+      "Specific duration of the accumulation"
+    ],
+    "recommended_action": "Dispatch sanitation crew to clean up the scattered bottles and install additional waste bins in the area.",
+    "confidence": 0.9
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Tons of plastic bottles scattered all over the lawn area near park",
+        "status": "supported",
+        "reason": "The image evidence clearly shows a large quantity of plastic bottles and litter scattered across the grass."
+      },
+      {
+        "claim": "Needs proper cleanup and bins",
+        "status": "supported",
+        "reason": "The presence of scattered waste and a person wearing protective gloves picking it up supports the need for cleanup."
+      },
+      {
+        "claim": "Area lacks sufficient or accessible waste bins (uncertain: bins may be overflowing or missing entirely)",
+        "status": "unverifiable",
+        "reason": "While litter is present, the image does not show the surrounding area or indicate whether waste bins are missing or overflowing."
+      }
+    ],
+    "verified_facts": [
+      "Tons of plastic bottles scattered all over the lawn area near park",
+      "Needs proper cleanup and bins",
+      "Large quantity of plastic bottles and cups scattered on grass",
+      "Person wearing protective gloves picking up waste",
+      "Grass area visibly covered in litter"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Area lacks sufficient or accessible waste bins (uncertain: bins may be overflowing or missing entirely)"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

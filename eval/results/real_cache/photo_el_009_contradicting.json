@@ -1,0 +1,63 @@
+{
+  "issue": {
+    "problem": "Electrical transformer box sparking and catching fire",
+    "category": "Electrical",
+    "subcategory": "Transformer",
+    "location": "Street corner",
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "Immediate danger or serious hazard requiring urgent response due to fire and electrical sparking.",
+    "department": "Electrical Department / Fire Services",
+    "observed_evidence": [
+      "Street canyon between residential buildings at dusk or night",
+      "Overhead wires running between buildings"
+    ],
+    "user_reported_facts": [
+      "Heavy-duty electrical transformer box on the street corner is sparking loudly",
+      "Transformer box is catching fire"
+    ],
+    "inferred_information": [
+      "The transformer box is likely located at street level or on a pole near the visible street corner, though not clearly visible in the dark image (uncertainty noted)"
+    ],
+    "missing_information": [
+      "Exact street address or intersection",
+      "Precise duration of the incident"
+    ],
+    "recommended_action": "Dispatch emergency services and the electrical utility crew immediately to extinguish the fire and secure the area.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Heavy-duty electrical transformer box on the street corner is sparking loudly",
+        "status": "unverifiable",
+        "reason": "The image is too dark and does not capture any transformer box or sparking activity."
+      },
+      {
+        "claim": "Transformer box is catching fire",
+        "status": "unverifiable",
+        "reason": "No fire or transformer box is visible in the provided image."
+      },
+      {
+        "claim": "The transformer box is likely located at street level or on a pole near the visible street corner, though not clearly visible in the dark image (uncertainty noted)",
+        "status": "unverifiable",
+        "reason": "The image displays general street scenery and overhead wires, but does not confirm the presence or location of a transformer box."
+      }
+    ],
+    "verified_facts": [
+      "Street canyon between residential buildings at dusk or night",
+      "Overhead wires running between buildings"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Heavy-duty electrical transformer box on the street corner is sparking loudly",
+      "Transformer box is catching fire",
+      "The transformer box is likely located at street level or on a pole near the visible street corner, though not clearly visible in the dark image (uncertainty noted)"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The image shows a street canyon with overhead wires at dusk, but does not show an electrical transformer box, sparking, or fire."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

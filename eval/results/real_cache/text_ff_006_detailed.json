@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Broken and rusted metal handrail on outdoor staircase",
+    "category": "Infrastructure",
+    "subcategory": "Staircase / Railing",
+    "location": "Outdoor staircase near the main sports ground",
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "The broken handrail poses an immediate physical hazard and tripping risk to users of the staircase.",
+    "department": "Facilities Maintenance / Public Works",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Metal handrail is completely rusted through",
+      "Handrail is lying broken across the steps",
+      "Location is near the main sports ground"
+    ],
+    "inferred_information": [
+      "The structural integrity of the remaining railing sections may be compromised due to the observed rust (uncertain)"
+    ],
+    "missing_information": [
+      "Specific time of occurrence",
+      "Photographic evidence to confirm the extent of the rust and exact positioning"
+    ],
+    "recommended_action": "Immediately cordon off the staircase to prevent public access and dispatch a maintenance crew to remove the hazard and repair or replace the railing.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.1-flash-lite"
+}

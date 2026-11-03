@@ -16,9 +16,10 @@ from transformers import (
     TrainingArguments,
     Trainer,
 )
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import StratifiedGroupKFold, train_test_split
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, f1_score
+from sklearn.utils.class_weight import compute_class_weight
 import evaluate
 
 MODEL_NAME = "distilbert-base-uncased"
@@ -40,26 +41,55 @@ class ComplaintDataset(Dataset):
         return item
 
 
-def load_data(csv_path: Path, label_col: str):
+def load_data(csv_path: Path, label_col: str, skip_contradicting: bool = False):
     df = pd.read_csv(csv_path)
     df = df.dropna(subset=["raw_complaint", label_col])
+    if skip_contradicting:
+        # Real data: a contradicting row keeps its photo's severity, so the label doesn't describe the text
+        df = df[~df["has_contradiction"].astype(str).str.lower().eq("true")]
     le = LabelEncoder()
     labels = le.fit_transform(df[label_col])
-    return df["raw_complaint"].tolist(), labels, le
+    # Real data has several texts per photo: group them so a photo never sits in both train and validation
+    groups = df["image_id"].fillna(df["record_id"]).tolist() if "image_id" in df.columns else None
+    return df["raw_complaint"].tolist(), labels, le, groups
 
 
 def compute_metrics(eval_pred):
     metric = evaluate.load("accuracy")
     logits, labels = eval_pred
     predictions = np.argmax(logits, axis=-1)
-    return metric.compute(predictions=predictions, references=labels)
+    scores = metric.compute(predictions=predictions, references=labels)
+    scores["macro_f1"] = f1_score(labels, predictions, average="macro", zero_division=0)
+    return scores
 
 
-def train(label_col: str, csv_path: Path, epochs: int = 4):
-    texts, labels, le = load_data(csv_path, label_col)
-    X_train, X_val, y_train, y_val = train_test_split(
-        texts, labels, test_size=0.2, random_state=42, stratify=labels
-    )
+class WeightedTrainer(Trainer):
+    """Class-weighted loss, so a model can't score well by always predicting the majority class."""
+
+    def __init__(self, *args, class_weights=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.class_weights = class_weights
+
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+        labels = inputs.pop("labels")
+        outputs = model(**inputs)
+        loss = torch.nn.functional.cross_entropy(outputs.logits, labels,
+                                                 weight=self.class_weights.to(outputs.logits.device))
+        return (loss, outputs) if return_outputs else loss
+
+
+def train(label_col: str, csv_path: Path, epochs: int = 4, skip_contradicting: bool = False, balanced: bool = False):
+    texts, labels, le, groups = load_data(csv_path, label_col, skip_contradicting)
+    if groups is None:
+        X_train, X_val, y_train, y_val = train_test_split(
+            texts, labels, test_size=0.2, random_state=42, stratify=labels
+        )
+    else:  # ~20% validation, split by photo
+        train_idx, val_idx = next(StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=42)
+                                  .split(texts, labels, groups))
+        X_train, y_train = [texts[i] for i in train_idx], labels[train_idx]
+        X_val, y_val = [texts[i] for i in val_idx], labels[val_idx]
+    print(f"{label_col}: {len(X_train)} train / {len(X_val)} validation rows")
 
     tokenizer = DistilBertTokenizerFast.from_pretrained(MODEL_NAME)
     train_enc = tokenizer(X_train, truncation=True, padding=True, max_length=128)
@@ -86,19 +116,19 @@ def train(label_col: str, csv_path: Path, epochs: int = 4):
         save_total_limit=1,  # each checkpoint is ~766 MB; keep only the best
         seed=42,
         load_best_model_at_end=True,
-        metric_for_best_model="accuracy",
+        metric_for_best_model="macro_f1" if balanced else "accuracy",
         # logging_dir removed: no longer a TrainingArguments parameter in transformers 5
         logging_steps=10,
         report_to="none",
     )
 
-    trainer = Trainer(
-        model=model,
-        args=args,
-        train_dataset=train_dataset,
-        eval_dataset=val_dataset,
-        compute_metrics=compute_metrics,
-    )
+    trainer_kwargs = dict(model=model, args=args, train_dataset=train_dataset, eval_dataset=val_dataset,
+                          compute_metrics=compute_metrics)
+    if balanced:
+        weights = compute_class_weight("balanced", classes=np.arange(len(le.classes_)), y=y_train)
+        trainer = WeightedTrainer(**trainer_kwargs, class_weights=torch.tensor(weights, dtype=torch.float))
+    else:
+        trainer = Trainer(**trainer_kwargs)
     trainer.train()
     trainer.save_model(str(save_path))
     tokenizer.save_pretrained(str(save_path))
@@ -111,7 +141,8 @@ def train(label_col: str, csv_path: Path, epochs: int = 4):
     # Eval report
     preds = np.argmax(trainer.predict(val_dataset).predictions, axis=-1)
     print(f"\n=== {label_col} Classification Report ===")
-    print(classification_report(y_val, preds, target_names=le.classes_))
+    print(classification_report(y_val, preds, labels=range(len(le.classes_)), target_names=le.classes_,
+                                zero_division=0))
 
     return str(save_path)
 
@@ -141,12 +172,19 @@ if __name__ == "__main__":
     parser.add_argument("--train", action="store_true")
     parser.add_argument("--data", default="data/synthetic/complaints.csv")
     parser.add_argument("--epochs", type=int, default=15)  # plan used 4; too few for ~220 rows (val acc still rising)
+    parser.add_argument("--severity-skip-contradicting", action="store_true",
+                        help="drop has_contradiction rows from severity training (use for data/real/train.csv)")
+    parser.add_argument("--balanced-severity", action="store_true",
+                        help="class-weighted loss + best epoch by macro-F1 for severity (stops always-Medium)")
+    parser.add_argument("--only", choices=["category", "severity"], help="train just one of the two models")
     args = parser.parse_args()
 
     if args.train:
         csv = Path(args.data)
-        print("Training category classifier...")
-        train("category", csv, args.epochs)
-        print("\nTraining severity classifier...")
-        train("severity", csv, args.epochs)
+        if args.only != "severity":
+            print("Training category classifier...")
+            train("category", csv, args.epochs)
+        if args.only != "category":
+            print("\nTraining severity classifier...")
+            train("severity", csv, args.epochs, args.severity_skip_contradicting, args.balanced_severity)
         print("\nDone. Models saved to models/saved/classifier/")

@@ -1,0 +1,65 @@
+{
+  "issue": {
+    "problem": "Garbage accumulation and stagnant dirty water blockage near gate",
+    "category": "Sanitation",
+    "subcategory": "Drainage and Waste Blockage",
+    "location": "Near gate",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant impact on sanitation, public health, and access near the gate due to standing dirty water and garbage.",
+    "department": "Sanitation and Drainage Department",
+    "observed_evidence": [
+      "Accumulation of garbage and debris",
+      "Stagnant, dirty water pooling on the ground",
+      "Blocked area containing various refuse items and rubble"
+    ],
+    "user_reported_facts": [
+      "Garbage and dirty water are blocked near the gate",
+      "User requested to clear it as soon as possible"
+    ],
+    "inferred_information": [
+      "The drainage system may be clogged causing the water to pool (uncertain whether drain or surface runoff block)"
+    ],
+    "missing_information": [
+      "Exact street address or location name",
+      "Duration of the blockage"
+    ],
+    "recommended_action": "Dispatch sanitation and drainage crew to clear the garbage, remove debris, and clear the blockage to restore water flow.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Garbage and dirty water are blocked near the gate",
+        "status": "supported",
+        "reason": "The image evidence clearly shows an accumulation of garbage, debris, and stagnant dirty water pooling on the ground."
+      },
+      {
+        "claim": "User requested to clear it as soon as possible",
+        "status": "unverifiable",
+        "reason": "While the user's intent to request a cleanup is implied by the complaint, the exact urgency or phrasing cannot be directly verified purely from visual evidence."
+      },
+      {
+        "claim": "The drainage system may be clogged causing the water to pool (uncertain whether drain or surface runoff block)",
+        "status": "supported",
+        "reason": "The presence of pooled dirty water blocked by debris and garbage makes a drainage or surface blockage plausible and consistent with the image evidence."
+      }
+    ],
+    "verified_facts": [
+      "Garbage and dirty water are blocked near the gate",
+      "The drainage system may be clogged causing the water to pool (uncertain whether drain or surface runoff block)",
+      "Accumulation of garbage and debris",
+      "Stagnant, dirty water pooling on the ground",
+      "Blocked area containing various refuse items and rubble"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "User requested to clear it as soon as possible"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

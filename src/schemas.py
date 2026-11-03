@@ -40,6 +40,10 @@ class ContradictionAudit(BaseModel):
     unverifiable_claims: List[str] = Field(default_factory=list)
     contradiction_count: int = 0
     audit_passed: bool = True
+    # Photo shows a different problem/scene than the report (e.g. wrong photo uploaded),
+    # even when individual claims are only "unverifiable" rather than "contradicted"
+    image_mismatch: bool = False
+    mismatch_reason: Optional[str] = None
 
 
 class QualityScore(BaseModel):

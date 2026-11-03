@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Fallen tree obstructing path",
+    "category": "Infrastructure",
+    "subcategory": "Obstruction",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A fallen tree on a path creates a significant accessibility barrier and potential safety hazard for pedestrians.",
+    "department": "Public Works / Parks and Recreation",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "A tree has fallen on a path."
+    ],
+    "inferred_information": [
+      "The path is likely impassable, though the extent of the blockage is uncertain."
+    ],
+    "missing_information": [
+      "Specific location/address",
+      "Size of the tree",
+      "Whether power lines are involved",
+      "Time of occurrence"
+    ],
+    "recommended_action": "Dispatch a maintenance crew to clear the obstruction and assess the area for potential safety hazards.",
+    "confidence": 0.8
+  },
+  "model": "gemini-3.1-flash-lite"
+}

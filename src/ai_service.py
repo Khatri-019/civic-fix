@@ -10,7 +10,8 @@ import io
 
 from config import GEMINI_API_KEY, GEMINI_MODEL, GEMINI_FALLBACK_MODELS
 from src.schemas import StructuredIssue, ContradictionAudit, ContradictionFlag
-from src.prompts import build_analysis_prompt, COMPLAINT_GENERATION_PROMPT, CONTRADICTION_PROMPT
+from src.prompts import (build_analysis_prompt, COMPLAINT_GENERATION_PROMPT, CONTRADICTION_PROMPT,
+                         TEXT_PRIORITY_COMPLAINT_PROMPT)
 
 logger = logging.getLogger(__name__)
 
@@ -141,6 +142,8 @@ def run_contradiction_audit(issue: StructuredIssue) -> ContradictionAudit:
             verified = [f.claim for f in flags if f.status == "supported"] + issue.observed_evidence
             contradicted = [f.claim for f in flags if f.status == "contradicted"]
             unverifiable = [f.claim for f in flags if f.status == "unverifiable"]
+            # Only an actual photo can mismatch the report
+            image_mismatch = bool(issue.observed_evidence) and data.get("image_matches_report") is False
 
             return ContradictionAudit(
                 flags=flags,
@@ -148,7 +151,9 @@ def run_contradiction_audit(issue: StructuredIssue) -> ContradictionAudit:
                 contradicted_claims=contradicted,
                 unverifiable_claims=unverifiable,
                 contradiction_count=len(contradicted),
-                audit_passed=len(contradicted) == 0,
+                audit_passed=len(contradicted) == 0 and not image_mismatch,
+                image_mismatch=image_mismatch,
+                mismatch_reason=data.get("mismatch_reason") if image_mismatch else None,
             )
         except Exception as e:
             logger.warning(f"Contradiction audit attempt {attempt + 1} failed: {e}")
@@ -164,6 +169,23 @@ def generate_complaint(issue: StructuredIssue, audit: ContradictionAudit) -> str
     prompt = COMPLAINT_GENERATION_PROMPT.format(
         structured_issue=issue.model_dump_json(indent=2),
         verified_facts="\n".join(f"- {f}" for f in audit.verified_facts),
+    )
+
+    response = _generate(
+        contents=[prompt],
+        config=types.GenerateContentConfig(temperature=0.3),
+    )
+    return response.text.strip()
+
+
+def generate_text_priority_complaint(issue: StructuredIssue, audit: ContradictionAudit) -> str:
+    """Complaint for when the photo contradicts the description and the user chose to trust their description."""
+    # Leave out what the (mismatched) photo shows so it can't leak into the complaint
+    issue_fields = issue.model_dump(mode="json", exclude={"observed_evidence", "inferred_information"})
+    prompt = TEXT_PRIORITY_COMPLAINT_PROMPT.format(
+        structured_issue=json.dumps(issue_fields, indent=2),
+        user_facts="\n".join(f"- {f}" for f in issue.user_reported_facts) or "- (none)",
+        contradicted_claims="\n".join(f"- {c}" for c in audit.contradicted_claims) or "- (none)",
     )
 
     response = _generate(

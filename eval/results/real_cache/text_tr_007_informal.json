@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Broken guard rail near highway turn",
+    "category": "Infrastructure",
+    "subcategory": "Guard rail",
+    "location": "near highway turn",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "A broken guard rail near a highway turn presents a significant impact on safety and vehicular protection.",
+    "department": "Transportation / Public Works",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "guard rail is broken",
+      "location is near highway turn"
+    ],
+    "inferred_information": [
+      "The issue likely requires road maintenance or highway operations department intervention, but the exact severity of the damage is unverified without visual confirmation."
+    ],
+    "missing_information": [
+      "exact location or mile marker",
+      "highway number or name",
+      "extent of the damage to the guard rail",
+      "whether there is any immediate danger or active debris"
+    ],
+    "recommended_action": "Dispatch a road maintenance crew to inspect the highway turn, secure the area if necessary, and repair or replace the broken guard rail.",
+    "confidence": 0.8
+  },
+  "model": "gemini-3.5-flash-lite"
+}

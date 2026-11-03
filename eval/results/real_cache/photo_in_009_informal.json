@@ -1,0 +1,78 @@
+{
+  "issue": {
+    "problem": "Structural damage to boundary wall and vegetation overgrowth",
+    "category": "Infrastructure",
+    "subcategory": "Boundary Wall Maintenance",
+    "location": "Near back gate",
+    "duration": "2 weeks",
+    "severity": "Medium",
+    "severity_reason": "The breach in the boundary wall poses a security risk and potential for further structural degradation, though it does not present an immediate life-safety hazard.",
+    "department": "Public Works / Facilities Management",
+    "observed_evidence": [
+      "Visible gap/break in a stone and mortar boundary wall",
+      "Significant vegetation/bushes growing through and around the damaged section"
+    ],
+    "user_reported_facts": [
+      "Boundary wall is broken",
+      "Located near the back gate",
+      "Issue has persisted for 2 weeks"
+    ],
+    "inferred_information": [
+      "The wall appears to be made of stone and mud/mortar, suggesting it may be an older structure (uncertain)",
+      "The breach may allow unauthorized access to the property (uncertain)"
+    ],
+    "missing_information": [
+      "Specific address or facility name",
+      "Dimensions of the wall breach",
+      "Ownership status of the wall"
+    ],
+    "recommended_action": "Inspect the structural integrity of the remaining wall section, clear the vegetation, and perform masonry repairs to seal the breach.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Boundary wall is broken",
+        "status": "supported",
+        "reason": "The image clearly shows a visible gap and structural break in the boundary wall."
+      },
+      {
+        "claim": "Located near the back gate",
+        "status": "unverifiable",
+        "reason": "The image shows the wall breach but does not provide enough context to confirm its proximity to a back gate."
+      },
+      {
+        "claim": "Issue has persisted for 2 weeks",
+        "status": "unverifiable",
+        "reason": "The duration of the damage cannot be determined from a static image."
+      },
+      {
+        "claim": "The wall appears to be made of stone and mud/mortar, suggesting it may be an older structure (uncertain)",
+        "status": "supported",
+        "reason": "The visual texture of the wall is consistent with stone and mortar construction."
+      },
+      {
+        "claim": "The breach may allow unauthorized access to the property (uncertain)",
+        "status": "supported",
+        "reason": "A significant gap in a boundary wall inherently creates a potential point of entry for unauthorized access."
+      }
+    ],
+    "verified_facts": [
+      "Boundary wall is broken",
+      "The wall appears to be made of stone and mud/mortar, suggesting it may be an older structure (uncertain)",
+      "The breach may allow unauthorized access to the property (uncertain)",
+      "Visible gap/break in a stone and mortar boundary wall",
+      "Significant vegetation/bushes growing through and around the damaged section"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Located near the back gate",
+      "Issue has persisted for 2 weeks"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

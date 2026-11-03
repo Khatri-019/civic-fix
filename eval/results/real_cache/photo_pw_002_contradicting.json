@@ -1,0 +1,65 @@
+{
+  "issue": {
+    "problem": "Active water leak from ceiling pipe causing flooding",
+    "category": "Plumbing / Water",
+    "subcategory": "Burst Pipe",
+    "location": null,
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "Active flooding and water gushing from a ceiling pipe present an immediate danger of structural damage and electrical hazards requiring urgent response.",
+    "department": "Plumbing / Facilities Maintenance",
+    "observed_evidence": [
+      "Large water stains and discoloration visible on the ceiling",
+      "Small holes or penetrations visible in the stained ceiling area"
+    ],
+    "user_reported_facts": [
+      "Water is actively gushing out from a burst pipe in the ceiling",
+      "Water is flooding the entire floor"
+    ],
+    "inferred_information": [
+      "Potential risk of electrical hazards due to flooding (uncertainty: electrical system proximity not verified)"
+    ],
+    "missing_information": [
+      "Specific building location or room",
+      "Duration of the leak",
+      "Location of the main water shut-off valve"
+    ],
+    "recommended_action": "Immediately shut off the main water supply to the affected area, dispatch emergency plumbing maintenance, and inspect for electrical safety hazards.",
+    "confidence": 0.9
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Water is actively gushing out from a burst pipe in the ceiling",
+        "status": "contradicted",
+        "reason": "The image shows water stains and holes on the ceiling, but does not show water actively gushing out."
+      },
+      {
+        "claim": "Water is flooding the entire floor",
+        "status": "unverifiable",
+        "reason": "The provided image only shows the ceiling and does not capture the floor condition."
+      },
+      {
+        "claim": "Potential risk of electrical hazards due to flooding (uncertainty: electrical system proximity not verified)",
+        "status": "unverifiable",
+        "reason": "There is no visual evidence in the image regarding the presence of electrical systems near the water damage."
+      }
+    ],
+    "verified_facts": [
+      "Large water stains and discoloration visible on the ceiling",
+      "Small holes or penetrations visible in the stained ceiling area"
+    ],
+    "contradicted_claims": [
+      "Water is actively gushing out from a burst pipe in the ceiling"
+    ],
+    "unverifiable_claims": [
+      "Water is flooding the entire floor",
+      "Potential risk of electrical hazards due to flooding (uncertainty: electrical system proximity not verified)"
+    ],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

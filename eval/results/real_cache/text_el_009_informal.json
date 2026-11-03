@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Total blackout and non-functional streetlights",
+    "category": "Electrical",
+    "subcategory": "Public Lighting / Power Grid",
+    "location": "User's street",
+    "duration": "Since evening",
+    "severity": "High",
+    "severity_reason": "A total blackout affecting an entire street poses significant safety and security risks to residents and traffic.",
+    "department": "Public Works / Electrical Utility",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Total blackout on the street",
+      "Streetlights are not working",
+      "Issue began in the evening"
+    ],
+    "inferred_information": [
+      "The issue may be caused by a localized grid failure or a tripped circuit (uncertain)"
+    ],
+    "missing_information": [
+      "Specific street name or address",
+      "City or municipality",
+      "Whether residential power is also affected or only street lighting"
+    ],
+    "recommended_action": "Report the outage to the local electrical utility provider and municipal public works department immediately.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.1-flash-lite"
+}

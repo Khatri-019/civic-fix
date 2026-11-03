@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Smashed bus shelter glass panels with broken glass scattered on the footpath",
+    "category": "Infrastructure",
+    "subcategory": "Bus Shelter",
+    "location": "Near the main gate",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Smashed glass scattered on a footpath poses a significant safety and accessibility hazard to pedestrians.",
+    "department": "Public Works / Transport",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "The bus shelter glass panels are completely smashed",
+      "Broken glass is scattered all over the footpath near the main gate"
+    ],
+    "inferred_information": [
+      "The bus shelter structural integrity may be compromised (uncertain, requires on-site inspection)"
+    ],
+    "missing_information": [
+      "Exact address or geographic coordinates",
+      "When the damage occurred",
+      "Whether any injuries resulted from the incident"
+    ],
+    "recommended_action": "Dispatch maintenance crew to clear the broken glass from the footpath immediately and assess the bus shelter for safe removal or replacement of damaged panels.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.5-flash-lite"
+}

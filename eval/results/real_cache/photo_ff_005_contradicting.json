@@ -1,0 +1,67 @@
+{
+  "issue": {
+    "problem": "Projector detachment and potential equipment failure",
+    "category": "Furniture / Facilities",
+    "subcategory": "AV Equipment Mounting",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The equipment is improperly secured to the ceiling, posing a significant safety risk of falling and potential electrical hazard.",
+    "department": "Facilities Management",
+    "observed_evidence": [
+      "Projector is hanging at an extreme, non-functional angle from the ceiling mount",
+      "Mounting hardware appears partially detached or misaligned",
+      "Cabling remains connected while the unit is hanging"
+    ],
+    "user_reported_facts": [
+      "The projector has completely detached from the mount and crashed onto the floor, shattering into pieces."
+    ],
+    "inferred_information": [
+      "There is a direct contradiction between the user's report (projector on floor) and the image (projector hanging from ceiling); it is possible the user is describing a previous event or the image shows a state prior to a total fall.",
+      "The mounting bracket may have failed due to structural fatigue or improper installation (uncertain)."
+    ],
+    "missing_information": [
+      "Specific room or building location",
+      "Time of incident",
+      "Confirmation of current physical state of the device (floor vs. ceiling)"
+    ],
+    "recommended_action": "Immediately cordon off the area beneath the projector to prevent injury, disconnect power to the unit, and dispatch a facilities technician to secure or remove the device.",
+    "confidence": 0.7
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "The projector has completely detached from the mount and crashed onto the floor, shattering into pieces.",
+        "status": "contradicted",
+        "reason": "The image shows the projector is still hanging from the ceiling mount rather than lying on the floor."
+      },
+      {
+        "claim": "There is a direct contradiction between the user's report (projector on floor) and the image (projector hanging from ceiling); it is possible the user is describing a previous event or the image shows a state prior to a total fall.",
+        "status": "supported",
+        "reason": "The visual evidence of the projector hanging confirms a discrepancy with the user's description of a total fall."
+      },
+      {
+        "claim": "The mounting bracket may have failed due to structural fatigue or improper installation (uncertain).",
+        "status": "unverifiable",
+        "reason": "While the hardware appears misaligned, the specific cause of the failure cannot be determined from a static image."
+      }
+    ],
+    "verified_facts": [
+      "There is a direct contradiction between the user's report (projector on floor) and the image (projector hanging from ceiling); it is possible the user is describing a previous event or the image shows a state prior to a total fall.",
+      "Projector is hanging at an extreme, non-functional angle from the ceiling mount",
+      "Mounting hardware appears partially detached or misaligned",
+      "Cabling remains connected while the unit is hanging"
+    ],
+    "contradicted_claims": [
+      "The projector has completely detached from the mount and crashed onto the floor, shattering into pieces."
+    ],
+    "unverifiable_claims": [
+      "The mounting bracket may have failed due to structural fatigue or improper installation (uncertain)."
+    ],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user claims the projector has fallen to the floor and shattered, whereas the image shows the projector still suspended from the ceiling mount."
+  },
+  "model": "gemini-3.1-flash-lite"
+}

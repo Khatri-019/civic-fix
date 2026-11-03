@@ -1,0 +1,28 @@
+image_id,file,category,severity
+wm_001,images/waste_management/wm_001.jpg,Waste Management,Medium
+wm_002,images/waste_management/wm_002.jpg,Waste Management,Medium
+wm_003,images/waste_management/wm_003.jpg,Waste Management,Medium
+wm_004,images/waste_management/wm_004.jpg,Waste Management,High
+wm_005,images/waste_management/wm_005.jpg,Waste Management,High
+wm_006,images/waste_management/wm_006.jpg,Waste Management,Medium
+wm_007,images/waste_management/wm_007.jpg,Waste Management,Medium
+wm_008,images/waste_management/wm_008.jpg,Waste Management,Medium
+wm_009,images/waste_management/wm_009.jpg,Waste Management,High
+sn_001,images/sanitation/sn_001.jpg,Sanitation,Medium
+sn_002,images/sanitation/sn_002.jpg,Sanitation,Medium
+sn_003,images/sanitation/sn_003.jpg,Sanitation,Critical
+sn_004,images/sanitation/sn_004.jpg,Sanitation,Low
+sn_005,images/sanitation/sn_005.jpg,Sanitation,Medium
+sn_006,images/sanitation/sn_006.jpg,Sanitation,Critical
+sn_007,images/sanitation/sn_007.jpg,Sanitation,Critical
+sn_008,images/sanitation/sn_008.jpg,Sanitation,High
+sn_009,images/sanitation/sn_009.jpg,Sanitation,High
+ot_001,images/other/ot_001.jpg,Other,Critical
+ot_002,images/other/ot_002.jpg,Other,Medium
+ot_003,images/other/ot_003.jpg,Other,Medium
+ot_004,images/other/ot_004.jpg,Other,High
+ot_005,images/other/ot_005.jpg,Other,High
+ot_006,images/other/ot_006.jpg,Other,High
+ot_007,images/other/ot_007.jpg,Other,Critical
+ot_008,images/other/ot_008.jpg,Other,Medium
+ot_009,images/other/ot_009.jpg,Other,Low

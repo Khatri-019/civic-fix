@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Unsanitary and unusable restroom urinals",
+    "category": "Sanitation",
+    "subcategory": "Restroom Maintenance",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Unusable and unsanitary restroom facilities pose a significant health and hygiene risk to users.",
+    "department": "Facilities Management / Custodial Services",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Restroom urinals are very dirty",
+      "Restroom urinals are unusable"
+    ],
+    "inferred_information": [
+      "The facility is currently failing to meet basic hygiene standards (uncertainty: specific nature of the 'dirt' or 'unusable' state is not defined)"
+    ],
+    "missing_information": [
+      "Specific location/building/floor",
+      "Duration of the issue",
+      "Visual evidence of the specific cause of the issue (e.g., blockage, lack of cleaning, mechanical failure)"
+    ],
+    "recommended_action": "Dispatch custodial staff for immediate deep cleaning and inspection of plumbing functionality.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.1-flash-lite"
+}

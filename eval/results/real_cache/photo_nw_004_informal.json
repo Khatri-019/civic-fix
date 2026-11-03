@@ -1,0 +1,74 @@
+{
+  "issue": {
+    "problem": "Server rack is structurally unstable and leaning significantly, risking a complete collapse.",
+    "category": "Infrastructure",
+    "subcategory": "Server Rack / IT Hardware",
+    "location": "Server room",
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "The imminent risk of total collapse poses a severe threat to critical IT infrastructure, potential hardware damage, and safety hazards from falling equipment and exposed cabling.",
+    "department": "IT / Facilities Management",
+    "observed_evidence": [
+      "Server rack is tilted at a sharp angle",
+      "Numerous network cables are stretched and tangled",
+      "Rack appears to have detached from its mounting or support",
+      "Equipment is currently suspended at an unstable angle"
+    ],
+    "user_reported_facts": [
+      "Server rack has collapsed and is leaning sideways",
+      "Cables are tangled"
+    ],
+    "inferred_information": [
+      "Potential for service outage due to cable strain or hardware failure (uncertainty: high)",
+      "Possible damage to wall mounting hardware (uncertainty: medium)"
+    ],
+    "missing_information": [
+      "Specific room identifier or building location",
+      "Whether the equipment is currently operational",
+      "Time elapsed since the rack began leaning"
+    ],
+    "recommended_action": "Immediately dispatch IT and facilities personnel to stabilize the rack, assess hardware integrity, and prevent further structural failure.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Server rack has collapsed and is leaning sideways",
+        "status": "supported",
+        "reason": "The image shows the rack tilted at a sharp angle and suspended in an unstable position."
+      },
+      {
+        "claim": "Cables are tangled",
+        "status": "supported",
+        "reason": "The image evidence explicitly confirms that numerous network cables are tangled and stretched."
+      },
+      {
+        "claim": "Potential for service outage due to cable strain or hardware failure (uncertainty: high)",
+        "status": "supported",
+        "reason": "The physical state of the equipment and stretched cabling creates a high risk of hardware failure or connection loss."
+      },
+      {
+        "claim": "Possible damage to wall mounting hardware (uncertainty: medium)",
+        "status": "supported",
+        "reason": "The rack has clearly detached from its support, indicating a failure of the mounting hardware."
+      }
+    ],
+    "verified_facts": [
+      "Server rack has collapsed and is leaning sideways",
+      "Cables are tangled",
+      "Potential for service outage due to cable strain or hardware failure (uncertainty: high)",
+      "Possible damage to wall mounting hardware (uncertainty: medium)",
+      "Server rack is tilted at a sharp angle",
+      "Numerous network cables are stretched and tangled",
+      "Rack appears to have detached from its mounting or support",
+      "Equipment is currently suspended at an unstable angle"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

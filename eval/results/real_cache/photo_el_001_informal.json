@@ -1,0 +1,57 @@
+{
+  "issue": {
+    "problem": "Peeling ceiling paint near a fluorescent light fixture",
+    "category": "Infrastructure",
+    "subcategory": "Ceiling Maintenance",
+    "location": "Passage",
+    "duration": null,
+    "severity": "Low",
+    "severity_reason": "The issue is primarily cosmetic and does not currently pose an immediate safety hazard or impact essential services.",
+    "department": "Facilities Management",
+    "observed_evidence": [
+      "Fluorescent light fixture mounted on ceiling",
+      "Visible paint delamination and peeling on the ceiling surface adjacent to the light fixture"
+    ],
+    "user_reported_facts": [
+      "Fluorescent light fixture ceiling paint peeling near light in passage"
+    ],
+    "inferred_information": [
+      "The peeling may be caused by heat from the light fixture or potential moisture issues (uncertainty: high, as no water stains are explicitly visible)"
+    ],
+    "missing_information": [
+      "Specific building or floor level",
+      "Duration of the peeling",
+      "Presence of moisture or leaks behind the ceiling"
+    ],
+    "recommended_action": "Inspect the ceiling for signs of water damage or heat-related degradation and schedule surface repair/repainting.",
+    "confidence": 0.9
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Fluorescent light fixture ceiling paint peeling near light in passage",
+        "status": "supported",
+        "reason": "The image confirms the presence of a fluorescent light fixture and visible paint delamination on the ceiling surface adjacent to it."
+      },
+      {
+        "claim": "The peeling may be caused by heat from the light fixture or potential moisture issues (uncertainty: high, as no water stains are explicitly visible)",
+        "status": "unverifiable",
+        "reason": "While the proximity to the light is visible, the underlying cause (heat vs. moisture) cannot be determined from a static image without further inspection."
+      }
+    ],
+    "verified_facts": [
+      "Fluorescent light fixture ceiling paint peeling near light in passage",
+      "Fluorescent light fixture mounted on ceiling",
+      "Visible paint delamination and peeling on the ceiling surface adjacent to the light fixture"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "The peeling may be caused by heat from the light fixture or potential moisture issues (uncertainty: high, as no water stains are explicitly visible)"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

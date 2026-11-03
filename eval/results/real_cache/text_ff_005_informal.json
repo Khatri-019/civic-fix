@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Projector mounting failure",
+    "category": "Infrastructure",
+    "subcategory": "Ceiling Mount",
+    "location": null,
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "A loose, overhead projector poses an immediate risk of falling, which could cause physical injury or equipment damage.",
+    "department": "Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Projector is hanging loosely from the ceiling",
+      "Risk of the projector falling"
+    ],
+    "inferred_information": [
+      "The mounting hardware may be loose, damaged, or improperly installed (uncertainty: root cause unknown)"
+    ],
+    "missing_information": [
+      "Specific location of the projector",
+      "Visual confirmation of the mounting hardware condition",
+      "Duration of the issue"
+    ],
+    "recommended_action": "Immediately secure or remove the projector to prevent it from falling, and inspect the ceiling mount for structural integrity.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Water damage and ceiling staining near lobby entrance",
+    "category": "Plumbing / Water",
+    "subcategory": "Ceiling Leak",
+    "location": "Lobby entrance",
+    "duration": "Since last week",
+    "severity": "High",
+    "severity_reason": "Spreading water damage indicates an active leak that poses a risk to structural integrity and potential electrical hazards.",
+    "department": "Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Severe brown water stains on ceiling",
+      "Damp patches on ceiling",
+      "Damage has been spreading since last week"
+    ],
+    "inferred_information": [
+      "Likely active plumbing or roof leak (uncertainty: source of water not identified)"
+    ],
+    "missing_information": [
+      "Visual confirmation of the leak source",
+      "Presence of active dripping",
+      "Proximity to electrical fixtures"
+    ],
+    "recommended_action": "Dispatch maintenance team to inspect the ceiling cavity for active leaks and assess structural stability immediately.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

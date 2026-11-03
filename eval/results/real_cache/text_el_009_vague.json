@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Power failure",
+    "category": "Electrical",
+    "subcategory": "Grid outage",
+    "location": null,
+    "duration": "tonight",
+    "severity": "High",
+    "severity_reason": "A power failure impacts essential services and safety for all users in the affected area.",
+    "department": "Public Utilities / Electrical Department",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Power failure in the area",
+      "Occurred tonight"
+    ],
+    "inferred_information": [
+      "The outage may be widespread, though the exact scope is uncertain."
+    ],
+    "missing_information": [
+      "Specific street address or neighborhood",
+      "Number of affected properties",
+      "Cause of the outage"
+    ],
+    "recommended_action": "Contact local utility provider to report the outage and check for restoration estimates.",
+    "confidence": 0.8
+  },
+  "model": "gemini-3.1-flash-lite"
+}

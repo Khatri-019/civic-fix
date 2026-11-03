@@ -1,0 +1,66 @@
+{
+  "issue": {
+    "problem": "Overflowing municipal dumping ground and presence of standing water/debris",
+    "category": "Waste Management",
+    "subcategory": "Municipal Dumping Ground",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant impact on sanitation, public health, and environmental safety due to overflowing waste.",
+    "department": "Waste Management Department",
+    "observed_evidence": [
+      "Scattered dry garbage and debris",
+      "Standing water or liquid pooling near the waste area",
+      "Discarded fabric and rubble on the ground"
+    ],
+    "user_reported_facts": [
+      "The entire municipal dumping ground is overflowing with dry garbage",
+      "User states not a single drop of water is seen (though liquid/water is visibly present in the image, creating a contradiction)"
+    ],
+    "inferred_information": [
+      "The site is used for municipal waste dumping (uncertain due to contradiction between user text and image contents regarding water)"
+    ],
+    "missing_information": [
+      "Exact location/address",
+      "Duration of the overflow"
+    ],
+    "recommended_action": "Dispatch sanitation crew to clear the overflowing garbage and inspect the area for proper waste management compliance.",
+    "confidence": 0.8
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "The entire municipal dumping ground is overflowing with dry garbage",
+        "status": "contradicted",
+        "reason": "The image shows scattered garbage and debris with standing liquid, rather than an entire dumping ground overflowing exclusively with dry garbage."
+      },
+      {
+        "claim": "Not a single drop of water is seen",
+        "status": "contradicted",
+        "reason": "Standing water or liquid is visibly pooling on the ground near the waste in the image."
+      },
+      {
+        "claim": "The site is used for municipal waste dumping",
+        "status": "unverifiable",
+        "reason": "While debris and scattered garbage are visible, it cannot be definitively verified from the image alone whether this is an official municipal dumping ground."
+      }
+    ],
+    "verified_facts": [
+      "Scattered dry garbage and debris",
+      "Standing water or liquid pooling near the waste area",
+      "Discarded fabric and rubble on the ground"
+    ],
+    "contradicted_claims": [
+      "The entire municipal dumping ground is overflowing with dry garbage",
+      "Not a single drop of water is seen"
+    ],
+    "unverifiable_claims": [
+      "The site is used for municipal waste dumping"
+    ],
+    "contradiction_count": 2,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user claims the dumping ground is overflowing entirely with dry garbage and that not a single drop of water is seen, whereas the image clearly shows standing water or liquid pooling near scattered waste."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

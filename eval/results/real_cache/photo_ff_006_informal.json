@@ -1,0 +1,74 @@
+{
+  "issue": {
+    "problem": "Broken and detached metal railing on concrete steps",
+    "category": "Infrastructure",
+    "subcategory": "Handrail / Staircase",
+    "location": "Hostel steps",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The detached, rusted metal railing presents a significant trip hazard and potential for injury to pedestrians using the stairs.",
+    "department": "Facilities Maintenance",
+    "observed_evidence": [
+      "Metal railing is detached from the staircase",
+      "Visible rust on the railing structure",
+      "Railing is lying across the steps",
+      "Concrete steps appear to be in an outdoor environment"
+    ],
+    "user_reported_facts": [
+      "Rusted railing broken on hostel steps",
+      "Dangerous"
+    ],
+    "inferred_information": [
+      "The railing is likely structurally compromised due to corrosion (uncertainty: extent of structural integrity of remaining mounts)",
+      "The area may be inaccessible or unsafe for use"
+    ],
+    "missing_information": [
+      "Specific address or name of the hostel",
+      "Date and time the damage occurred",
+      "Whether the area has been cordoned off"
+    ],
+    "recommended_action": "Immediately cordon off the staircase to prevent pedestrian access and dispatch a maintenance team to remove the debris and repair or replace the railing.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Rusted railing broken on hostel steps",
+        "status": "supported",
+        "reason": "The image shows a detached, rusted metal railing lying across concrete steps."
+      },
+      {
+        "claim": "Dangerous",
+        "status": "supported",
+        "reason": "A detached railing lying across a staircase creates a significant tripping hazard and lacks the necessary safety support for users."
+      },
+      {
+        "claim": "The railing is likely structurally compromised due to corrosion (uncertainty: extent of structural integrity of remaining mounts)",
+        "status": "supported",
+        "reason": "Visible rust on the detached railing confirms corrosion, and the fact that it is detached indicates a failure of the structural mounts."
+      },
+      {
+        "claim": "The area may be inaccessible or unsafe for use",
+        "status": "supported",
+        "reason": "The railing obstructing the steps renders the staircase unsafe and potentially inaccessible for those requiring handrail support."
+      }
+    ],
+    "verified_facts": [
+      "Rusted railing broken on hostel steps",
+      "Dangerous",
+      "The railing is likely structurally compromised due to corrosion (uncertainty: extent of structural integrity of remaining mounts)",
+      "The area may be inaccessible or unsafe for use",
+      "Metal railing is detached from the staircase",
+      "Visible rust on the railing structure",
+      "Railing is lying across the steps",
+      "Concrete steps appear to be in an outdoor environment"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

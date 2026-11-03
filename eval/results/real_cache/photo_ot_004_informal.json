@@ -1,0 +1,72 @@
+{
+  "issue": {
+    "problem": "Fallen tree branch obstructing pedestrian walkway",
+    "category": "Infrastructure",
+    "subcategory": "Vegetation Management",
+    "location": "Roadside walkway",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The obstruction forces pedestrians into the road, creating a significant safety hazard.",
+    "department": "Public Works / Parks and Recreation",
+    "observed_evidence": [
+      "A large tree branch is lying across a paved walkway",
+      "The branch is partially obstructing the path",
+      "The branch appears to have broken off from a nearby tree"
+    ],
+    "user_reported_facts": [
+      "Tree branch fallen on walkway",
+      "Blocking pedestrians near roadside"
+    ],
+    "inferred_information": [
+      "The branch may be heavy enough to require specialized equipment for removal (uncertainty: moderate)",
+      "The tree from which the branch fell may require inspection for further damage (uncertainty: high)"
+    ],
+    "missing_information": [
+      "Specific street address or GPS coordinates",
+      "Time of occurrence"
+    ],
+    "recommended_action": "Dispatch maintenance crew to remove the branch and inspect the source tree for further safety risks.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Tree branch fallen on walkway",
+        "status": "supported",
+        "reason": "The image evidence confirms a large tree branch is lying across a paved walkway."
+      },
+      {
+        "claim": "Blocking pedestrians near roadside",
+        "status": "supported",
+        "reason": "The image shows the branch is partially obstructing the path, which would impede pedestrian traffic."
+      },
+      {
+        "claim": "The branch may be heavy enough to require specialized equipment for removal (uncertainty: moderate)",
+        "status": "unverifiable",
+        "reason": "While the branch is described as large, the image does not provide enough scale or detail to determine the exact weight or the specific equipment required for removal."
+      },
+      {
+        "claim": "The tree from which the branch fell may require inspection for further damage (uncertainty: high)",
+        "status": "unverifiable",
+        "reason": "The image confirms the branch broke off from a nearby tree, but it does not show the condition of the remaining tree structure to confirm the necessity of an inspection."
+      }
+    ],
+    "verified_facts": [
+      "Tree branch fallen on walkway",
+      "Blocking pedestrians near roadside",
+      "A large tree branch is lying across a paved walkway",
+      "The branch is partially obstructing the path",
+      "The branch appears to have broken off from a nearby tree"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "The branch may be heavy enough to require specialized equipment for removal (uncertainty: moderate)",
+      "The tree from which the branch fell may require inspection for further damage (uncertainty: high)"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

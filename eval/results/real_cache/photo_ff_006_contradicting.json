@@ -1,0 +1,66 @@
+{
+  "issue": {
+    "problem": "Structural failure of staircase and handrail",
+    "category": "Infrastructure",
+    "subcategory": "Staircase / Handrail",
+    "location": null,
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "The collapse of structural elements and handrails creates an immediate safety hazard and potential accessibility blockage.",
+    "department": "Public Works / Facilities Management",
+    "observed_evidence": [
+      "Detached and rusted metal handrail lying across concrete steps",
+      "Concrete steps appear intact but show signs of weathering",
+      "Debris visible in the background"
+    ],
+    "user_reported_facts": [
+      "The entire concrete staircase has completely collapsed into a pile of rubble blocking the main entrance."
+    ],
+    "inferred_information": [
+      "There is a discrepancy between the user's report of a 'collapsed staircase' and the image, which shows an intact staircase with a detached handrail (uncertainty: high)",
+      "The handrail appears to have suffered from significant corrosion"
+    ],
+    "missing_information": [
+      "Specific location address",
+      "Confirmation of whether the entrance is actually blocked by rubble as described",
+      "Time of incident"
+    ],
+    "recommended_action": "Immediately cordon off the area to prevent pedestrian access and dispatch a structural engineer to assess the integrity of the staircase and the cause of the handrail failure.",
+    "confidence": 0.6
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "The entire concrete staircase has completely collapsed into a pile of rubble blocking the main entrance.",
+        "status": "contradicted",
+        "reason": "The image shows the concrete steps are intact, not collapsed into rubble."
+      },
+      {
+        "claim": "There is a discrepancy between the user's report of a 'collapsed staircase' and the image, which shows an intact staircase with a detached handrail (uncertainty: high)",
+        "status": "supported",
+        "reason": "The visual evidence confirms the staircase is intact, directly contradicting the user's claim of a collapse."
+      },
+      {
+        "claim": "The handrail appears to have suffered from significant corrosion",
+        "status": "supported",
+        "reason": "The image evidence explicitly describes the handrail as rusted."
+      }
+    ],
+    "verified_facts": [
+      "There is a discrepancy between the user's report of a 'collapsed staircase' and the image, which shows an intact staircase with a detached handrail (uncertainty: high)",
+      "The handrail appears to have suffered from significant corrosion",
+      "Detached and rusted metal handrail lying across concrete steps",
+      "Concrete steps appear intact but show signs of weathering",
+      "Debris visible in the background"
+    ],
+    "contradicted_claims": [
+      "The entire concrete staircase has completely collapsed into a pile of rubble blocking the main entrance."
+    ],
+    "unverifiable_claims": [],
+    "contradiction_count": 1,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The user reports a total collapse of the staircase, whereas the image shows the staircase structure remains intact with only a detached handrail."
+  },
+  "model": "gemini-3.1-flash-lite"
+}

@@ -1,0 +1,71 @@
+{
+  "issue": {
+    "problem": "Heavy water leak at a pipe joint",
+    "category": "Plumbing / Water",
+    "subcategory": "Pipe Leak",
+    "location": "Near Block C wall",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant water leakage from a pressurized pipe joint impacts essential services and sanitation.",
+    "department": "Plumbing and Maintenance",
+    "observed_evidence": [
+      "Metal piping system against a red wall",
+      "Water spraying and leaking forcefully from a flanged pipe joint"
+    ],
+    "user_reported_facts": [
+      "Pipe joint is leaking water heavily",
+      "Location is near block c wall",
+      "Requesting urgent fix"
+    ],
+    "inferred_information": [
+      "The pipe appears to be under pressure due to the force of the water spray (uncertain technical conclusion)"
+    ],
+    "missing_information": [
+      "Duration of the leak",
+      "Source of the water supply (potable, wastewater, industrial, etc.)",
+      "Specific indoor or outdoor context of Block C wall"
+    ],
+    "recommended_action": "Dispatch a plumbing crew immediately to shut off the relevant valve, inspect the flanged joint gasket or bolts, and repair or replace the leaking section.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Pipe joint is leaking water heavily",
+        "status": "supported",
+        "reason": "The image clearly shows water spraying and leaking forcefully from a flanged pipe joint."
+      },
+      {
+        "claim": "Location is near block c wall",
+        "status": "unverifiable",
+        "reason": "The image shows a red wall and piping, but there is no visual indicator or text confirming it is specifically 'block c'."
+      },
+      {
+        "claim": "Requesting urgent fix",
+        "status": "unverifiable",
+        "reason": "Urgency is a request and cannot be directly verified purely from the visual evidence of the leak."
+      },
+      {
+        "claim": "The pipe appears to be under pressure due to the force of the water spray (uncertain technical conclusion)",
+        "status": "supported",
+        "reason": "The forceful spray of water visible in the image supports the observation that the pipe is under pressure."
+      }
+    ],
+    "verified_facts": [
+      "Pipe joint is leaking water heavily",
+      "The pipe appears to be under pressure due to the force of the water spray (uncertain technical conclusion)",
+      "Metal piping system against a red wall",
+      "Water spraying and leaking forcefully from a flanged pipe joint"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Location is near block c wall",
+      "Requesting urgent fix"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

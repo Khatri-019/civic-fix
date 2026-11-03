@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Unspecified urgent issue outside block c",
+    "category": "Other",
+    "subcategory": null,
+    "location": "Outside Block C",
+    "duration": "Right now",
+    "severity": "Critical",
+    "severity_reason": "The user describes the situation as terribly wrong and requiring urgent help, indicating a potentially severe hazard.",
+    "department": "Emergency Services / Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Something is terribly wrong outside block c",
+      "Urgent help needed"
+    ],
+    "inferred_information": [
+      "An emergency or severe issue is occurring at Block C, though the exact nature is completely ambiguous."
+    ],
+    "missing_information": [
+      "Specific nature of the problem",
+      "Visual evidence",
+      "Exact type of hazard or incident"
+    ],
+    "recommended_action": "Dispatch emergency response or facilities staff immediately to Block C to assess the situation.",
+    "confidence": 0.3
+  },
+  "model": "gemini-3.5-flash-lite"
+}

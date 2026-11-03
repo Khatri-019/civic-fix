@@ -1,0 +1,3 @@
+image_id,hold,note,force_train
+sn_002,,"Same sink as ch_003 (different crop): kept, and both are forced into train so it can't leak into test.",yes
+ch_003,,"Same sink as sn_002 (different crop): kept, and both are forced into train so it can't leak into test.",yes

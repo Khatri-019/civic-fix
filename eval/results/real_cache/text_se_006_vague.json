@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Broken wall",
+    "category": "Infrastructure",
+    "subcategory": "Wall Damage",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Structural damage to a wall requires maintenance, though urgency cannot be determined without further details.",
+    "department": "Facilities Maintenance",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Wall is broken"
+    ],
+    "inferred_information": [
+      "The damage likely requires repair or patching (uncertain extent of damage)."
+    ],
+    "missing_information": [
+      "Exact location",
+      "Specific nature and extent of the wall break",
+      "Whether there is an immediate safety hazard",
+      "Duration of the issue"
+    ],
+    "recommended_action": "Inspect the wall to assess the extent of the damage and determine the appropriate repair method.",
+    "confidence": 0.3
+  },
+  "model": "gemini-3.5-flash-lite"
+}

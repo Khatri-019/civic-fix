@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Water damage on ceiling",
+    "category": "Plumbing / Water",
+    "subcategory": "Ceiling Leak",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Water damage indicates an active or past leak that requires maintenance to prevent structural degradation or mold growth.",
+    "department": "Facilities Management",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Water damage present on ceiling"
+    ],
+    "inferred_information": [
+      "There is a potential plumbing leak or roof issue above the affected area (uncertainty: source of water is unknown)"
+    ],
+    "missing_information": [
+      "Specific location of the damage",
+      "Duration of the issue",
+      "Presence of active dripping or mold",
+      "Visual evidence"
+    ],
+    "recommended_action": "Inspect the area above the ceiling for active leaks and assess the extent of structural damage for repair.",
+    "confidence": 0.7
+  },
+  "model": "gemini-3.1-flash-lite"
+}

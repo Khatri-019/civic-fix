@@ -1,0 +1,65 @@
+{
+  "issue": {
+    "problem": "Pothole and surface degradation on road near parking lot",
+    "category": "Infrastructure",
+    "subcategory": "Road Maintenance",
+    "location": "Road adjacent to a parking lot",
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "The road surface is damaged with loose debris and potholes, which poses a maintenance need and potential minor vehicle hazard.",
+    "department": "Department of Public Works / Transportation",
+    "observed_evidence": [
+      "Asphalt surface shows signs of crumbling",
+      "Presence of loose gravel and stones on the road surface",
+      "Visible depression/pothole in the driving lane"
+    ],
+    "user_reported_facts": [
+      "Road near parking lot is damaged",
+      "Contains loose stones and a small pothole"
+    ],
+    "inferred_information": [
+      "The road may require patching or resurfacing (uncertainty: extent of subsurface damage is unknown)"
+    ],
+    "missing_information": [
+      "Specific street address or GPS coordinates",
+      "Duration of the issue",
+      "Traffic volume at this location"
+    ],
+    "recommended_action": "Inspect the road surface for structural integrity and schedule asphalt patching to remove loose debris and fill the pothole.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Road near parking lot is damaged",
+        "status": "supported",
+        "reason": "The image shows visible crumbling of the asphalt surface."
+      },
+      {
+        "claim": "Contains loose stones and a small pothole",
+        "status": "supported",
+        "reason": "The image confirms the presence of loose gravel and a visible depression in the driving lane."
+      },
+      {
+        "claim": "The road may require patching or resurfacing (uncertainty: extent of subsurface damage is unknown)",
+        "status": "supported",
+        "reason": "The visible surface degradation justifies the need for repair, and the uncertainty regarding subsurface damage is a reasonable assessment of the visible surface-level evidence."
+      }
+    ],
+    "verified_facts": [
+      "Road near parking lot is damaged",
+      "Contains loose stones and a small pothole",
+      "The road may require patching or resurfacing (uncertainty: extent of subsurface damage is unknown)",
+      "Asphalt surface shows signs of crumbling",
+      "Presence of loose gravel and stones on the road surface",
+      "Visible depression/pothole in the driving lane"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

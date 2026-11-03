@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Projector is loose",
+    "category": "Furniture / Facilities",
+    "subcategory": "AV Equipment Mounting",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "A loose projector poses a risk of falling, which could cause equipment damage or injury.",
+    "department": "Facilities Management / IT",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Projector is loose"
+    ],
+    "inferred_information": [
+      "The mounting hardware or ceiling bracket may be failing (uncertainty: high)"
+    ],
+    "missing_information": [
+      "Specific location of the projector",
+      "Type of mount used",
+      "Duration of the issue",
+      "Visual confirmation of the mounting hardware condition"
+    ],
+    "recommended_action": "Inspect the mounting bracket and hardware immediately to ensure the projector is securely fastened and prevent potential fall.",
+    "confidence": 0.6
+  },
+  "model": "gemini-3.1-flash-lite"
+}

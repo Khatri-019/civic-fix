@@ -1,0 +1,72 @@
+{
+  "issue": {
+    "problem": "Accumulation of debris and dust on the hallway floor",
+    "category": "Cleaning / Housekeeping",
+    "subcategory": "Floor maintenance",
+    "location": "Hallway outside room 204",
+    "duration": null,
+    "severity": "Low",
+    "severity_reason": "The issue is a minor inconvenience related to cleanliness and does not pose an immediate safety or health hazard.",
+    "department": "Facilities / Janitorial Services",
+    "observed_evidence": [
+      "Dry leaves and debris scattered across the hallway floor",
+      "Visible dust accumulation on the floor surface",
+      "Long corridor with multiple doors"
+    ],
+    "user_reported_facts": [
+      "Floor is full of dry leaves and dust outside room 204",
+      "Request to sweep the area"
+    ],
+    "inferred_information": [
+      "The debris may have entered through open windows or doors (uncertain)",
+      "The area appears to be a school or institutional hallway (uncertain)"
+    ],
+    "missing_information": [
+      "Duration of the accumulation",
+      "Specific building name or campus location"
+    ],
+    "recommended_action": "Dispatch janitorial staff to sweep and clean the hallway floor outside room 204.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Floor is full of dry leaves and dust outside room 204",
+        "status": "supported",
+        "reason": "The image shows dry leaves and dust scattered across a hallway floor, consistent with the reported condition."
+      },
+      {
+        "claim": "Request to sweep the area",
+        "status": "supported",
+        "reason": "The presence of debris confirms the need for cleaning/sweeping."
+      },
+      {
+        "claim": "The debris may have entered through open windows or doors (uncertain)",
+        "status": "unverifiable",
+        "reason": "The image shows the debris but does not provide evidence regarding the source or entry point."
+      },
+      {
+        "claim": "The area appears to be a school or institutional hallway (uncertain)",
+        "status": "supported",
+        "reason": "The visual evidence of a long corridor with multiple doors is consistent with an institutional or school hallway setting."
+      }
+    ],
+    "verified_facts": [
+      "Floor is full of dry leaves and dust outside room 204",
+      "Request to sweep the area",
+      "The area appears to be a school or institutional hallway (uncertain)",
+      "Dry leaves and debris scattered across the hallway floor",
+      "Visible dust accumulation on the floor surface",
+      "Long corridor with multiple doors"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "The debris may have entered through open windows or doors (uncertain)"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

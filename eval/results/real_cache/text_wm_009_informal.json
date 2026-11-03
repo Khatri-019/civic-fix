@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Accumulation of plastic bottles and garbage on hostel lawn",
+    "category": "Waste Management",
+    "subcategory": "Littering / Trash Accumulation",
+    "location": "Hostel lawn",
+    "duration": "Since 2 days",
+    "severity": "Medium",
+    "severity_reason": "Meaningful accumulation of waste requiring maintenance and cleanup, though not posing immediate physical danger.",
+    "department": "Sanitation / Housekeeping",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Lots of plastic bottles and garbage thrown on the hostel lawn",
+      "Issue has persisted for 2 days"
+    ],
+    "inferred_information": [
+      "Waste disposal is not being managed or cleaned up regularly in this area (uncertain frequency)"
+    ],
+    "missing_information": [
+      "Specific hostel name or building number",
+      "Visual evidence of the exact volume and spread of garbage",
+      "Exact location coordinates"
+    ],
+    "recommended_action": "Dispatch cleaning staff to clear the plastic bottles and garbage from the hostel lawn and assess the need for additional waste bins in the area.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.5-flash-lite"
+}

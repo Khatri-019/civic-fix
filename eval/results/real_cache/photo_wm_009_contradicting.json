@@ -1,0 +1,55 @@
+{
+  "issue": {
+    "problem": "Illegal dumping of waste on a grassy area",
+    "category": "Waste Management",
+    "subcategory": "Illegal Dumping",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "The accumulation of waste poses a sanitation and environmental hazard, though it does not present an immediate threat to life.",
+    "department": "Public Works / Sanitation",
+    "observed_evidence": [
+      "Large volume of plastic bottles",
+      "Cardboard boxes",
+      "Plastic bags",
+      "General litter scattered on grass"
+    ],
+    "user_reported_facts": [
+      "Massive iron furniture and construction debris were dumped in the area"
+    ],
+    "inferred_information": [
+      "The image shows significant littering, but the 'iron furniture' and 'construction debris' mentioned by the user are not clearly visible in the provided frame (uncertainty: high regarding specific debris types)."
+    ],
+    "missing_information": [
+      "Specific location address",
+      "Time of occurrence",
+      "Visual confirmation of iron furniture and construction debris"
+    ],
+    "recommended_action": "Dispatch sanitation crew for waste removal and investigate the site for evidence of the source of the dumping.",
+    "confidence": 0.85
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Massive iron furniture and construction debris were dumped in the area",
+        "status": "unverifiable",
+        "reason": "The image shows general litter such as plastic bottles and cardboard, but no iron furniture or construction debris is visible in the frame."
+      }
+    ],
+    "verified_facts": [
+      "Large volume of plastic bottles",
+      "Cardboard boxes",
+      "Plastic bags",
+      "General litter scattered on grass"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Massive iron furniture and construction debris were dumped in the area"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

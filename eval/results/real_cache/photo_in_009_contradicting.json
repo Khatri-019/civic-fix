@@ -1,0 +1,64 @@
+{
+  "issue": {
+    "problem": "Massive deep sinkhole in the middle of the pathway due to a caved-in concrete road",
+    "category": "Infrastructure",
+    "subcategory": "Road / Pathway Sinkhole",
+    "location": null,
+    "duration": null,
+    "severity": "Critical",
+    "severity_reason": "A massive deep sinkhole in a pathway poses an immediate danger and serious hazard requiring urgent response.",
+    "department": "Public Works / Road Maintenance Department",
+    "observed_evidence": [
+      "Stone wall structure and scattered branches or brush visible in the image",
+      "Open area or field visible in the background"
+    ],
+    "user_reported_facts": [
+      "The concrete road has completely caved in",
+      "A massive deep sinkhole has formed right in the middle of the pathway"
+    ],
+    "inferred_information": [
+      "The sinkhole and road cave-in described by the user are not clearly visible in the provided image, suggesting a mismatch between text and image input (Uncertain)."
+    ],
+    "missing_information": [
+      "Exact geographic location",
+      "Duration of the issue",
+      "Photographic evidence matching the reported sinkhole"
+    ],
+    "recommended_action": "Dispatched emergency road maintenance crew to inspect, barricade the area immediately, and repair the sinkhole.",
+    "confidence": 0.5
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "The concrete road has completely caved in",
+        "status": "contradicted",
+        "reason": "The provided image shows a natural field and stone structure rather than a caved-in concrete road."
+      },
+      {
+        "claim": "A massive deep sinkhole has formed right in the middle of the pathway",
+        "status": "contradicted",
+        "reason": "There is no pathway or sinkhole visible anywhere in the provided image."
+      },
+      {
+        "claim": "The sinkhole and road cave-in described by the user are not clearly visible in the provided image, suggesting a mismatch between text and image input (Uncertain).",
+        "status": "supported",
+        "reason": "The reported road damage and sinkhole are indeed absent from the image."
+      }
+    ],
+    "verified_facts": [
+      "The sinkhole and road cave-in described by the user are not clearly visible in the provided image, suggesting a mismatch between text and image input (Uncertain).",
+      "Stone wall structure and scattered branches or brush visible in the image",
+      "Open area or field visible in the background"
+    ],
+    "contradicted_claims": [
+      "The concrete road has completely caved in",
+      "A massive deep sinkhole has formed right in the middle of the pathway"
+    ],
+    "unverifiable_claims": [],
+    "contradiction_count": 2,
+    "audit_passed": false,
+    "image_mismatch": true,
+    "mismatch_reason": "The image shows a stone wall and brush in an open field, completely lacking any view of a concrete road or sinkhole."
+  },
+  "model": "gemini-3.5-flash-lite"
+}

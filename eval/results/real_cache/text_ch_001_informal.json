@@ -1,0 +1,27 @@
+{
+  "issue": {
+    "problem": "Accumulation of dry leaves and dust on the floor outside room 204",
+    "category": "Cleaning / Housekeeping",
+    "subcategory": "Sweeping / Debris removal",
+    "location": "Outside room 204",
+    "duration": null,
+    "severity": "Low",
+    "severity_reason": "Minor inconvenience and cleanliness issue with no safety or structural impact.",
+    "department": "Housekeeping",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Floor is full of dry leaves and dust outside room 204",
+      "Request to sweep the area"
+    ],
+    "inferred_information": [
+      "The affected surface is a hallway or walkway floor (inferred from context of being outside a room number)"
+    ],
+    "missing_information": [
+      "Exact building or floor level",
+      "Time elapsed since the debris accumulated"
+    ],
+    "recommended_action": "Dispatch housekeeping staff to sweep and clean the floor outside room 204.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.5-flash-lite"
+}

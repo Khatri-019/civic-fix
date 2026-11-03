@@ -1,0 +1,31 @@
+{
+  "issue": {
+    "problem": "Broken boundary wall with vegetation overgrowth",
+    "category": "Infrastructure",
+    "subcategory": "Structural / Perimeter",
+    "location": "Near back gate",
+    "duration": "2 weeks",
+    "severity": "Medium",
+    "severity_reason": "The structural integrity of the boundary wall is compromised, posing a potential security risk and requiring maintenance to prevent further damage.",
+    "department": "Facilities Management / Public Works",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Boundary wall is broken",
+      "Location is near the back gate",
+      "Issue has persisted for 2 weeks",
+      "Bushes are growing out of the broken section"
+    ],
+    "inferred_information": [
+      "The wall may be made of masonry or brick given the vegetation growth (uncertainty: material not confirmed)",
+      "The structural damage may be worsening due to root penetration from the bushes (uncertainty: extent of root damage not confirmed)"
+    ],
+    "missing_information": [
+      "Exact dimensions of the breach",
+      "Specific site address or facility name",
+      "Photographic evidence to assess structural stability"
+    ],
+    "recommended_action": "Inspect the wall for structural stability, remove vegetation, and perform masonry repairs to seal the breach.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}

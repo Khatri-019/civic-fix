@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Peeling ceiling paint near a fluorescent light fixture in the passage",
+    "category": "Infrastructure",
+    "subcategory": "Ceiling / Interior Finish",
+    "location": "Passage",
+    "duration": null,
+    "severity": "Low",
+    "severity_reason": "The issue appears to be cosmetic and does not currently pose an immediate safety risk or impact essential services.",
+    "department": "Facilities Maintenance",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Fluorescent light fixture present",
+      "Ceiling paint is peeling",
+      "Issue is located in the passage"
+    ],
+    "inferred_information": [
+      "Potential moisture damage or poor paint adhesion (uncertainty: cause of peeling is not confirmed)"
+    ],
+    "missing_information": [
+      "Exact location within the passage",
+      "Duration of the issue",
+      "Presence of water leaks or electrical damage"
+    ],
+    "recommended_action": "Inspect the ceiling area for signs of water ingress or electrical overheating, then scrape and repaint the affected area.",
+    "confidence": 0.85
+  },
+  "model": "gemini-3.1-flash-lite"
+}

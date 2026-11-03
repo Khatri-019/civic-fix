@@ -1,0 +1,73 @@
+{
+  "issue": {
+    "problem": "Fallen trees obstructing a woodland walking trail",
+    "category": "Infrastructure",
+    "subcategory": "Trail Maintenance",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "The obstruction prevents passage on the trail, creating a significant inconvenience for users, though it does not pose an immediate threat to life.",
+    "department": "Parks and Recreation / Forestry",
+    "observed_evidence": [
+      "Multiple large tree trunks lying across a dirt path",
+      "Branches and foliage blocking the width of the trail",
+      "Evidence of tree breakage"
+    ],
+    "user_reported_facts": [
+      "Massive trees fell across the woodland path",
+      "The walking trail is blocked completely"
+    ],
+    "inferred_information": [
+      "The trail is currently impassable for pedestrians (high confidence)",
+      "The trees may require heavy machinery for removal (uncertain)"
+    ],
+    "missing_information": [
+      "Specific location or name of the park/trail",
+      "Date and time of the incident",
+      "Whether any power lines are involved"
+    ],
+    "recommended_action": "Dispatch a maintenance crew with chainsaws to clear the fallen timber and restore trail access.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Massive trees fell across the woodland path",
+        "status": "supported",
+        "reason": "The image shows multiple large tree trunks lying across a dirt path."
+      },
+      {
+        "claim": "The walking trail is blocked completely",
+        "status": "supported",
+        "reason": "The image shows branches and foliage obstructing the entire width of the trail."
+      },
+      {
+        "claim": "The trail is currently impassable for pedestrians (high confidence)",
+        "status": "supported",
+        "reason": "The presence of multiple large trunks and dense foliage across the path creates a physical barrier that prevents pedestrian passage."
+      },
+      {
+        "claim": "The trees may require heavy machinery for removal (uncertain)",
+        "status": "unverifiable",
+        "reason": "While the trees are large, the specific equipment required for removal cannot be determined solely from a visual assessment of the trunks."
+      }
+    ],
+    "verified_facts": [
+      "Massive trees fell across the woodland path",
+      "The walking trail is blocked completely",
+      "The trail is currently impassable for pedestrians (high confidence)",
+      "Multiple large tree trunks lying across a dirt path",
+      "Branches and foliage blocking the width of the trail",
+      "Evidence of tree breakage"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "The trees may require heavy machinery for removal (uncertain)"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.1-flash-lite"
+}

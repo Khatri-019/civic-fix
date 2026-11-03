@@ -57,6 +57,32 @@ VERIFIED FACTS (from contradiction audit):
 Generate the complaint now. Return ONLY the complaint text, no JSON, no labels.
 """
 
+TEXT_PRIORITY_COMPLAINT_PROMPT = """You are generating a formal civic complaint report.
+
+The user's photo did NOT match their description (it may be the wrong photo). The user has confirmed their
+description is correct, so the description is the trusted source for this complaint.
+
+Rules:
+- Base the complaint ONLY on the USER-REPORTED FACTS below. Do not add any other information.
+- Ignore image observations; do not describe what the photo shows.
+- Do not speculate. Do not use phrases like "it appears" or "possibly".
+- End with exactly one sentence stating that the attached photo could not confirm the reported details
+  and should be verified on site.
+
+Write in formal English. 3-5 sentences. Professional tone.
+
+STRUCTURED ISSUE (category, severity, location, duration, department):
+{structured_issue}
+
+USER-REPORTED FACTS (trusted):
+{user_facts}
+
+CLAIMS THE PHOTO CONTRADICTED (keep them as the user's report, but do not present them as photo-verified):
+{contradicted_claims}
+
+Generate the complaint now. Return ONLY the complaint text, no JSON, no labels.
+"""
+
 CONTRADICTION_PROMPT = """You are a fact-checking assistant for civic complaints.
 
 Compare each USER CLAIM against the IMAGE EVIDENCE and TEXT CONTEXT.
@@ -71,8 +97,16 @@ USER CLAIMS:
 IMAGE EVIDENCE (what is actually visible):
 {image_evidence}
 
+Also decide whether the image shows the SAME problem the user is reporting.
+- "image_matches_report": false if the image shows a different problem, object or scene (for example the user
+  reports a water leak but the image shows notebook pages or a street light) — i.e. probably the wrong photo.
+- true if the image plausibly shows the reported problem, even if some details cannot be confirmed,
+  or if no image was provided.
+
 Return ONLY valid JSON:
 {{
+  "image_matches_report": true,
+  "mismatch_reason": "one sentence, only when image_matches_report is false, else null",
   "flags": [
     {{
       "claim": "the user claim",

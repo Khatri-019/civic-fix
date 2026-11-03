@@ -1,0 +1,29 @@
+{
+  "issue": {
+    "problem": "Fallen tree branch and trunk obstructing pedestrian footpath",
+    "category": "Infrastructure",
+    "subcategory": "Obstruction / Vegetation",
+    "location": "Pedestrian footpath next to main road",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The obstruction forces pedestrians into an active traffic lane, creating a significant safety hazard.",
+    "department": "Public Works / Parks and Recreation",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Birch tree branch and trunk have fallen",
+      "Obstruction is located on the pedestrian footpath",
+      "Pedestrians are being forced into the traffic lane"
+    ],
+    "inferred_information": [
+      "Potential for vehicle-pedestrian collision due to forced road usage (uncertainty: depends on traffic volume)"
+    ],
+    "missing_information": [
+      "Specific street address or intersection",
+      "Time of occurrence",
+      "Visual confirmation of the size of the debris"
+    ],
+    "recommended_action": "Dispatch emergency tree removal crew to clear the footpath and restore pedestrian safety.",
+    "confidence": 0.95
+  },
+  "model": "gemini-3.1-flash-lite"
+}

@@ -1,0 +1,73 @@
+{
+  "issue": {
+    "problem": "Extremely filthy and stained washroom urinals with unstable-looking drain pipe supports",
+    "category": "Sanitation",
+    "subcategory": "Restroom Cleanliness",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant negative impact on sanitation, hygiene, and basic facility usability.",
+    "department": "Sanitation / Facilities Maintenance",
+    "observed_evidence": [
+      "Three wall-mounted urinals with severe staining and heavy grime",
+      "Bricks placed on the floor beneath the drain pipes of the urinals",
+      "Visible discoloration and staining on the wall tiles and floor around the urinals"
+    ],
+    "user_reported_facts": [
+      "Washroom urinals are totally filthy and stained",
+      "Bricks are supporting the drain pipes below",
+      "Requested to clean ASAP"
+    ],
+    "inferred_information": [
+      "The drain pipes may be damaged or improperly installed, requiring bricks for improvised support (uncertain if structural or temporary fix)."
+    ],
+    "missing_information": [
+      "Specific building or facility location",
+      "Floor or room number",
+      "Exact duration of the issue"
+    ],
+    "recommended_action": "Dispatch a sanitation crew for deep cleaning and sanitary maintenance, and have a plumber inspect the drain pipe and support setup.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Washroom urinals are totally filthy and stained",
+        "status": "supported",
+        "reason": "The image clearly shows three wall-mounted urinals with severe staining and heavy grime."
+      },
+      {
+        "claim": "Bricks are supporting the drain pipes below",
+        "status": "supported",
+        "reason": "The image clearly shows bricks placed on the floor directly beneath the drain pipes."
+      },
+      {
+        "claim": "Requested to clean ASAP",
+        "status": "unverifiable",
+        "reason": "The text context states a request, but the image only shows the physical condition without metadata about a formal request."
+      },
+      {
+        "claim": "The drain pipes may be damaged or improperly installed, requiring bricks for improvised support (uncertain if structural or temporary fix).",
+        "status": "supported",
+        "reason": "The image shows bricks supporting the pipes, and the uncertainty expressed aligns with the visual evidence of an improvised setup."
+      }
+    ],
+    "verified_facts": [
+      "Washroom urinals are totally filthy and stained",
+      "Bricks are supporting the drain pipes below",
+      "The drain pipes may be damaged or improperly installed, requiring bricks for improvised support (uncertain if structural or temporary fix).",
+      "Three wall-mounted urinals with severe staining and heavy grime",
+      "Bricks placed on the floor beneath the drain pipes of the urinals",
+      "Visible discoloration and staining on the wall tiles and floor around the urinals"
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Requested to clean ASAP"
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

@@ -1,0 +1,61 @@
+{
+  "issue": {
+    "problem": "Server rack is collapsed or detached from the wall with tangled network cables and damaged networking equipment.",
+    "category": "Internet / Network",
+    "subcategory": "Network Infrastructure",
+    "location": null,
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "Significant impact on essential network and internet services due to physical collapse of the server rack and equipment damage.",
+    "department": "IT / Network Operations",
+    "observed_evidence": [
+      "Server rack is tilted/collapsed and hanging off the wall with numerous attached network cables.",
+      "A dense tangle of blue, yellow, and orange ethernet cables connects to the displaced rack.",
+      "A piece of networking equipment with an antenna and power adapter is visible near the bottom right.",
+      "Wall mount area shows signs of detachment or structural failure."
+    ],
+    "user_reported_facts": [
+      "Wi-Fi router antenna is snapped off and lying on the floor next to a completely dead power adapter."
+    ],
+    "inferred_information": [
+      "Internet and network connectivity in the area are likely disrupted due to equipment damage and rack displacement (uncertain exact scale of outage)."
+    ],
+    "missing_information": [
+      "Exact building location or room number",
+      "Duration of the issue",
+      "Specific equipment model numbers and exact extent of hardware damage"
+    ],
+    "recommended_action": "Dispatch IT technicians to safely secure the server rack, assess hardware and cabling damage, replace the broken router and power adapter, and restore network connectivity.",
+    "confidence": 0.95
+  },
+  "audit": {
+    "flags": [
+      {
+        "claim": "Wi-Fi router antenna is snapped off and lying on the floor next to a completely dead power adapter.",
+        "status": "unverifiable",
+        "reason": "While networking equipment with an antenna and power adapter is visible near the bottom right, the image does not clearly show whether the antenna is snapped off or if the power adapter is completely dead."
+      },
+      {
+        "claim": "Internet and network connectivity in the area are likely disrupted due to equipment damage and rack displacement (uncertain exact scale of outage).",
+        "status": "supported",
+        "reason": "The image clearly shows a tilted and collapsed server rack with numerous attached network cables, which plausibly causes connectivity disruption."
+      }
+    ],
+    "verified_facts": [
+      "Internet and network connectivity in the area are likely disrupted due to equipment damage and rack displacement (uncertain exact scale of outage).",
+      "Server rack is tilted/collapsed and hanging off the wall with numerous attached network cables.",
+      "A dense tangle of blue, yellow, and orange ethernet cables connects to the displaced rack.",
+      "A piece of networking equipment with an antenna and power adapter is visible near the bottom right.",
+      "Wall mount area shows signs of detachment or structural failure."
+    ],
+    "contradicted_claims": [],
+    "unverifiable_claims": [
+      "Wi-Fi router antenna is snapped off and lying on the floor next to a completely dead power adapter."
+    ],
+    "contradiction_count": 0,
+    "audit_passed": true,
+    "image_mismatch": false,
+    "mismatch_reason": null
+  },
+  "model": "gemini-3.5-flash-lite"
+}

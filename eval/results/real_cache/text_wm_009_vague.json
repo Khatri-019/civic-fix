@@ -1,0 +1,28 @@
+{
+  "issue": {
+    "problem": "Garbage dumping on grass",
+    "category": "Waste Management",
+    "subcategory": "Illegal Dumping",
+    "location": null,
+    "duration": null,
+    "severity": "Medium",
+    "severity_reason": "Improper waste disposal creates a sanitation issue and environmental impact, requiring cleanup.",
+    "department": "Sanitation Department",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Garbage dumping on grass"
+    ],
+    "inferred_information": [
+      "Waste is located outdoors on a grassy area, though the exact scale and type of garbage are uncertain."
+    ],
+    "missing_information": [
+      "location",
+      "duration",
+      "specific type of waste",
+      "quantity of garbage"
+    ],
+    "recommended_action": "Dispatch sanitation crew to inspect the area, remove the dumped garbage, and check for signs of repeat dumping.",
+    "confidence": 0.5
+  },
+  "model": "gemini-3.5-flash-lite"
+}

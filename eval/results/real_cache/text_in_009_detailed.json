@@ -1,0 +1,31 @@
+{
+  "issue": {
+    "problem": "Collapse of campus perimeter stone boundary wall",
+    "category": "Infrastructure",
+    "subcategory": "Boundary Wall / Fencing",
+    "location": "Campus perimeter",
+    "duration": null,
+    "severity": "High",
+    "severity_reason": "The collapse of a boundary wall creates a significant security risk and potential safety hazard due to open access and debris.",
+    "department": "Facilities Management / Campus Security",
+    "observed_evidence": [],
+    "user_reported_facts": [
+      "Large section of stone boundary wall has collapsed",
+      "Open gaps are present",
+      "Area is overgrown with thorny wild bushes",
+      "Trash is present in the area"
+    ],
+    "inferred_information": [
+      "The site may be prone to unauthorized access due to the wall breach (uncertainty: extent of breach not specified)",
+      "The presence of thorny bushes and trash suggests the collapse may have occurred some time ago (uncertainty: exact timeline unknown)"
+    ],
+    "missing_information": [
+      "Specific coordinates or building reference for the wall section",
+      "Exact date or duration of the collapse",
+      "Photographic evidence to confirm the scale of the damage"
+    ],
+    "recommended_action": "Dispatch a maintenance team to secure the perimeter with temporary fencing, clear the debris and vegetation, and initiate structural repairs to the stone wall.",
+    "confidence": 0.9
+  },
+  "model": "gemini-3.1-flash-lite"
+}
